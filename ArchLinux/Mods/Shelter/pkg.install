@@ -1,13 +1,14 @@
 modify_scripts() {
 
 if [ "$(uname -m)" = "i686" ]; then
-	export ROG_DIR="dontstarve32"
+	export ROG_DIR=dontstarve32/data/DLC0001
 elif [ "$(uname -m)" = "x86_64" ]; then
-	export ROG_DIR="dontstarve64"
+	export ROG_DIR=dontstarve64/data/DLC0001
 fi
 
-sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness#self.inst.components.inventory:GetWaterproofness() + TUNING.WOOD_SHELTER_WATERPROOFNESS + self.shelter_waterproofness#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/moisture.lua
-sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.WOOD_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/temperature.lua
+sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness#self.inst.components.inventory:GetWaterproofness() + TUNING.WOOD_SHELTER_WATERPROOFNESS + self.shelter_waterproofness#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/components/moisture.lua
+sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.WOOD_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/components/temperature.lua
+sed -i 's#inst.components.fueled:StartConsuming()#inst.components.fueled:StopConsuming()#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/prefabs/firesuppressor.lua
 }
 
 post_install() {
