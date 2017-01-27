@@ -51,7 +51,7 @@ local function fn(Sim)
 	inst.components.playerprox:SetOnPlayerFar(onfar)
 
 	inst:AddComponent("sanityaura")
-	inst.components.sanityaura.aura = TUNING.SANITYAURA_SMALL
+	inst.components.sanityaura.aura = TUNING.SANITYAURA_TINY
 
 	inst:AddComponent("inspectable")
 
