@@ -14,7 +14,6 @@ c_give("quiver") -- zquiver
 c_give("nitre") -- "coldfire"
 c_give("silk") -- "fishingrod"
 c_give("charcoal") -- "meatrack"
-c_give("poop") -- "slow_farmplot"
 
 c_give("cane")
 c_give("panflute")
@@ -28,15 +27,21 @@ c_give("mech_stone_item")
 c_give("wall_stone_item")
 
 c_spawn("icebox")
+c_spawn("fast_farmplot")
+
 c_spawn("path_light")
+c_spawn("wood_shelter")
+
 c_spawn("coldfirepit")
 c_spawn("firesuppressor")
+
 c_spawn("pighouse")
 c_spawn("rabbithouse")
+
 c_spawn("rainometer")
 c_spawn("winterometer")
-c_spawn("wood_shelter")
 c_spawn("lightning_rod")
+
 c_spawn("resurrectionstone")
 
 --------------------------------------------------------------------------------
