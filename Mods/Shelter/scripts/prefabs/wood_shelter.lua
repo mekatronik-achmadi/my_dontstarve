@@ -23,10 +23,12 @@ end
 
 local function onnear(inst)
        TUNING.R_SHELTER_WATERPROOFNESS = 1
+       TUNING.R_SHELTER_INSULATION = TUNING.INSULATION_LARGE
 end
 
 local function onfar(inst)
        TUNING.R_SHELTER_WATERPROOFNESS = 0
+       TUNING.R_SHELTER_INSULATION = TUNING.INSULATION_MED_LARGE
 end
 
 local function fn(Sim)
