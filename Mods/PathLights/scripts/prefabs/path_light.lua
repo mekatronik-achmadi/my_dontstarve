@@ -31,7 +31,7 @@ local function updatelight(inst)
 
     if color2 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
+    inst.Light:SetRadius(2.5)
     inst.Light:SetFalloff(.8)
     inst.Light:SetIntensity(.5)
     inst.Light:SetColour(255/255,0,0) 
@@ -42,7 +42,7 @@ local function updatelight(inst)
 
     if color3 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
+    inst.Light:SetRadius(2.5)
     inst.Light:SetFalloff(.8)
     inst.Light:SetIntensity(.5)
     inst.Light:SetColour(0,255/255,0)
@@ -53,7 +53,7 @@ local function updatelight(inst)
 
     if color4 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
+    inst.Light:SetRadius(2.5)
     inst.Light:SetFalloff(.8)
     inst.Light:SetIntensity(.5)
     inst.Light:SetColour(255/255,255/255,255/255)
