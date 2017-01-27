@@ -1,0 +1,26 @@
+pkgname=dsmod-arrow-sw
+pkgver=beta.160329
+pkgrel=1
+pkgdesc="Arrow mod for Don't Starve and Shipwrecked"
+url="http://forums.kleientertainment.com/files/file/1302-archery-mod-ds/"
+license=('custom')
+arch=('any')
+depends=('gog-dont-starve')
+optdepends=('gog-dont-starve-sw: Shipwrecked DLC')
+source=("Arrow_SW.zip")
+sha256sums=('SKIP')
+
+package(){
+    cd "$srcdir"
+    if [ "$(uname -m)" = "i686" ]; then
+    	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	mv -v ./Arrow_SW "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    elif [ "$(uname -m)" = "x86_64" ]; then
+    	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	mv -v ./Arrow_SW "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    fi
+}

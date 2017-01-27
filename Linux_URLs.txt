@@ -1,0 +1,15 @@
+# Complete
+
+gog_don_t_starve_2 (gog_don_t_starve_2.3.0.5.sh)
+gog_don_t_starve_reign_of_giants_dlc_2 (gog_don_t_starve_reign_of_giants_dlc_2.0.0.3.sh)
+gog_don_t_starve_shipwrecked_dlc_2 (gog_don_t_starve_shipwrecked_dlc_2.0.0.2.sh)
+
+https://www.4shared.com/file/HgIsATqTce/gog_don_t_starve_2305.html
+https://vserpg.ru/2167-dont-starve-shipwrecked.html FILE: Dont-Starve-Shipwrecked.torrent
+
+#======================================================
+
+# AUR packaging
+
+https://aur.archlinux.org/packages/gog-dont-starve/
+https://aur.archlinux.org/packages/gog-dont-starve-rog/

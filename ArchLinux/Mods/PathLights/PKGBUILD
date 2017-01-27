@@ -1,0 +1,29 @@
+pkgname=dsmod-pathlights
+pkgver=2.0
+pkgrel=1
+pkgdesc="Infinite Path Lights mod for Don't Starve and Reign of Giants"
+url="http://forums.kleientertainment.com/files/file/220-wall-gates/"
+license=('custom')
+arch=('any')
+depends=('gog-dont-starve')
+optdepends=(
+	'gog-dont-starve-rog: Reign of Giants DLC'
+	'gog-dont-starve-sw: Shipwrecked DLC'
+	)
+source=("PathLights.zip")
+sha256sums=('SKIP')
+
+package(){
+    cd "$srcdir"
+    if [ "$(uname -m)" = "i686" ]; then
+    	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	mv -v ./PathLights "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    elif [ "$(uname -m)" = "x86_64" ]; then
+    	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	mv -v ./PathLights "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    fi
+}
