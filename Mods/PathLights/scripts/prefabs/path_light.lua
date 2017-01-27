@@ -20,9 +20,9 @@ local function updatelight(inst)
 
     if color1 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
-    inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.5)
+    inst.Light:SetRadius(4)
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.6)
     inst.Light:SetColour(0,0/0,255/255)
     inst.AnimState:PlayAnimation("idle_on_blue")
     inst.lighton = true
@@ -31,9 +31,9 @@ local function updatelight(inst)
 
     if color2 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
-    inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.5)
+    inst.Light:SetRadius(4)
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.6)
     inst.Light:SetColour(255/255,0,0) 
     inst.AnimState:PlayAnimation("idle_on_red")
     inst.lighton = true
@@ -42,9 +42,9 @@ local function updatelight(inst)
 
     if color3 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
-    inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.5)
+    inst.Light:SetRadius(4)
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.6)
     inst.Light:SetColour(0,255/255,0)
     inst.AnimState:PlayAnimation("idle_on")
     inst.lighton = true
@@ -53,9 +53,9 @@ local function updatelight(inst)
 
     if color4 then
     inst.Light:Enable(true)
-    inst.Light:SetRadius(2)
-    inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.5)
+    inst.Light:SetRadius(4)
+    inst.Light:SetFalloff(.6)
+    inst.Light:SetIntensity(.6)
     inst.Light:SetColour(255/255,255/255,255/255)
     inst.AnimState:PlayAnimation("idle_on")
     inst.lighton = true
