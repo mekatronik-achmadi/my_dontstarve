@@ -7,6 +7,7 @@ license=('custom')
 arch=('any')
 depends=('gog-dont-starve')
 optdepends=('gog-dont-starve-rog: Reign of Giants DLC')
+install=pkg.install
 source=("Shelter.zip")
 sha256sums=('SKIP')
 

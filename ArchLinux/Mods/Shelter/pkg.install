@@ -1,0 +1,18 @@
+modif_moisture() {
+
+if [ "$(uname -m)" = "i686" ]; then
+	export ROG_DIR="dontstarve32"
+elif [ "$(uname -m)" = "x86_64" ]; then
+	export ROG_DIR="dontstarve64"
+fi
+
+sed -i 's#(self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness))#(self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness + TUNING.R_SHELTER_WATERPROOFNESS))#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/moisture.lua
+}
+
+post_install() {
+	modif_moisture
+}
+
+post_upgrade() {
+	modif_moisture
+}
