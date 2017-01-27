@@ -6,8 +6,8 @@ elif [ "$(uname -m)" = "x86_64" ]; then
 	export ROG_DIR="dontstarve64"
 fi
 
-sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness#self.inst.components.inventory:GetWaterproofness() + TUNING.R_SHELTER_WATERPROOFNESS + self.shelter_waterproofness#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/moisture.lua
-sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.R_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/temperature.lua
+sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness#self.inst.components.inventory:GetWaterproofness() + TUNING.WOOD_SHELTER_WATERPROOFNESS + self.shelter_waterproofness#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/moisture.lua
+sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.WOOD_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/data/DLC0001/scripts/components/temperature.lua
 }
 
 post_install() {
