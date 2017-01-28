@@ -16,7 +16,9 @@ c_give("silk") -- "fishingrod"
 c_give("charcoal") -- "meatrack"
 
 c_give("cane")
+c_give("heatrock")
 c_give("panflute")
+
 c_give("molehat")
 c_give("beefalohat")
 c_give("eyebrellahat")
@@ -41,8 +43,6 @@ c_spawn("rabbithouse")
 c_spawn("rainometer")
 c_spawn("winterometer")
 c_spawn("lightning_rod")
-
-c_spawn("resurrectionstone")
 
 --------------------------------------------------------------------------------
 
