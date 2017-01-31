@@ -11,6 +11,7 @@ TheInput:GetWorldEntityUnderMouse():Remove()
 c_give("bow") -- "zbow"
 c_give("quiver") -- zquiver
 
+c_give("flint") -- "arrow"
 c_give("nitre") -- "coldfire"
 c_give("silk") -- "fishingrod"
 c_give("charcoal") -- "meatrack"
@@ -23,7 +24,6 @@ c_give("molehat")
 c_give("beefalohat")
 c_give("eyebrellahat")
 
-c_give("eyeturret_item")
 c_give("turf_woodfloor")
 c_give("mech_stone_item")
 c_give("wall_stone_item")
