@@ -30,7 +30,3 @@ local wood_shelter = GLOBAL.Recipe("wood_shelter",
 },
         RECIPETABS.TOWN, TECH.NONE,"wood_shelter_placer" )
         wood_shelter.atlas = "images/inventoryimages/wood_shelter.xml"
-        
-AddPrefabPostInit("firesuppressor", function(inst)
-    table.insert(inst.components.firedetector.NOTAGS, "campfire")
-end)
