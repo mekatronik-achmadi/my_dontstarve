@@ -22,6 +22,9 @@ TUNING.SMOTHERER_EXTINGUISH_HEAT_PERCENT = -10
 
 TUNING.HEAT_ROCK_CARRIED_BONUS_HEAT_FACTOR = 4
 
+TUNING.TRAP_TEETH_USES = 20,
+TUNING.TRAP_TEETH_DAMAGE = 120,
+
 AddPrefabPostInit("firesuppressor", function(inst)
     table.insert(inst.components.firedetector.NOTAGS, "campfire")
 end)

@@ -21,6 +21,7 @@ c_give("panflute")
 c_give("fishingrod")
 
 c_give("molehat")
+c_give("featherhat")
 c_give("beefalohat")
 c_give("eyebrellahat")
 
