@@ -13,8 +13,8 @@ c_give("quiver") -- zquiver
 
 c_give("flint") -- "arrow"
 c_give("nitre") -- "coldfire"
-c_give("silk") -- "fishingrod"
 c_give("charcoal") -- "meatrack"
+c_give("silk") -- "bugnet" "beehat" "fishingrod"
 
 c_give("cane")
 c_give("heatrock")
@@ -37,6 +37,7 @@ c_spawn("wood_shelter")
 c_spawn("coldfirepit")
 c_spawn("firesuppressor")
 
+c_spawn("beebox")
 c_spawn("pighouse")
 c_spawn("rabbithouse")
 
