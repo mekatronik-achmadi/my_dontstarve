@@ -20,6 +20,8 @@ TUNING.FIRESUPPRESSOR_MAX_FUEL_TIME = aeon_time
 TUNING.FIRESUPPRESSOR_EXTINGUISH_HEAT_PERCENT = 1
 TUNING.SMOTHERER_EXTINGUISH_HEAT_PERCENT = -10
 
+TUNING.HEAT_ROCK_CARRIED_BONUS_HEAT_FACTOR = 4
+
 AddPrefabPostInit("firesuppressor", function(inst)
     table.insert(inst.components.firedetector.NOTAGS, "campfire")
 end)
