@@ -1,3 +1,15 @@
+remove_screecher() {
+
+if [ "$(uname -m)" = "i686" ]; then
+	export DS_DIR=dontstarve32
+elif [ "$(uname -m)" = "x86_64" ]; then
+	export DS_DIR=dontstarve64
+fi
+
+rm -rf /opt/gog-dont-starve/game/$DS_DIR/mods/screecher/
+
+}
+
 modify_scripts() {
 
 if [ "$(uname -m)" = "i686" ]; then
@@ -9,12 +21,18 @@ fi
 sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_waterproofness#self.inst.components.inventory:GetWaterproofness() + TUNING.WOOD_SHELTER_WATERPROOFNESS + self.shelter_waterproofness#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/components/moisture.lua
 sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.WOOD_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/components/temperature.lua
 #sed -i 's#inst.components.fueled:StartConsuming()#inst.components.fueled:StopConsuming()#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/prefabs/firesuppressor.lua
+
+}
+
+gamechange() {
+	remove_screecher
+	modify_scripts
 }
 
 post_install() {
-	modify_scripts
+	gamechange
 }
 
 post_upgrade() {
-	modify_scripts
+	gamechange
 }
