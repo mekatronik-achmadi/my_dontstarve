@@ -1,25 +1,25 @@
-pkgname=dsmod-shelter
+pkgname=dsmod-patch
 pkgver=2.0
 pkgrel=1
-pkgdesc="Wood Shelter mod for Don't Starve and Reign of Giants"
-url="http://forums.kleientertainment.com/files/file/220-wall-gates/"
+pkgdesc="Patch some game mechanic"
+url=""
 license=('custom')
 arch=('any')
-depends=('gog-dont-starve')
-optdepends=('gog-dont-starve-rog: Reign of Giants DLC')
-source=("Shelter.zip")
+depends=('gog-dont-starve' 'gog-dont-starve-rog')
+install=pkg.install
+source=("Patch.zip")
 sha256sums=('SKIP')
 
 package(){
     cd "$srcdir"
     if [ "$(uname -m)" = "i686" ]; then
     	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
-    	mv -v ./Shelter "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
+    	mv -v ./Patch "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
     	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
     	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve32/mods/"
     elif [ "$(uname -m)" = "x86_64" ]; then
     	install -d "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
-    	mv -v ./Shelter "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
+    	mv -v ./Patch "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
     	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
     	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/dontstarve64/mods/"
     fi
