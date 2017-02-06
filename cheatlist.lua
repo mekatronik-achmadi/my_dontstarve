@@ -18,7 +18,6 @@ c_give("charcoal") -- "meatrack"
 
 c_give("cane")
 c_give("molehat")
-c_give("panflute")
 c_give("beefalohat")
 c_give("eyebrellahat")
 
@@ -28,13 +27,14 @@ c_give("mech_stone_item")
 c_give("wall_stone_item")
 
 c_spawn("icebox")
+c_spawn("fast_farmplot")
+
 c_spawn("rainometer")
 c_spawn("path_light")
 c_spawn("coldfirepit")
 c_spawn("wood_shelter")
 c_spawn("winterometer")
 c_spawn("lightning_rod")
-c_spawn("fast_farmplot")
 c_spawn("firesuppressor")
 
 c_spawn("pighouse")
