@@ -1,5 +1,5 @@
 -- This information tells other players more about the mod
-name = "Archery Mod [DS Version]"
+name = "Archery"
 description = "Focusing on bringing more ranged weapons to the game \nNow with Full Controller Support!"
 author = "ZupaleX"
 version = "1.0.150829"
