@@ -24,11 +24,13 @@ end
 local function onnear(inst)
        TUNING.WOOD_SHELTER_WATERPROOFNESS = 0.65
        TUNING.WOOD_SHELTER_INSULATION = TUNING.INSULATION_LARGE
+       TUNING.WODD_SHELTER_SLEEPING = 1
 end
 
 local function onfar(inst)
        TUNING.WOOD_SHELTER_WATERPROOFNESS = 0
        TUNING.WOOD_SHELTER_INSULATION = 0
+       TUNING.WODD_SHELTER_SLEEPING = 0
 end
 
 local function fn(Sim)
