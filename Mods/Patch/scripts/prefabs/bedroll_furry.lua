@@ -67,7 +67,14 @@ local function fn(Sim)
     
     inst:AddComponent("inspectable")
     inst:AddComponent("inventoryitem")
-
+    
+    inst:AddComponent("fuel")
+    inst.components.fuel.fuelvalue = TUNING.LARGE_FUEL
+    
+    MakeSmallBurnable(inst, TUNING.LONG_BURNABLE)
+    MakeSmallPropagator(inst)
+    inst.components.burnable:MakeDragonflyBait(3)
+    
     inst:AddComponent("finiteuses")
     inst.components.finiteuses:SetConsumption(ACTIONS.SLEEPIN, 1)
     inst.components.finiteuses:SetMaxUses(20)
