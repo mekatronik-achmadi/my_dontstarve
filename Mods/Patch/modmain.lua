@@ -1,3 +1,18 @@
+PrefabFiles = 
+{
+        "bedroll_furry",
+}
+
+STRINGS = GLOBAL.STRINGS
+RECIPETABS = GLOBAL.RECIPETABS
+Recipe = GLOBAL.Recipe
+Ingredient = GLOBAL.Ingredient
+TECH = GLOBAL.TECH
+
+GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
+
+Recipe("bedroll_furry", {Ingredient("bedroll_straw", 1), Ingredient("beefalowool", 4)}, RECIPETABS.SURVIVAL, TECH.SCIENCE_ONE)
+
 TUNING.TRAP_TEETH_USES = 20
 TUNING.TRAP_TEETH_DAMAGE = 150
 
