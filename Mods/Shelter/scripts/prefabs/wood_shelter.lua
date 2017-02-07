@@ -67,6 +67,7 @@ local function onsleep(inst, sleeper)
 	
 	sleeper.components.health:SetInvincible(true)
 	sleeper.components.playercontroller:Enable(false)
+	--sleeper.sg:GoToState("sleep")
 	
 	GetPlayer().HUD:Hide()
 	TheFrontEnd:Fade(false,1)
