@@ -1,19 +1,22 @@
-PrefabFiles = 
-{
-        "bedroll_furry",
-}
+--PrefabFiles = 
+--{
+        --"bedroll_furry",
+--}
 
-STRINGS = GLOBAL.STRINGS
-RECIPETABS = GLOBAL.RECIPETABS
-Recipe = GLOBAL.Recipe
-Ingredient = GLOBAL.Ingredient
-TECH = GLOBAL.TECH
+--STRINGS = GLOBAL.STRINGS
+--RECIPETABS = GLOBAL.RECIPETABS
+--Recipe = GLOBAL.Recipe
+--Ingredient = GLOBAL.Ingredient
+--TECH = GLOBAL.TECH
 
-GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
+--GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
 
-Recipe("bedroll_furry", {Ingredient("bedroll_straw", 1), Ingredient("beefalowool", 4)}, RECIPETABS.SURVIVAL, TECH.SCIENCE_ONE)
+--Recipe("bedroll_furry", {Ingredient("bedroll_straw", 1), Ingredient("beefalowool", 4)}, RECIPETABS.SURVIVAL, TECH.SCIENCE_ONE)
 
-TUNING.TRAP_TEETH_USES = 20
+TUNING.BIRD_SPAWN_MAX_FEATHERHAT = 10
+TUNING.BIRD_SPAWN_DELAY_FEATHERHAT = {min=1, max=5}
+
+TUNING.TRAP_TEETH_USES = 10
 TUNING.TRAP_TEETH_DAMAGE = 150
 
 AddPrefabPostInit("firesuppressor", function(inst)
