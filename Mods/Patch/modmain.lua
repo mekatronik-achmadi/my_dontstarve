@@ -23,8 +23,8 @@ Assets =
 
 ------------------------------------------------------
 
-TUNING.BIRD_SPAWN_MAX = 5
-TUNING.BIRD_SPAWN_DELAY = {min=3, max=12}
+TUNING.BIRD_SPAWN_MAX = 4
+TUNING.BIRD_SPAWN_DELAY = {min=2, max=8}
 
 TUNING.PERISH_FRIDGE_MULT = .1
 
