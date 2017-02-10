@@ -1,7 +1,7 @@
 # Maintainer: Ainola
 
 pkgname=gog-dont-starve
-pkgver=2.1.0.3
+pkgver=2.3.0.5
 pkgrel=2
 pkgdesc="An uncompromising wilderness survival game full of science and magic"
 url="https://www.kleientertainment.com/games/dont-starve"
@@ -11,8 +11,7 @@ depends=('sdl2' 'libcurl-gnutls')
 optdepends=('gog-dont-starve-rog: Reign of Giants DLC')
 source=("gog://gog_don_t_starve_${pkgver}.sh"
         "${pkgname}.desktop")
-sha256sums=('8f8fca4d89626e43f4ee2d378cc30daf2a45c24c91a3bc1694d83a00fb0a062b'
-            '609856aae2d19877f8afb764a8db15a8932e535b719cc342f4b42c3d0e4b1956')
+md5sums=('eeb4e57909c97ed67e9828a69ab4069e' 'beae062210ff65a5a9b4c5c8363cc789')
 
 # You need to download the gog.com installer file manually or with lgogdownloader.
 DLAGENTS+=("gog::/usr/bin/echo %u - This is is not a real URL, you need to download the GOG file manually to \"$PWD\" or setup a gog:// DLAGENT. Read this PKGBUILD for more information.")

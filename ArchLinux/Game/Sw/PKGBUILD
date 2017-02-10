@@ -7,7 +7,7 @@ license=('custom')
 arch=('any')
 depends=('gog-dont-starve')
 source=("gog://gog_don_t_starve_shipwrecked_dlc_${pkgver}.sh")
-sha256sums=('d9ebb9f15bc4819730aeaad1968b4f136d2d27af0a74e80d2f3782a6c1820445')
+md5sums=('b1d4152639a272a959d36eacf8cb859e')
 
 # You need to download the gog.com installer file manually or with lgogdownloader.
 DLAGENTS+=("gog::/usr/bin/echo %u - This is is not a real URL, you need to download the GOG file manually to \"$PWD\" or setup a gog:// DLAGENT. Read this PKGBUILD for more information.")
