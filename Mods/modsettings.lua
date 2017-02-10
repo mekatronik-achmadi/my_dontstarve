@@ -4,6 +4,7 @@
 -- Windows: C:/Program Files/Don't Starve/mods/
 
 -- Default Enable Mods
+ForceEnableMod("Patch")
 ForceEnableMod("Arrow")
 ForceEnableMod("Shelter")
 ForceEnableMod("Wall_Gate")

@@ -18,7 +18,7 @@ c_give("charcoal") -- "meatrack"
 
 c_give("cane")
 c_give("molehat")
-c_give("featherhat")
+c_give("heatrock")
 c_give("beefalohat")
 c_give("eyebrellahat")
 
