@@ -914,7 +914,7 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "MAGIC_TWO",
+		default = "MAGIC_THREE",
 	},
 	
 	{
@@ -1053,7 +1053,7 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "MAGIC_TWO",
+		default = "MAGIC_THREE",
 	},
 	
 	{
