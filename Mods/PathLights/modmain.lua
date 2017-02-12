@@ -30,7 +30,7 @@ PrefabFiles =
 	Ingredient("rocks", 1),
 	Ingredient("twigs", 3),
 	Ingredient("rope", 1),
-    Ingredient("fireflies", 1),
+	Ingredient("goldnugget", 1),
 },
 	RECIPETABS.LIGHT, TECH.NONE, "path_light_placer" )                     
     path_lightrecipe.atlas = "images/inventoryimages/path_light.xml"
@@ -41,7 +41,7 @@ PrefabFiles =
     Ingredient("rocks", 2),
     Ingredient("twigs", 3),
     Ingredient("rope", 1),
-    Ingredient("fireflies", 1),
+    Ingredient("goldnugget", 1),
 },
     RECIPETABS.LIGHT, TECH.SCIENCE_ONE, "path_light_placer" )                     
     path_lightrecipe.atlas = "images/inventoryimages/path_light.xml"
@@ -52,7 +52,7 @@ PrefabFiles =
     Ingredient("rocks", 2),
     Ingredient("twigs", 3),
     Ingredient("rope", 2),
-    Ingredient("fireflies", 1),
+    Ingredient("goldnugget", 1),
 },
     RECIPETABS.LIGHT, TECH.SCIENCE_TWO, "path_light_placer" )                     
     path_lightrecipe.atlas = "images/inventoryimages/path_light.xml"
@@ -64,4 +64,4 @@ end
     GLOBAL.color1 = (GetModConfigData("light_color")=="color1")
     GLOBAL.color2 = (GetModConfigData("light_color")=="color2")
     GLOBAL.color3 = (GetModConfigData("light_color")=="color3")
-    GLOBAL.color4 = (GetModConfigData("light_color")=="color4")    
+    GLOBAL.color4 = (GetModConfigData("light_color")=="color4")

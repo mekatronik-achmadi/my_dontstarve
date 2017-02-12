@@ -403,7 +403,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "SCIENCE_TWO",
 	},	
 	
 	{
@@ -1454,7 +1454,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "SCIENCE_TWO",
 	},
 
 	{
@@ -1583,7 +1583,7 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "SCIENCE_ONE",
+		default = "SCIENCE_TWO",
 	},
 	
 	{

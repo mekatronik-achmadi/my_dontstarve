@@ -185,7 +185,7 @@ if GetModConfigData("Wall Gates Version") == "recolored" then
 		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_wood_item.atlas = "images/inventoryimages/mech_wood_item.xml"
 
-		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.NONE, nil, nil, nil, 1)
 		mech_stone_item.atlas = "images/inventoryimages/mech_stone_item.xml"
 	
 		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
