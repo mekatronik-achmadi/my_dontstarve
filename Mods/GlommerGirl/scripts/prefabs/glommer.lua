@@ -1,5 +1,5 @@
 require("brains/glommerbrain")
-require "stategraphs/SGglommer"
+require "stategraphs/SGshadowwaxwell"
 
 local assets=
 {
@@ -126,13 +126,13 @@ local function fn()
 
     inst:AddTag("companion")
     inst:AddTag("glommer")
-    inst:AddTag("flying")
-    inst:AddTag("cattoyairborne")
+    --inst:AddTag("flying")
+    --inst:AddTag("cattoyairborne")
 	
     inst:AddComponent("inspectable")
     inst:AddComponent("follower")
     inst:AddComponent("health")
-    inst:AddComponent("combat")
+    --inst:AddComponent("combat")
     inst:AddComponent("knownlocations")
     inst:AddComponent("lootdropper")
     inst.components.lootdropper:SetChanceLootTable('glommer') 
@@ -169,9 +169,9 @@ local function fn()
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
-    inst:SetStateGraph("SGglommer")
+    inst:SetStateGraph("SGshadowwaxwell")
 
-    MakeMediumFreezableCharacter(inst, "glommer_body")
+    --MakeMediumFreezableCharacter(inst, "glommer_body")
 
     inst.OnSave = OnSave
     inst.OnLoad = OnLoad
