@@ -3,7 +3,9 @@ require "stategraphs/SGglommer"
 
 local assets=
 {
-	Asset("ANIM", "anim/glommer.zip"),
+	Asset("ANIM", "anim/wendy.zip"),
+	Asset("ANIM", "anim/player_basic.zip"),
+	Asset("SOUND", "sound/wendy.fsb") ,
 }
 
 local prefabs = 
@@ -118,8 +120,8 @@ local function fn()
     minimap:SetIcon("wendy.png")
     minimap:SetPriority(5)
 
-    inst.AnimState:SetBank("glommer")
-    inst.AnimState:SetBuild("glommer")
+    inst.AnimState:SetBank("wilson")
+    inst.AnimState:SetBuild("wendy")
     inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("companion")
