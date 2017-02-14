@@ -23,13 +23,18 @@ SetSharedLootTable('glommer',
 local WAKE_TO_FOLLOW_DISTANCE = 7
 local SLEEP_NEAR_LEADER_DISTANCE = 2
 
+local function ontalk(inst, script)
+    inst.SoundEmitter:PlaySound("dontstarve/pig/grunt")
+end
+
 local function ShouldAcceptItem(inst, item)
     if inst.components.sleeper:IsAsleep() then
         return false
     end
     
     if item.components.edible.foodtype == "SEEDS" then
-	
+	inst.components.talker:Say("Hate seeds")
+	return false
     end
     
     return true
@@ -45,12 +50,12 @@ local function OnGetItemFromPlayer(inst, giver, item)
 	if item.components.edible.foodtype == "VEGGIE" then
 	    local pee = SpawnPrefab("glommerfuel")
 	    pee.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    TUNING.GFOOD = 1
+	    inst.components.talker:Say("Delicious Vegi")
     
 	elseif item.components.edible.foodtype == "MEAT" then
 	    local poo = SpawnPrefab("poop")
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    TUNING.GFOOD = 0
+	    inst.components.talker:Say("Delicious Meat")
 	end
     end
     
@@ -115,7 +120,7 @@ local function fn()
 
     inst.AnimState:SetBank("glommer")
     inst.AnimState:SetBuild("glommer")
-    inst.AnimState:PlayAnimation("idle_loop")
+    inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("companion")
     inst:AddTag("glommer")
@@ -141,6 +146,12 @@ local function fn()
     inst.components.trader.onaccept = OnGetItemFromPlayer
     inst.components.trader.onrefuse = OnRefuseItem
     inst.components.trader:Enable()
+    
+    inst:AddComponent("talker")
+    inst.components.talker.ontalk = ontalk
+    inst.components.talker.fontsize = 35
+    inst.components.talker.font = TALKINGFONT
+    inst.components.talker.offset = Vector3(0,-600,0)
 
     inst:AddComponent("sanityaura")
     inst.components.sanityaura.aurafn = CalcSanityAura
@@ -163,8 +174,8 @@ local function fn()
     inst.OnSave = OnSave
     inst.OnLoad = OnLoad
     inst.OnEntitySleep = OnEntitySleep
-
-	return inst
+    
+    return inst
 end
 
 
