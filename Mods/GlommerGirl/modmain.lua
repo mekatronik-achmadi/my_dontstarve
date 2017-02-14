@@ -1,5 +1,0 @@
-PrefabFiles = 
-{
-	"glommer",
-	"statueglommer",
-}
