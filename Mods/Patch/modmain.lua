@@ -1,7 +1,7 @@
---PrefabFiles = 
---{
-        --"bedroll_furry",
---}
+PrefabFiles = 
+{
+	"glommer",
+}
 
 Assets =
 {
@@ -11,17 +11,10 @@ Assets =
 
 ------------------------------------------------------
 
-STRINGS = GLOBAL.STRINGS
-
---GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
-
-------------------------------------------------------
-
 RECIPETABS = GLOBAL.RECIPETABS
 Recipe = GLOBAL.Recipe
 Ingredient = GLOBAL.Ingredient
 TECH = GLOBAL.TECH
-
 
 Recipe("armorwood", {Ingredient("log", 8),Ingredient("rope", 2)}, RECIPETABS.WAR,  TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
@@ -57,7 +50,6 @@ Recipe("transistor", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, R
 Recipe("gears", {Ingredient("log", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 
---Recipe("bedroll_furry", {Ingredient("bedroll_straw", 1), Ingredient("beefalowool", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("homesign", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE, "homesign_placer")
 
 ------------------------------------------------------
