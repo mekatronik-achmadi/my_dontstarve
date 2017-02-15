@@ -3,6 +3,7 @@ PrefabFiles =
 	"glommer",
 	"firesuppressor",
 	"icebox",
+	"veggies",
 }
 
 Assets =

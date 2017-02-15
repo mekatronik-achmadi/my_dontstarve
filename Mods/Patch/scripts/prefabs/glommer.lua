@@ -27,7 +27,7 @@ local function ShouldAcceptItem(inst, item)
 	return false
     end
     
-    if item.components.edible.HasTag == "monstermeat" then
+    if item:HasTag("monstermeat") then
     	inst.components.talker:Say("Errr, You want me eat that?")
     	return false
     end 
