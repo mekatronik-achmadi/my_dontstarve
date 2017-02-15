@@ -8,6 +8,8 @@ local assets=
 	
 	Asset("ANIM", "anim/wendy.zip"),
 	Asset("SOUND", "sound/wendy.fsb"),
+	--Asset("ANIM", "anim/willow.zip"),
+	--Asset("SOUND", "sound/willow.fsb"),
 }
 
 local prefabs = 
@@ -120,10 +122,12 @@ local function fn()
 
     local minimap = inst.entity:AddMiniMapEntity()
     minimap:SetIcon("wendy.png")
+    --minimap:SetIcon("willow.png")
     minimap:SetPriority(5)
 
     inst.AnimState:SetBank("wilson")
     inst.AnimState:SetBuild("wendy")
+    --inst.AnimState:SetBuild("willow")
     inst.AnimState:Hide("ARM_carry")
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")
@@ -173,6 +177,7 @@ local function fn()
     
     inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
+    --inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/willow/talk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
     
