@@ -26,6 +26,7 @@ SetSharedLootTable('glommer',
 
 local GIRL_POOP = 0
 local POOP_TIME = 0
+local WORDS = {"I want you eat all my poop","Please inhale every my fart","Can your mouth clean my butt?","Can my butt sit on your face?","I want your tongue lick my butt hole","I hope your lips kiss my butt hole","My butt hole need your mouth as toilet","I think your face skin will warm my butt skin","If my butt can sit on your face, it will so comfort","Maybe your face will fit in my butt crack"}
 
 local function ShouldAcceptItem(inst, item)
     
@@ -67,9 +68,11 @@ local function OnGetItemFromPlayer(inst, giver, item)
 end
 
 local function OnSeedSpawn(inst)
-	GIRL_POOP = 1
-	POOP_TIME = 1
-	inst.sg:GoToState("poop_pre")
+	if POOP_TIME == 0 then
+		GIRL_POOP = 1
+		POOP_TIME = 1
+		inst.sg:GoToState("poop_pre")
+	end
 end
 
 local function OnPooping(inst)
@@ -96,9 +99,10 @@ local function OnFarting(inst)
 end
 
 local function OnRandomTalking(inst)
-	local words = {"I want you eat all my poop","Please inhale every my fart","Can your mouth clean my butt?","Can my butt sit on your face?","I want your tongue lick my butt hole","I hope your lips kiss my butt hole","My butt hole need your mouth as toilet","I think your face skin will warm my butt skin","If my butt can sit on your face, it will so comfort","Maybe your face will fit in my butt crack"}
-        local word = words[math.random(#words)]
-        inst.components.talker:Say(word,4)
+	if POOP_TIME == 0 then
+	        local word = WORDS[math.random(#WORDS)]
+        	inst.components.talker:Say(word,4)
+	end
 end
 
 local function CalcSanityAura(inst, observer)

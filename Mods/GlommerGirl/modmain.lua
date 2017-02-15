@@ -65,7 +65,7 @@ local pooping_idle = State({
         name = "pooping_idle",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
         
         timeline=
@@ -113,7 +113,7 @@ local farting_idle = State({
         name = "farting_idle",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
         
         timeline=
@@ -161,7 +161,7 @@ local poop_pre_idle = State({
         name = "poop_pre_idle",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
         
         timeline=
@@ -208,7 +208,7 @@ local poop_try_idle = State({
         name = "poop_try_idle",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
         
         timeline=
@@ -255,7 +255,7 @@ local poop_try_again_idle = State({
         name = "poop_try_again_idle",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
         
         timeline=
