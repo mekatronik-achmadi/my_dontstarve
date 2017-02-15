@@ -76,6 +76,12 @@ local function OnFarting(inst)
 	inst.components.talker:Say("Aww, what if you inhale my fart?")
 end
 
+local function OnRandomTalking(inst)
+	local words = {"I want you eat all my poop","Please inhale every my fart","Can your mouth clean my butt?","Can my butt sit on your face?","I want your tongue lick my butt hole","I hope your lips kiss my butt hole","My butt hole need your mouth as toilet","I think your face skin will warm my butt skin","If my butt can sit on your face, it will so comfort","Maybe your face will fit in my butt crack"}
+        local word = words[math.random(#words)]
+        inst.components.talker:Say(word,4,false)
+end
+
 local function CalcSanityAura(inst, observer)
 	return TUNING.SANITYAURA_MED
 end
@@ -169,6 +175,8 @@ local function fn()
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
+    
+    inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
     
     return inst
 end
