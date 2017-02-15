@@ -38,13 +38,16 @@ local function ShouldAcceptItem(inst, item)
 	    if item.components.edible.foodtype == "SEEDS" then
 		inst.components.talker:Say("My poop is your meal, isn't it?")
 		return false
+	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
+	    	return true
+	    else
+		inst.components.talker:Say("Is it better than my poop?")
+		return false
 	    end
     else
 	    inst.components.talker:Say("It's worse then my poop, right?")	
 	    return false	    
     end    
-        
-    return true
 end
 
 local function OnGetItemFromPlayer(inst, giver, item)
@@ -172,7 +175,7 @@ local function fn()
     inst.components.sanityaura.aurafn = CalcSanityAura
 
     inst:AddComponent("locomotor")
-    inst.components.locomotor.walkspeed = 8
+    inst.components.locomotor.walkspeed = 10
 
     inst:AddComponent("periodicspawner")
     inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
