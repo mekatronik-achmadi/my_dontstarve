@@ -172,7 +172,7 @@ local function fn()
     inst.components.sanityaura.aurafn = CalcSanityAura
 
     inst:AddComponent("locomotor")
-    inst.components.locomotor.walkspeed = 6
+    inst.components.locomotor.walkspeed = 8
 
     inst:AddComponent("periodicspawner")
     inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
