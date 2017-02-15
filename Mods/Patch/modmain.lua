@@ -1,6 +1,8 @@
 PrefabFiles = 
 {
 	"glommer",
+	"firesuppressor",
+	"icebox",
 }
 
 Assets =

@@ -6,7 +6,6 @@ url=""
 license=('custom')
 arch=('any')
 depends=('gog-dont-starve' 'gog-dont-starve-rog')
-install=pkg.install
 source=("Patch.zip")
 sha256sums=('SKIP')
 

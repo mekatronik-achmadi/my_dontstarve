@@ -22,7 +22,7 @@ sed -i 's#self.inst.components.inventory:GetWaterproofness() + self.shelter_wate
 sed -i 's#summerInsulation = summerInsulation + self.shelterinsulation#summerInsulation = summerInsulation + TUNING.WOOD_SHELTER_INSULATION + self.shelterinsulation#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/components/temperature.lua
 sed -i 's#inst.components.fueled:StartConsuming()#inst.components.fueled:StopConsuming()#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/prefabs/firesuppressor.lua
 sed -i 's#local W = 68#local W = 64#g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/widgets/inventorybar.lua
-sed -i 's#item.prefab == "heatrock" or##g' /opt/gog-dont-starve/game/$ROG_DIR//scripts/prefabs/icebox.lua
+sed -i 's#item.prefab == "heatrock" or##g' /opt/gog-dont-starve/game/$ROG_DIR/scripts/prefabs/icebox.lua
 
 }
 
