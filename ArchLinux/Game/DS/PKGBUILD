@@ -23,8 +23,14 @@ prepare(){
     cd "$srcdir/data/noarch"
     [ $CARCH == "x86" ]    && rm -r "game/dontstarve64"
     [ $CARCH == "x86_64" ] && rm -r "game/dontstarve32"
+
+    # Remove Screecher Mod
+    [ $CARCH == "x86" ]    && rm -r "game/dontstarve32/mods/screecher"
+    [ $CARCH == "x86_64" ] && rm -r "game/dontstarve64/mods/screecher"
+    
     # The launcher expects the user to be in the game dir
     echo -e "#!/bin/sh\ncd /opt/${pkgname}\n./start.sh" > "${srcdir}/${pkgname}"
+    
 }
 
 package(){
