@@ -8,7 +8,7 @@ PrefabFiles =
 
 STRINGS = GLOBAL.STRINGS
 
-GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
+STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SLEEPNEEDSHELTER = "I need a Shelter!"
 
 ------------------------------------------------------
 

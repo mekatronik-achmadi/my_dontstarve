@@ -18,8 +18,6 @@ local prefabs =
 SetSharedLootTable('glommer',
 {
     {'glommerwings',		1.00},
-    {'glommerfuel',		1.00},
-    {'glommerfuel',		1.00},
 })
 
 local function ShouldAcceptItem(inst, item)

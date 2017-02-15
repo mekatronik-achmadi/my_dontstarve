@@ -11,6 +11,24 @@ Assets =
 
 ------------------------------------------------------
 
+STRINGS = GLOBAL.STRINGS
+
+STRINGS.NAMES.GLOMMER = "Girl"
+STRINGS.NAMES.GLOMMERFLOWER = "Girl's Flower"
+STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
+STRINGS.NAMES.GLOMMERWINGS = "Girl's Wings"
+STRINGS.NAMES.STATUEGLOMMER = "Girl's Statue"
+
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMER = "Her beauty makes me eat her poop"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFUEL = "Her poop smells like a flower"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERWINGS = "It's smells good like her poop"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.DEAD = "I still remember her beauty"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beautiful as she is"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beauty"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.POOP = "It's like her poop"
+
+------------------------------------------------------
+
 RECIPETABS = GLOBAL.RECIPETABS
 Recipe = GLOBAL.Recipe
 Ingredient = GLOBAL.Ingredient
