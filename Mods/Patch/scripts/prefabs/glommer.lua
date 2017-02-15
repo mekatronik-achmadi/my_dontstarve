@@ -27,11 +27,6 @@ local function ShouldAcceptItem(inst, item)
 	return false
     end
     
-    if item:HasTag("monstermeat") then
-    	inst.components.talker:Say("Errr, You want me eat that?")
-    	return false
-    end 
-    
     return true
 end
 

@@ -3,7 +3,6 @@ PrefabFiles =
 	"glommer",
 	"firesuppressor",
 	"icebox",
-	"veggies",
 }
 
 Assets =
@@ -74,6 +73,8 @@ Recipe("boneshard", {Ingredient("houndstooth", 3)}, RECIPETABS.REFINE,  TECH.NON
 Recipe("homesign", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE, "homesign_placer")
 
 ------------------------------------------------------
+
+TUNING = GLOBAL.TUNING
 
 TUNING.BIRD_SPAWN_MAX = 4
 TUNING.BIRD_SPAWN_DELAY = {min=2, max=8}
