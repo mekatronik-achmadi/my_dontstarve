@@ -291,12 +291,34 @@ local poop_pst = State({
         
         events=
         {
-            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
+            EventHandler("animover", function(inst) inst.sg:GoToState("poop_pst_idle") end),
         },
         
         onexit= function(inst)
         	inst.SoundEmitter:KillSound("poop_pst")
         end,
+})
+
+local poop_pst_idle = State({
+        name = "poop_pst_idle",
+        tags ={"busy"},
+        onenter = function(inst)
+                inst.AnimState:PlayAnimation("idle_loop")
+                inst:PushEvent("poop_out")
+        end,
+        
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
+        },
 })
 
 AddStategraphState("shadowmaxwell", pooping)
@@ -310,3 +332,4 @@ AddStategraphState("shadowmaxwell", poop_try_idle)
 AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", poop_pst)
+AddStategraphState("shadowmaxwell", poop_pst_idle)

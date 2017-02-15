@@ -14,15 +14,9 @@ local assets=
 
 local prefabs = 
 {	
-	"glommerwings",
 	"glommerfuel",
 	"poop",
 }
-
-SetSharedLootTable('glommer',
-{
-    {'glommerwings',		1.00},
-})
 
 local GIRL_POOP = 0
 local POOP_TIME = 0
@@ -89,13 +83,16 @@ local function OnPooping(inst)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Eyyewww, Can you eat my poop?")
 	end
-	POOP_TIME = 0
 end
 
 local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.components.talker:Say("Aww, what if you inhale my fart?")
+end
+
+local function OnPoopOut(inst)
+	POOP_TIME = 0
 end
 
 local function OnRandomTalking(inst)
@@ -153,6 +150,8 @@ local function fn()
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")
 
+    inst:AddTag("character")
+    inst:AddTag("scarytoprey")
     inst:AddTag("companion")
     inst:AddTag("glommer")
     inst:RemoveTag("canbetrapped")
@@ -162,8 +161,6 @@ local function fn()
     inst:AddComponent("health")
     inst:AddComponent("combat")
     inst:AddComponent("knownlocations")
-    inst:AddComponent("lootdropper")
-    inst.components.lootdropper:SetChanceLootTable('glommer') 
     
     inst:AddComponent("trader")
     inst.components.trader:SetAcceptTest(ShouldAcceptItem)
@@ -201,6 +198,7 @@ local function fn()
     --inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/willow/talk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
+    inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
     
