@@ -5,7 +5,7 @@ local assets=
 {
 	Asset("ANIM", "anim/wendy.zip"),
 	Asset("ANIM", "anim/player_basic.zip"),
-	Asset("SOUND", "sound/wendy.fsb") ,
+	Asset("SOUND", "sound/woodie.fsb"),
 }
 
 local prefabs = 
@@ -22,17 +22,10 @@ SetSharedLootTable('glommer',
     {'glommerfuel',		1.00},
 })
 
-local function ontalk(inst, script)
-    --inst.SoundEmitter:PlaySound("dontstarve/pig/grunt")
-end
-
 local function ShouldAcceptItem(inst, item)
-    if inst.components.sleeper:IsAsleep() then
-        return false
-    end
     
     if item.components.edible.foodtype == "SEEDS" then
-	inst.components.talker:Say("My poop is your meal")
+	inst.components.talker:Say("My poop is your meal, isn't it?")
 	return false
     end
     
@@ -45,15 +38,19 @@ local function OnGetItemFromPlayer(inst, giver, item)
 	if item.components.edible.foodtype == "VEGGIE" then
 	    local pee = SpawnPrefab("glommerfuel")
 	    pee.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    inst.components.talker:Say("Aww, I just pooping a slime! \n Maybe you can eat my slime poop")
+	    inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
     
 	elseif item.components.edible.foodtype == "MEAT" then
 	    local poo = SpawnPrefab("poop")
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    inst.components.talker:Say("Eyww, I just pooping a feces! \n Can you eat my disguting poop?")
+	    inst.components.talker:Say("Eyywww, Can you eat my poop?")
 	end
     end
     
+end
+
+local function OnSeedSpawn(inst)
+	inst.components.talker:Say("Ups, Would you like to eat my poop?")	
 end
 
 local function CalcSanityAura(inst, observer)
@@ -120,7 +117,6 @@ local function fn()
     inst.components.trader:Enable()
     
     inst:AddComponent("talker")
-    inst.components.talker.ontalk = ontalk
     inst.components.talker.fontsize = 35
     inst.components.talker.font = TALKINGFONT
     inst.components.talker.offset = Vector3(0,-600,0)
@@ -133,8 +129,9 @@ local function fn()
 
     inst:AddComponent("periodicspawner")
     inst.components.periodicspawner.prefab = "seeds"
-    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.5
-    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.5
+    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.1
+    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.1
+    inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
     inst.components.periodicspawner:Start()
 	
     local brain = require("brains/glommerbrain")
@@ -144,6 +141,9 @@ local function fn()
     inst.OnSave = OnSave
     inst.OnLoad = OnLoad
     inst.OnEntitySleep = OnEntitySleep
+    
+    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
+    inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     
     return inst
 end
