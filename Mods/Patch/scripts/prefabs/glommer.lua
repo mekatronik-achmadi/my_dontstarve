@@ -129,8 +129,8 @@ local function fn()
 
     inst:AddComponent("periodicspawner")
     inst.components.periodicspawner.prefab = "seeds"
-    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.1
-    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.1
+    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.5
+    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.5
     inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
     inst.components.periodicspawner:Start()
 	
