@@ -102,7 +102,7 @@ local function OnRandomTalking(inst)
 end
 
 local function CalcSanityAura(inst, observer)
-	return TUNING.SANITYAURA_MED
+	return TUNING.SANITYAURA_LARGE
 end
 
 local function LeaveWorld(inst)
