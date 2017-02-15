@@ -25,14 +25,25 @@ SetSharedLootTable('glommer',
 })
 
 local GIRL_POOP = 0
+local POOP_TIME = 0
 
 local function ShouldAcceptItem(inst, item)
     
-    if item.components.edible.foodtype == "SEEDS" then
-	inst.components.talker:Say("My poop is your meal, isn't it?")
+    if POOP_TIME == 1 then
+	inst.components.talker:Say("wait till my poop come out, ok?")	
 	return false
     end
     
+    if item.components.edible then
+	    if item.components.edible.foodtype == "SEEDS" then
+		inst.components.talker:Say("My poop is your meal, isn't it?")
+		return false
+	    end
+    else
+	    inst.components.talker:Say("It's worse then my poop, right?")	
+	    return false	    
+    end    
+        
     return true
 end
 
@@ -46,6 +57,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 	    GIRL_POOP = 3
 	end
 	
+	POOP_TIME = 1
 	inst.sg:GoToState("pooping")
     end
     
@@ -53,6 +65,7 @@ end
 
 local function OnSeedSpawn(inst)
 	GIRL_POOP = 1
+	POOP_TIME = 1
 	inst.sg:GoToState("poop_pre")
 end
 
@@ -70,6 +83,7 @@ local function OnPooping(inst)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Eyyewww, Can you eat my poop?")
 	end
+	POOP_TIME = 0
 end
 
 local function OnFarting(inst)
@@ -163,8 +177,8 @@ local function fn()
     inst:AddComponent("periodicspawner")
     inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
     inst.components.periodicspawner.prefab = "maxwell_smoke"
-    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.5
-    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.5
+    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.1
+    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.1
     inst.components.periodicspawner:Start()
 	
     local brain = require("brains/glommerbrain")
