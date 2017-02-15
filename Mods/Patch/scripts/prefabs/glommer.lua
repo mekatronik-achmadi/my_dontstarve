@@ -27,6 +27,11 @@ local function ShouldAcceptItem(inst, item)
 	return false
     end
     
+    if item.components.edible.HasTag == "monstermeat" then
+    	inst.components.talker:Say("Errr, You want me eat that?")
+    	return false
+    end 
+    
     return true
 end
 
@@ -52,7 +57,7 @@ local function OnSeedSpawn(inst)
 end
 
 local function CalcSanityAura(inst, observer)
-	return TUNING.SANITYAURA_SMALL
+	return TUNING.SANITYAURA_MED
 end
 
 local function LeaveWorld(inst)
