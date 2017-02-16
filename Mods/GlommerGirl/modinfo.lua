@@ -23,6 +23,6 @@ configuration_options = {
 			{description = "Tomoka", data = "tomoka"},
 			{description = "Mabel", data = "mabel"},	
 		},
-		default = "tomoka",
+		default = "mabel",
 	},
 }
