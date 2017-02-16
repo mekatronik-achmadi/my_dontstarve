@@ -25,7 +25,7 @@ local GIRL_NEAR = 0
 local QWORDS = 
 {
 	"I want you eat my poop", --1
-	"Please inhale my fart", --2
+	"You have to inhale my fart", --2
 	"Can your mouth clean my butt?", --3
 	"Can my butt sit on your face?", --4
 	"I want your tongue lick my butt hole", --5
@@ -47,7 +47,7 @@ local AWORDS =
 	"My mouth always be a toilet for your butt", --7
 	"And I think your butt will warm my face too", --8
 	"Your butt will comfort my face too", --9
-	"It will so nice if my face in your butt crack", --10
+	"It will so nice if my face get into your butt crack", --10
 }
 
 local function ShouldAcceptItem(inst, item)
