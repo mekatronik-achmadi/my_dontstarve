@@ -24,8 +24,8 @@ Assets =
 
 ------------------------------------------------------
 
-local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
+local CHARACTER_GENDERS = GLOBAL.CHARACTER_GENDERS
 
 STRINGS.NAMES.GLOMMER = "Girl"
 STRINGS.NAMES.GLOMMERFLOWER = "Girl's Flower"
@@ -48,7 +48,8 @@ STRINGS.CHARACTER_QUOTES.honk = "\"My beauty will makes you eat my poop\""
 
 ------------------------------------------------------
 
-table.insert(GLOBAL.CHARACTER_GENDERS.FEMALE, "honk")
+table.insert(CHARACTER_GENDERS.FEMALE, "honk")
+AddMinimapAtlas("images/map_icons/honk.xml")
 AddModCharacter("honk")
 
 ------------------------------------------------------
