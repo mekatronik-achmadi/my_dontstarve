@@ -52,6 +52,12 @@ STRINGS.CHARACTERS.HONK = require "speech_honk"
 
 ------------------------------------------------------
 
+table.insert(GLOBAL.CHARACTER_GENDERS.FEMALE, "honk")
+AddMinimapAtlas("images/map_icons/honk.xml")
+AddModCharacter("honk")
+
+------------------------------------------------------
+
 local State = GLOBAL.State
 local TimeEvent = GLOBAL.TimeEvent
 local EventHandler = GLOBAL.EventHandler
@@ -408,7 +414,3 @@ AddStategraphState("shadowmaxwell", poop_pst)
 AddStategraphState("shadowmaxwell", poop_pst_idle)
 
 ------------------------------------------------------
-
-table.insert(GLOBAL.CHARACTER_GENDERS.FEMALE, "honk")
-AddMinimapAtlas("images/map_icons/honk.xml")
-AddModCharacter("honk")

@@ -7,7 +7,7 @@ local assets=
 	Asset("SOUND", "sound/wilson.fsb"),
 	
 	Asset( "ANIM", "anim/honk.zip" ),
-	Asset("SOUND", "sound/wendy.fsb"),
+	Asset("SOUND", "sound/woodie.fsb"),
 }
 
 local prefabs = 
@@ -18,12 +18,40 @@ local prefabs =
 
 local GIRL_POOP = 0
 local POOP_TIME = 0
-local WORDS = {"I want you eat all my poop","Please inhale every my fart","Can your mouth clean my butt?","Can my butt sit on your face?","I want your tongue lick my butt hole","I hope your lips kiss my butt hole","My butt hole need your mouth as toilet","I think your face skin will warm my butt skin","If my butt can sit on your face, it will so comfort","Maybe your face will fit in my butt crack"}
+local GIRL_NEAR = 0
+
+local QWORDS = 
+{
+	"I want you eat my poop", --0
+	"Please inhale my fart", --1
+	"Can your mouth clean my butt?", --2
+	"Can my butt sit on your face?", --3
+	"I want your tongue lick my butt hole", --4
+	"I hope your lips kiss my butt hole", --5
+	"My butt need your mouth for toilet", --6
+	"I think your face skin will warm my butt skin", --7
+	"It will so comfort if my butt sit on your face", --8
+	"Maybe your face will fit in my butt crack" --9
+}
+
+local AWORDS =
+{
+	"I'll eat all your poop", --0
+	"Your fart smells like flower", --1
+	"My mouth will clean your butt", --2
+	"I hope your butt sit in my face soon", --3
+	"Your butt hole taste like a sugar", --4
+	"I'll kiss your butt hole with love", --5
+	"My mouth always be a toilet for your butt", --6
+	"And I think your butt will warm my face too", --7
+	"Your butt will comfort my face too", --8
+	"It will so nice if my face in your butt crack"
+}
 
 local function ShouldAcceptItem(inst, item)
     
     if POOP_TIME == 1 then
-	inst.components.talker:Say("wait till my poop come out, ok?")	
+	inst.components.talker:Say("Wait till my poop come out, OK?")	
 	return false
     end
     
@@ -63,7 +91,7 @@ local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	inst.components.talker:Say("Ahh, Are you breathe in my fart?")
+	inst.components.talker:Say("Uhhhh, Are you breathe in my fart?")
 end
 
 local function OnPoopSeed(inst)
@@ -73,7 +101,7 @@ local function OnPoopSeed(inst)
 		local fart = SpawnPrefab("maxwell_smoke")
 		fart.Transform:SetScale(0.3,0.3,0.3)
 		fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-		inst.components.talker:Say("Aww, what if you inhale my fart?")
+		inst.components.talker:Say("Aww, What if you inhale my fart?")
 		inst.sg:GoToState("poop_pre")
 	end
 end
@@ -103,9 +131,25 @@ end
 
 local function OnRandomTalking(inst)
 	if POOP_TIME == 0 then
-	        local word = WORDS[math.random(#WORDS)]
-        	inst.components.talker:Say(word,4)
+		local n_word = math.random(#QWORDS)
+	        local word = QWORDS[n_word]
+	        if GIRL_NEAR == 1 then
+        		inst.components.talker:Say(word,4)
+        	end
 	end
+end
+
+local function OnAnswerTalking(inst)
+	if  POOP_TIME == 0 and GIRL_NEAR == 1 then
+	end
+end
+
+local function onnear(inst)
+       GIRL_NEAR = 1
+end
+
+local function onfar(inst)
+       GIRL_NEAR = 0
 end
 
 local function CalcSanityAura(inst, observer)
@@ -178,6 +222,10 @@ local function fn()
 
     inst:AddComponent("locomotor")
     inst.components.locomotor.walkspeed = 10
+    
+    inst:AddComponent( "playerprox" )
+    inst.components.playerprox:SetOnPlayerNear(onnear)    
+    inst.components.playerprox:SetOnPlayerFar(onfar)
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
@@ -187,8 +235,11 @@ local function fn()
     inst.OnLoad = OnLoad
     inst.OnEntitySleep = OnEntitySleep
     
-    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
-    inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
+    inst:ListenForEvent("donetalking", function() 
+    	inst.SoundEmitter:KillSound("talk")
+    	OnAnswerTalking()
+    end)
+    inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/woodie/lucytalk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("poop_out",OnPoopOut)
