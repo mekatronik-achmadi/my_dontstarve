@@ -1,8 +1,11 @@
+http://forums.kleientertainment.com/files/category/2-custom-character-and-skins/
 http://forums.kleientertainment.com/files/category/3-game-modifications/
+
 http://forums.kleientertainment.com/files/file/202-sample-mods/
+http://forums.kleientertainment.com/files/file/203-api-examples/
+
 http://forums.kleientertainment.com/topic/28021-getting-started-guides-tutorials-and-examples/
 http://forums.kleientertainment.com/topic/47542-introduction-to-some-components/
-http://forums.kleientertainment.com/files/file/203-api-examples/
 
 --------------------------------------------------------------------------------
 

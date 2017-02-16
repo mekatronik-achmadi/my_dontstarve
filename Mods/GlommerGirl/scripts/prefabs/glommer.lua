@@ -3,13 +3,11 @@ require "stategraphs/SGshadowwaxwell"
 
 local assets=
 {
-	Asset("ANIM", "anim/player_basic.zip"),
+	Asset( "ANIM", "anim/player_basic.zip"),
 	Asset("SOUND", "sound/wilson.fsb"),
 	
-	Asset("ANIM", "anim/wendy.zip"),
+	Asset( "ANIM", "anim/honk.zip" ),
 	Asset("SOUND", "sound/wendy.fsb"),
-	--Asset("ANIM", "anim/willow.zip"),
-	--Asset("SOUND", "sound/willow.fsb"),
 }
 
 local prefabs = 
@@ -72,14 +70,17 @@ end
 local function OnPooping(inst)
 	if GIRL_POOP == 1 then
 	    local poo = SpawnPrefab("seeds")
+	    poo.Transform:SetScale(0.3,0.3,0.3)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Ups, Would you like to eat my poop?")
 	elseif GIRL_POOP == 2 then
 	    local poo = SpawnPrefab("glommerfuel")
+	    poo.Transform:SetScale(0.3,0.3,0.3)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
 	elseif GIRL_POOP == 3 then
 	    local poo = SpawnPrefab("poop")
+	    poo.Transform:SetScale(0.3,0.3,0.3)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Eyyewww, Can you eat my poop?")
 	end
@@ -87,6 +88,7 @@ end
 
 local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
+	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.components.talker:Say("Aww, what if you inhale my fart?")
 end
@@ -139,13 +141,11 @@ local function fn()
     MakeCharacterPhysics(inst, 75, .5)
 
     local minimap = inst.entity:AddMiniMapEntity()
-    minimap:SetIcon("wendy.png")
-    --minimap:SetIcon("willow.png")
+    minimap:SetIcon("honk.tex")
     minimap:SetPriority(5)
 
     inst.AnimState:SetBank("wilson")
-    inst.AnimState:SetBuild("wendy")
-    --inst.AnimState:SetBuild("willow")
+    inst.AnimState:SetBuild("honk")
     inst.AnimState:Hide("ARM_carry")
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")
@@ -195,7 +195,6 @@ local function fn()
     
     inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
-    --inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/willow/talk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("poop_out",OnPoopOut)

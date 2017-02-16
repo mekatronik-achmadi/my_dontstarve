@@ -1,17 +1,33 @@
 PrefabFiles = 
 {
 	"glommer",
+	"honk",
 }
 
 Assets =
 {
 	Asset("ATLAS", "images/newslots.xml"),
+	
+	Asset( "IMAGE", "images/saveslot_portraits/honk.tex" ),
+	Asset( "ATLAS", "images/saveslot_portraits/honk.xml" ),
 
+    	Asset( "IMAGE", "images/selectscreen_portraits/honk.tex" ),
+	Asset( "ATLAS", "images/selectscreen_portraits/honk.xml" ),
+	
+	Asset( "IMAGE", "images/selectscreen_portraits/honk_silho.tex" ),
+	Asset( "ATLAS", "images/selectscreen_portraits/honk_silho.xml" ),
+
+	Asset( "IMAGE", "bigportraits/honk.tex" ),
+	Asset( "ATLAS", "bigportraits/honk.xml" ),
+	
+	Asset( "IMAGE", "images/map_icons/honk.tex" ),
+	Asset( "ATLAS", "images/map_icons/honk.xml" ),
 }
 
 ------------------------------------------------------
 
-STRINGS = GLOBAL.STRINGS
+local require = GLOBAL.require
+local STRINGS = GLOBAL.STRINGS
 
 STRINGS.NAMES.GLOMMER = "Girl"
 STRINGS.NAMES.GLOMMERFLOWER = "Girl's Flower"
@@ -26,6 +42,13 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.DEAD = "I still remember her b
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beautiful as she is"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beauty"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.POOP = "It's like her poop"
+
+STRINGS.CHARACTER_TITLES.honk = "Dirty Girl"
+STRINGS.CHARACTER_NAMES.honk = "Kousaka Honoka"
+STRINGS.CHARACTER_DESCRIPTIONS.honk = "A Dirty but Useful Girl"
+STRINGS.CHARACTER_QUOTES.honk = "\"My beauty will makes you eat my poop\""
+
+STRINGS.CHARACTERS.HONK = require "speech_honk"
 
 ------------------------------------------------------
 
@@ -63,54 +86,6 @@ local pooping = State({
 
 local pooping_idle = State({
         name = "pooping_idle",
-        tags ={"busy"},
-        onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle_loop")
-        end,
-        
-        timeline=
-        {
-            TimeEvent(120*FRAMES, function(inst) 
-                inst:PerformBufferedAction() 
-                inst.sg:RemoveStateTag("busy")
-            end),
-        },        
-        
-        events=
-        {
-            EventHandler("animover", function(inst) inst.sg:GoToState("farting") end),
-        },
-})
-
-local farting = State({
-	name = "farting",
-        tags ={"busy"},
-        onenter = function(inst)
-            inst.AnimState:PlayAnimation("hungry")
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","farting")
-            inst:PushEvent("farting")
-        end,
-
-        timeline=
-        {
-            TimeEvent(120*FRAMES, function(inst) 
-                inst:PerformBufferedAction() 
-                inst.sg:RemoveStateTag("busy")
-            end),
-        },        
-        
-        events=
-        {
-            EventHandler("animover", function(inst) inst.sg:GoToState("farting_idle") end),
-        },
-        
-        onexit= function(inst)
-        	inst.SoundEmitter:KillSound("farting")
-        end,
-})
-
-local farting_idle = State({
-        name = "farting_idle",
         tags ={"busy"},
         onenter = function(inst)
                 inst.AnimState:PlayAnimation("idle_loop")
@@ -174,6 +149,54 @@ local poop_pre_idle = State({
         
         events=
         {
+            EventHandler("animover", function(inst) inst.sg:GoToState("farting") end),
+        },
+})
+
+local farting = State({
+	name = "farting",
+        tags ={"busy"},
+        onenter = function(inst)
+            inst.AnimState:PlayAnimation("hungry")
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","farting")
+            inst:PushEvent("farting")
+        end,
+
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("farting_idle") end),
+        },
+        
+        onexit= function(inst)
+        	inst.SoundEmitter:KillSound("farting")
+        end,
+})
+
+local farting_idle = State({
+        name = "farting_idle",
+        tags ={"busy"},
+        onenter = function(inst)
+                inst.AnimState:PlayAnimation("idle_loop")
+        end,
+        
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
             EventHandler("animover", function(inst) inst.sg:GoToState("poop_try") end),
         },
 })
@@ -206,6 +229,54 @@ local poop_try = State({
 
 local poop_try_idle = State({
         name = "poop_try_idle",
+        tags ={"busy"},
+        onenter = function(inst)
+                inst.AnimState:PlayAnimation("idle_loop")
+        end,
+        
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("poop_fart") end),
+        },
+})
+
+local poop_fart = State({
+	name = "poop_fart",
+        tags ={"busy"},
+        onenter = function(inst)   
+            inst.AnimState:PlayAnimation("fishing_idle")
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_fart")
+            inst:PushEvent("farting")
+        end,
+
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("poop_fart_idle") end),
+        },
+        
+        onexit= function(inst)
+        	inst.SoundEmitter:KillSound("poop_fart")
+        end,
+})
+
+local poop_fart_idle = State({
+        name = "poop_fart_idle",
         tags ={"busy"},
         onenter = function(inst)
                 inst.AnimState:PlayAnimation("idle_loop")
@@ -323,13 +394,21 @@ local poop_pst_idle = State({
 
 AddStategraphState("shadowmaxwell", pooping)
 AddStategraphState("shadowmaxwell", pooping_idle)
-AddStategraphState("shadowmaxwell", farting)
-AddStategraphState("shadowmaxwell", farting_idle)
 AddStategraphState("shadowmaxwell", poop_pre)
 AddStategraphState("shadowmaxwell", poop_pre_idle)
+AddStategraphState("shadowmaxwell", farting)
+AddStategraphState("shadowmaxwell", farting_idle)
 AddStategraphState("shadowmaxwell", poop_try)
 AddStategraphState("shadowmaxwell", poop_try_idle)
+AddStategraphState("shadowmaxwell", poop_fart)
+AddStategraphState("shadowmaxwell", poop_fart_idle)
 AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", poop_pst)
 AddStategraphState("shadowmaxwell", poop_pst_idle)
+
+------------------------------------------------------
+
+table.insert(GLOBAL.CHARACTER_GENDERS.FEMALE, "honk")
+AddMinimapAtlas("images/map_icons/honk.xml")
+AddModCharacter("honk")
