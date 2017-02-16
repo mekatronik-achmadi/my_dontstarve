@@ -4,10 +4,10 @@ require "behaviours/faceentity"
 require "behaviours/panic"
 
 local MIN_FOLLOW_DIST = 0
-local MAX_FOLLOW_DIST = 3
-local TARGET_FOLLOW_DIST = 2
+local MAX_FOLLOW_DIST = 2
+local TARGET_FOLLOW_DIST = 1
 
-local MAX_WANDER_DIST = 5
+local MAX_WANDER_DIST = 3
 
 local function GetFaceTargetFn(inst)    
     return inst.components.follower.leader

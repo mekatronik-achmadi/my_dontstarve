@@ -412,5 +412,3 @@ AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", poop_pst)
 AddStategraphState("shadowmaxwell", poop_pst_idle)
-
-------------------------------------------------------

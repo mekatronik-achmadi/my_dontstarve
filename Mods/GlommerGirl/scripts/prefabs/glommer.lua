@@ -16,9 +16,10 @@ local prefabs =
 	"poop",
 }
 
-local GIRL_POOP = 0
 local POOP_TIME = 0
+local GIRL_POOP = 0
 local GIRL_NEAR = 0
+local GIRL_WORD = 0
 
 local QWORDS = 
 {
@@ -131,16 +132,11 @@ end
 
 local function OnRandomTalking(inst)
 	if POOP_TIME == 0 then
-		local n_word = math.random(#QWORDS)
-	        local word = QWORDS[n_word]
+		local GIRL_WORD = math.random(#QWORDS)
+	        local word = QWORDS[GIRL_WORD]
 	        if GIRL_NEAR == 1 then
         		inst.components.talker:Say(word,4)
         	end
-	end
-end
-
-local function OnAnswerTalking(inst)
-	if  POOP_TIME == 0 and GIRL_NEAR == 1 then
 	end
 end
 
@@ -237,7 +233,8 @@ local function fn()
     
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
-    	OnAnswerTalking()
+    	if  POOP_TIME == 0 and GIRL_NEAR == 1 then
+	end
     end)
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/woodie/lucytalk_LP","talk") end)
     inst:ListenForEvent("pooping",OnPooping)
