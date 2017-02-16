@@ -59,10 +59,21 @@ local function OnGetItemFromPlayer(inst, giver, item)
     
 end
 
-local function OnSeedSpawn(inst)
+local function OnFarting(inst)
+	local fart = SpawnPrefab("maxwell_smoke")
+	fart.Transform:SetScale(0.3,0.3,0.3)
+	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst.components.talker:Say("Ahh, Are you breathe in my fart?")
+end
+
+local function OnPoopSeed(inst)
 	if POOP_TIME == 0 then
 		GIRL_POOP = 1
 		POOP_TIME = 1
+		local fart = SpawnPrefab("maxwell_smoke")
+		fart.Transform:SetScale(0.3,0.3,0.3)
+		fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		inst.components.talker:Say("Aww, what if you inhale my fart?")
 		inst.sg:GoToState("poop_pre")
 	end
 end
@@ -70,7 +81,7 @@ end
 local function OnPooping(inst)
 	if GIRL_POOP == 1 then
 	    local poo = SpawnPrefab("seeds")
-	    poo.Transform:SetScale(0.3,0.3,0.3)
+	    poo.Transform:SetScale(0.5,0.5,0.5)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Ups, Would you like to eat my poop?")
 	elseif GIRL_POOP == 2 then
@@ -84,13 +95,6 @@ local function OnPooping(inst)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Eyyewww, Can you eat my poop?")
 	end
-end
-
-local function OnFarting(inst)
-	local fart = SpawnPrefab("maxwell_smoke")
-	fart.Transform:SetScale(0.3,0.3,0.3)
-	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	inst.components.talker:Say("Aww, what if you inhale my fart?")
 end
 
 local function OnPoopOut(inst)
@@ -177,13 +181,6 @@ local function fn()
 
     inst:AddComponent("locomotor")
     inst.components.locomotor.walkspeed = 10
-
-    inst:AddComponent("periodicspawner")
-    inst.components.periodicspawner:SetOnSpawnFn(OnSeedSpawn)
-    inst.components.periodicspawner.prefab = "maxwell_smoke"
-    inst.components.periodicspawner.basetime = TUNING.TOTAL_DAY_TIME * 0.1
-    inst.components.periodicspawner.randtime = TUNING.TOTAL_DAY_TIME * 0.1
-    inst.components.periodicspawner:Start()
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
@@ -200,6 +197,7 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
+    inst:DoPeriodicTask(50,OnPoopSeed)
     
     return inst
 end
