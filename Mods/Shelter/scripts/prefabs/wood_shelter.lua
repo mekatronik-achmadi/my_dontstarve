@@ -4,6 +4,8 @@ local assets =
 	Asset("ANIM", "anim/siesta_shelter.zip"),
 }
 
+local announce_shelter = STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER
+
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_big").Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -25,12 +27,14 @@ local function onnear(inst)
        TUNING.WOOD_SHELTER_WATERPROOFNESS = 0.65
        TUNING.WOOD_SHELTER_INSULATION = TUNING.INSULATION_LARGE
        TUNING.WOOD_SHELTER_SLEEPING = 1
+       STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER = "Cool and Dry!"
 end
 
 local function onfar(inst)
        TUNING.WOOD_SHELTER_WATERPROOFNESS = 0
        TUNING.WOOD_SHELTER_INSULATION = 0
        TUNING.WOOD_SHELTER_SLEEPING = 0
+       STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER = announce_shelter
 end
 
 local function fn(Sim)

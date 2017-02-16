@@ -17,11 +17,10 @@ PrefabFiles =
         Recipe = GLOBAL.Recipe
         Ingredient = GLOBAL.Ingredient
         TECH = GLOBAL.TECH
-
-	GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER = "Cool and Dry!"
-        GLOBAL.STRINGS.NAMES.WOOD_SHELTER = "Shelter"
+        
+        STRINGS.NAMES.WOOD_SHELTER = "Shelter"
         STRINGS.RECIPE_DESC.WOOD_SHELTER = "A little added comfort!"
-        GLOBAL.STRINGS.CHARACTERS.GENERIC.DESCRIBE.WOOD_SHELTER = "A nice comfort!"
+        STRINGS.CHARACTERS.GENERIC.DESCRIBE.WOOD_SHELTER = "A nice comfort!"
 
 local wood_shelter = GLOBAL.Recipe("wood_shelter",
 { 
