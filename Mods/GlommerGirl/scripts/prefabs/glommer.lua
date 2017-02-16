@@ -102,10 +102,6 @@ local function OnPoopSeed(inst)
 	if POOP_TIME == 0 then
 		GIRL_POOP = 1
 		POOP_TIME = 1
-		local fart = SpawnPrefab("maxwell_smoke")
-		fart.Transform:SetScale(0.3,0.3,0.3)
-		fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-		inst.components.talker:Say("Aww, What if you inhale my fart?")
 		inst.sg:GoToState("poop_pre")
 	end
 end
