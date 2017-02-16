@@ -1,5 +1,5 @@
 name = "Glommer Girl"
-description = "Transform Glommer into a useful dirty girl"
+description = "Transform Glommer into a useful dirty girl \nWarning: Includes dirty words and filthy action"
 author = "Achmadi"
 forumthread = ""
 version = "1.0"

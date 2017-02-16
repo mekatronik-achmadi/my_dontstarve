@@ -19,34 +19,34 @@ local prefabs =
 local POOP_TIME = 0
 local GIRL_POOP = 0
 local GIRL_WORD = 0
-local GIRL_DIST = 5
+local GIRL_NEAR = 0
 
 local QWORDS = 
 {
-	"I want you eat my poop", --0
-	"Please inhale my fart", --1
-	"Can your mouth clean my butt?", --2
-	"Can my butt sit on your face?", --3
-	"I want your tongue lick my butt hole", --4
-	"I hope your lips kiss my butt hole", --5
-	"My butt need your mouth for toilet", --6
-	"I think your face skin will warm my butt skin", --7
-	"It will so comfort if my butt sit on your face", --8
-	"Maybe your face will fit in my butt crack" --9
+	"I want you eat my poop", --1
+	"Please inhale my fart", --2
+	"Can your mouth clean my butt?", --3
+	"Can my butt sit on your face?", --4
+	"I want your tongue lick my butt hole", --5
+	"I hope your lips kiss my butt hole", --6
+	"My butt need your mouth for toilet", --7
+	"I think your face skin will warm my butt skin", --8
+	"It will so comfort if my butt sit on your face", --9
+	"Maybe your face will fit in my butt crack", --10
 }
 
 local AWORDS =
 {
-	"I'll eat all your poop", --0
-	"Your fart smells like flower", --1
-	"My mouth will clean your butt", --2
-	"I hope your butt sit in my face soon", --3
-	"Your butt hole taste like a sugar", --4
-	"I'll kiss your butt hole with love", --5
-	"My mouth always be a toilet for your butt", --6
-	"And I think your butt will warm my face too", --7
-	"Your butt will comfort my face too", --8
-	"It will so nice if my face in your butt crack"
+	"I'll eat all your poop", --1
+	"Your fart smells like flower", --2
+	"My mouth will clean your butt", --3
+	"I hope your butt sit in my face soon", --4
+	"Your butt hole taste like a sugar", --5
+	"I'll kiss your butt hole with love", --6
+	"My mouth always be a toilet for your butt", --7
+	"And I think your butt will warm my face too", --8
+	"Your butt will comfort my face too", --9
+	"It will so nice if my face in your butt crack", --10
 }
 
 local function ShouldAcceptItem(inst, item)
@@ -130,11 +130,19 @@ local function OnPoopOut(inst)
 	POOP_TIME = 0
 end
 
+local function onnear(inst)
+      GIRL_NEAR = 1
+end
+
+local function onfar(inst)
+      GIRL_NEAR = 0
+end
+
 local function OnRandomTalking(inst)
 	if POOP_TIME == 0 then
-		local GIRL_WORD = math.random(#QWORDS)
+		GIRL_WORD = math.random(#QWORDS)
 	        local word = QWORDS[GIRL_WORD]
-	        if inst.components.follower:IsNearLeader(GIRL_DIST) then
+	        if GIRL_NEAR == 1 then
         		inst.components.talker:Say(word,4)
         	end
 	end
@@ -210,6 +218,10 @@ local function fn()
 
     inst:AddComponent("locomotor")
     inst.components.locomotor.walkspeed = 10
+    
+    inst:AddComponent( "playerprox" )
+    inst.components.playerprox:SetOnPlayerNear(onnear)    
+    inst.components.playerprox:SetOnPlayerFar(onfar)
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
@@ -222,10 +234,12 @@ local function fn()
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
     	if  POOP_TIME == 0 then
-    		if inst.components.follower:IsNearLeader(GIRL_DIST) then
+    		if GIRL_NEAR == 1 then
 	    		local husband = GetPlayer()
     			local word = AWORDS[GIRL_WORD]
-    			husband.components.talker:Say(word,4)
+    			if husband.components.talker then
+    				husband.components.talker:Say(word,4)
+	    		end
     		end
 	end
     end)
@@ -234,7 +248,7 @@ local function fn()
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("poop_out",OnPoopOut)
     
-    inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
+    inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
     inst:DoPeriodicTask(240,OnPoopSeed)
     
     return inst
