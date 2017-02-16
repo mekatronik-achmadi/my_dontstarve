@@ -17,6 +17,7 @@ local prefabs =
 }
 
 local POOP_TIME = 0
+local GIRL_SAYS = 0
 local GIRL_POOP = 0
 local GIRL_WORD = 0
 local GIRL_NEAR = 0
@@ -136,6 +137,7 @@ end
 
 local function onfar(inst)
       GIRL_NEAR = 0
+      GIRL_SAYS = 0
 end
 
 local function OnRandomTalking(inst)
@@ -144,6 +146,7 @@ local function OnRandomTalking(inst)
 	        local word = QWORDS[GIRL_WORD]
 	        if GIRL_NEAR == 1 then
         		inst.components.talker:Say(word,4)
+        		GIRL_SAYS = 1
         	end
 	end
 end
@@ -234,7 +237,7 @@ local function fn()
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
     	if  POOP_TIME == 0 then
-    		if GIRL_NEAR == 1 then
+    		if GIRL_NEAR == 1 and GIRL_SAYS == 1 then
 	    		local husband = GetPlayer()
     			local word = AWORDS[GIRL_WORD]
     			if husband.components.talker then
