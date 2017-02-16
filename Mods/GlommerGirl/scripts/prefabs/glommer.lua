@@ -90,6 +90,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 end
 
 local function OnFarting(inst)
+	GIRL_SAYS = 0
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -97,6 +98,7 @@ local function OnFarting(inst)
 end
 
 local function OnPoopSeed(inst)
+	GIRL_SAYS = 0
 	if POOP_TIME == 0 then
 		GIRL_POOP = 1
 		POOP_TIME = 1
@@ -109,6 +111,7 @@ local function OnPoopSeed(inst)
 end
 
 local function OnPooping(inst)
+	GIRL_SAYS = 0
 	if GIRL_POOP == 1 then
 	    local poo = SpawnPrefab("seeds")
 	    poo.Transform:SetScale(0.5,0.5,0.5)
@@ -242,6 +245,7 @@ local function fn()
     			local word = AWORDS[GIRL_WORD]
     			if husband.components.talker then
     				husband.components.talker:Say(word,4)
+    				GIRL_SAYS = 0
 	    		end
     		end
 	end
