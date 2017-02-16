@@ -57,22 +57,30 @@ local boy_words =
 local function ShouldAcceptItem(inst, item)
     
     if poop_time == 1 then
-	inst.components.talker:Say("Wait till my poop come out, OK?")	
+	if boy_near == 1 then
+	    inst.components.talker:Say("Wait till my poop come out, OK?")	
+	end
 	return false
     end
     
     if item.components.edible then
 	    if item.components.edible.foodtype == "SEEDS" then
-		inst.components.talker:Say("My poop is your meal, isn't it?")
+		if boy_near == 1 then
+		    inst.components.talker:Say("My poop is your meal, isn't it?")
+		end
 		return false
 	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
 	    	return true
 	    else
-		inst.components.talker:Say("Is it better than my poop?")
+		if boy_near == 1 then
+		    inst.components.talker:Say("Is it better than my poop?")
+		end
 		return false
 	    end
     else
-	    inst.components.talker:Say("It's worse then my poop, right?")	
+	    if boy_near == 1 then
+		inst.components.talker:Say("It's worse then my poop, right?")	
+	    end
 	    return false	    
     end    
 end
@@ -98,7 +106,9 @@ local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	inst.components.talker:Say("Uhhhh, Are you breathe in my fart?")
+	if boy_near == 1 then
+		inst.components.talker:Say("Uhhhh, Are you breathe in my fart?")
+	end
 end
 
 local function OnPoopSeed(inst)
@@ -113,20 +123,26 @@ end
 local function OnPooping(inst)
 	girl_chat = 0
 	if girl_poop == 1 then
-	    local poo = SpawnPrefab("seeds")
-	    poo.Transform:SetScale(0.5,0.5,0.5)
-	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    inst.components.talker:Say("Ups, Would you like to eat my poop?")
+		local poo = SpawnPrefab("seeds")
+		poo.Transform:SetScale(0.5,0.5,0.5)
+		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		if boy_near == 1 then
+			inst.components.talker:Say("Ups, Would you like to eat my poop?")
+		end
 	elseif girl_poop == 2 then
-	    local poo = SpawnPrefab("glommerfuel")
-	    poo.Transform:SetScale(0.3,0.3,0.3)
-	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
+		local poo = SpawnPrefab("glommerfuel")
+		poo.Transform:SetScale(0.3,0.3,0.3)
+		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		if boy_near == 1 then
+			inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
+		end
 	elseif girl_poop == 3 then
-	    local poo = SpawnPrefab("poop")
-	    poo.Transform:SetScale(0.3,0.3,0.3)
-	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	    inst.components.talker:Say("Eyyewww, Can you eat my poop?")
+		local poo = SpawnPrefab("poop")
+		poo.Transform:SetScale(0.3,0.3,0.3)
+		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		if boy_near == 1 then
+			inst.components.talker:Say("Eyyewww, Can you eat my poop?")
+		end
 	end
 end
 
