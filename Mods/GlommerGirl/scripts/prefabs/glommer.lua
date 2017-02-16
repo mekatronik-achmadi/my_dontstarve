@@ -7,7 +7,7 @@ local assets=
 	Asset("SOUND", "sound/wilson.fsb"),
 	
 	Asset( "ANIM", "anim/honk.zip" ),
-	Asset("SOUND", "sound/woodie.fsb"),
+	Asset("SOUND", "sound/wendy.fsb"),
 }
 
 local prefabs = 
@@ -16,13 +16,15 @@ local prefabs =
 	"poop",
 }
 
-local POOP_TIME = 0
-local GIRL_SAYS = 0
-local GIRL_POOP = 0
-local GIRL_WORD = 0
-local GIRL_NEAR = 0
+local boy_near = 0
 
-local QWORDS = 
+local girl_chat = 0
+local girl_word = 0
+
+local girl_poop = 0
+local poop_time = 0
+
+local girl_words = 
 {
 	"I want you eat my poop", --1
 	"You have to inhale my fart", --2
@@ -36,7 +38,7 @@ local QWORDS =
 	"Maybe your face will fit in my butt crack", --10
 }
 
-local AWORDS =
+local boy_words =
 {
 	"I'll eat all your poop", --1
 	"Your fart smells like flower", --2
@@ -52,7 +54,7 @@ local AWORDS =
 
 local function ShouldAcceptItem(inst, item)
     
-    if POOP_TIME == 1 then
+    if poop_time == 1 then
 	inst.components.talker:Say("Wait till my poop come out, OK?")	
 	return false
     end
@@ -78,19 +80,19 @@ local function OnGetItemFromPlayer(inst, giver, item)
     if item.components.edible then
 	
 	if item.components.edible.foodtype == "MEAT" then
-	    GIRL_POOP = 2
+	    girl_poop = 2
 	elseif item.components.edible.foodtype == "VEGGIE" then
-	    GIRL_POOP = 3
+	    girl_poop = 3
 	end
 	
-	POOP_TIME = 1
+	poop_time = 1
 	inst.sg:GoToState("pooping")
     end
     
 end
 
 local function OnFarting(inst)
-	GIRL_SAYS = 0
+	girl_chat = 0
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -98,27 +100,27 @@ local function OnFarting(inst)
 end
 
 local function OnPoopSeed(inst)
-	GIRL_SAYS = 0
-	if POOP_TIME == 0 then
-		GIRL_POOP = 1
-		POOP_TIME = 1
+	girl_chat = 0
+	if poop_time == 0 then
+		girl_poop = 1
+		poop_time = 1
 		inst.sg:GoToState("poop_pre")
 	end
 end
 
 local function OnPooping(inst)
-	GIRL_SAYS = 0
-	if GIRL_POOP == 1 then
+	girl_chat = 0
+	if girl_poop == 1 then
 	    local poo = SpawnPrefab("seeds")
 	    poo.Transform:SetScale(0.5,0.5,0.5)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Ups, Would you like to eat my poop?")
-	elseif GIRL_POOP == 2 then
+	elseif girl_poop == 2 then
 	    local poo = SpawnPrefab("glommerfuel")
 	    poo.Transform:SetScale(0.3,0.3,0.3)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	    inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
-	elseif GIRL_POOP == 3 then
+	elseif girl_poop == 3 then
 	    local poo = SpawnPrefab("poop")
 	    poo.Transform:SetScale(0.3,0.3,0.3)
 	    poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -127,26 +129,26 @@ local function OnPooping(inst)
 end
 
 local function OnPoopOut(inst)
-	POOP_TIME = 0
+	poop_time = 0
 end
 
 local function onnear(inst)
-      GIRL_NEAR = 1
+      boy_near = 1
 end
 
 local function onfar(inst)
-      GIRL_NEAR = 0
-      GIRL_SAYS = 0
+      boy_near = 0
+      girl_chat = 0
 end
 
 local function OnRandomTalking(inst)
-	if POOP_TIME == 0 then
-		GIRL_SAYS = 0
-		GIRL_WORD = math.random(#QWORDS)
-	        local word = QWORDS[GIRL_WORD]
-	        if GIRL_NEAR == 1 then
+	if poop_time == 0 then
+		girl_chat = 0
+		girl_word = math.random(#girl_words)
+	        local word = girl_words[girl_word]
+	        if boy_near == 1 then
         		inst.components.talker:Say(word,4)
-        		GIRL_SAYS = 1
+        		girl_chat = 1
         	end
 	end
 end
@@ -234,23 +236,24 @@ local function fn()
     inst.OnLoad = OnLoad
     inst.OnEntitySleep = OnEntitySleep
     
+    inst:ListenForEvent("pooping",OnPooping)
+    inst:ListenForEvent("farting",OnFarting)
+    inst:ListenForEvent("poop_out",OnPoopOut)
+    
+    inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
-    	if  POOP_TIME == 0 then
-    		if GIRL_NEAR == 1 and GIRL_SAYS == 1 then
-	    		local husband = GetPlayer()
-    			local word = AWORDS[GIRL_WORD]
-    			if husband.components.talker then
-    				husband.components.talker:Say(word,4)
-    				GIRL_SAYS = 0
+    	if  poop_time == 0 then
+    		if boy_near == 1 and girl_chat == 1 then
+	    		local boy = GetPlayer()
+    			local word = boy_words[girl_word]
+    			if boy.components.talker then
+    				boy.components.talker:Say(word,4)
+    				girl_chat = 0
 	    		end
     		end
 	end
     end)
-    inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/woodie/lucytalk_LP","talk") end)
-    inst:ListenForEvent("pooping",OnPooping)
-    inst:ListenForEvent("farting",OnFarting)
-    inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
     inst:DoPeriodicTask(240,OnPoopSeed)
