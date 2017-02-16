@@ -5,9 +5,7 @@ PrefabFiles =
 }
 
 Assets =
-{
-	Asset("ATLAS", "images/newslots.xml"),
-	
+{	
 	Asset( "IMAGE", "images/saveslot_portraits/honk.tex" ),
 	Asset( "ATLAS", "images/saveslot_portraits/honk.xml" ),
 
@@ -48,12 +46,9 @@ STRINGS.CHARACTER_NAMES.honk = "Kousaka Honoka"
 STRINGS.CHARACTER_DESCRIPTIONS.honk = "A Dirty but Useful Girl"
 STRINGS.CHARACTER_QUOTES.honk = "\"My beauty will makes you eat my poop\""
 
-STRINGS.CHARACTERS.HONK = require "speech_honk"
-
 ------------------------------------------------------
 
 table.insert(GLOBAL.CHARACTER_GENDERS.FEMALE, "honk")
-AddMinimapAtlas("images/map_icons/honk.xml")
 AddModCharacter("honk")
 
 ------------------------------------------------------

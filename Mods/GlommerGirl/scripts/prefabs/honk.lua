@@ -27,9 +27,10 @@ local assets = {
         Asset( "ANIM", "anim/wilson_fx.zip" ),
         Asset( "ANIM", "anim/player_one_man_band.zip" ),
         Asset( "ANIM", "anim/shadow_hands.zip" ),
+        Asset( "ANIM", "anim/beard.zip" ),
+        
         Asset( "SOUND", "sound/sfx.fsb" ),
         Asset( "SOUND", "sound/wilson.fsb" ),
-        Asset( "ANIM", "anim/beard.zip" ),
 
         Asset( "ANIM", "anim/honk.zip" ),
 }
@@ -50,16 +51,6 @@ local fn = function(inst)
 	inst.components.health:SetMaxHealth(125)
 	inst.components.hunger:SetMax(200)
 	inst.components.sanity:SetMax(150)
-	
-	-- Damage multiplier (optional)
-    inst.components.combat.damagemultiplier = 1
-	
-	-- Hunger rate (optional)
-	inst.components.hunger.hungerrate = 2 * TUNING.WILSON_HUNGER_RATE
-	
-	-- Movement speed (optional)
-	inst.components.locomotor.walkspeed = 5
-	inst.components.locomotor.runspeed = 7
 end
 
 return MakePlayerCharacter("honk", prefabs, assets, fn, start_inv)
