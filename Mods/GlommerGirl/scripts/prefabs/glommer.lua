@@ -7,6 +7,8 @@ local assets=
 	Asset("SOUND", "sound/wilson.fsb"),
 	
 	Asset( "ANIM", "anim/honk.zip" ),
+	Asset( "ANIM", "anim/tomoka.zip" ),
+	
 	Asset("SOUND", "sound/wendy.fsb"),
 }
 
@@ -190,11 +192,11 @@ local function fn()
     MakeCharacterPhysics(inst, 75, .5)
 
     local minimap = inst.entity:AddMiniMapEntity()
-    minimap:SetIcon("honk.tex")
+    minimap:SetIcon(TUNING.GIRL_ICON)
     minimap:SetPriority(5)
 
     inst.AnimState:SetBank("wilson")
-    inst.AnimState:SetBuild("honk")
+    inst.AnimState:SetBuild(TUNING.GIRL_DEPIC)
     inst.AnimState:Hide("ARM_carry")
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")

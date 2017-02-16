@@ -2,30 +2,55 @@ PrefabFiles =
 {
 	"glommer",
 	"honk",
+	"tomoka",
 }
 
 Assets =
-{	
+{
+
 	Asset( "IMAGE", "images/saveslot_portraits/honk.tex" ),
 	Asset( "ATLAS", "images/saveslot_portraits/honk.xml" ),
-
     	Asset( "IMAGE", "images/selectscreen_portraits/honk.tex" ),
 	Asset( "ATLAS", "images/selectscreen_portraits/honk.xml" ),
-	
 	Asset( "IMAGE", "images/selectscreen_portraits/honk_silho.tex" ),
 	Asset( "ATLAS", "images/selectscreen_portraits/honk_silho.xml" ),
-
 	Asset( "IMAGE", "bigportraits/honk.tex" ),
 	Asset( "ATLAS", "bigportraits/honk.xml" ),
-	
 	Asset( "IMAGE", "images/map_icons/honk.tex" ),
-	Asset( "ATLAS", "images/map_icons/honk.xml" ),
+	Asset( "ATLAS", "images/map_icons/honk.xml" ),	
+	
+	Asset( "IMAGE", "images/saveslot_portraits/tomoka.tex" ),
+	Asset( "ATLAS", "images/saveslot_portraits/tomoka.xml" ),
+    	Asset( "IMAGE", "images/selectscreen_portraits/tomoka.tex" ),
+	Asset( "ATLAS", "images/selectscreen_portraits/tomoka.xml" ),
+	Asset( "IMAGE", "images/selectscreen_portraits/tomoka_silho.tex" ),
+	Asset( "ATLAS", "images/selectscreen_portraits/tomoka_silho.xml" ),
+	Asset( "IMAGE", "bigportraits/tomoka.tex" ),
+	Asset( "ATLAS", "bigportraits/tomoka.xml" ),
+	Asset( "IMAGE", "images/map_icons/tomoka.tex" ),
+	Asset( "ATLAS", "images/map_icons/tomoka.xml" ),
 }
 
 ------------------------------------------------------
 
+local TUNING = GLOBAL.TUNING
+
+local GirlDepiction = GetModConfigData("GirlDepiction")
+
+TUNING.GIRL_ICON = "none"
+TUNING.GIRL_DEPIC = "none"
+
+if GirlDepiction == "honk" then
+	TUNING.GIRL_ICON = "honk.tex"
+	TUNING.GIRL_DEPIC = "honk"
+elseif GirlDepiction == "tomoka" then
+	TUNING.GIRL_ICON = "tomoka.tex"
+	TUNING.GIRL_DEPIC = "tomoka"
+end
+
+------------------------------------------------------
+
 local STRINGS = GLOBAL.STRINGS
-local CHARACTER_GENDERS = GLOBAL.CHARACTER_GENDERS
 
 STRINGS.NAMES.GLOMMER = "Girl"
 STRINGS.NAMES.GLOMMERFLOWER = "Girl's Flower"
@@ -41,15 +66,35 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beau
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beauty"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.POOP = "I think I can eat her poop"
 
-STRINGS.CHARACTER_TITLES.honk = "Dirty Girl"
-STRINGS.CHARACTER_NAMES.honk = "Kousaka Honoka"
-STRINGS.CHARACTER_DESCRIPTIONS.honk = "A Dirty but Useful Girl"
-STRINGS.CHARACTER_QUOTES.honk = "\"My beauty will makes you eat my poop\""
+STRINGS.GIRL_TITLES = "Dirty Girl"
+STRINGS.GIRL_DESCRIPTION = "A Dirty but Useful Girl"
+STRINGS.GIRL_QUOTES = "\"My beauty will makes you eat my poop\""
 
 ------------------------------------------------------
 
+STRINGS.CHARACTER_TITLES.tomoka = STRINGS.GIRL_TITLES
+STRINGS.CHARACTER_TITLES.honk = STRINGS.GIRL_TITLES
+
+STRINGS.CHARACTER_DESCRIPTIONS.tomoka = STRINGS.GIRL_DESCRIPTION
+STRINGS.CHARACTER_DESCRIPTIONS.honk = STRINGS.GIRL_DESCRIPTION
+
+STRINGS.CHARACTER_QUOTES.tomoka = STRINGS.GIRL_QUOTES
+STRINGS.CHARACTER_QUOTES.honk = STRINGS.GIRL_QUOTES
+
+STRINGS.CHARACTER_NAMES.tomoka = "Tomoka"
+STRINGS.CHARACTER_NAMES.honk = "Honk"
+
+------------------------------------------------------
+
+local CHARACTER_GENDERS = GLOBAL.CHARACTER_GENDERS
+
+table.insert(CHARACTER_GENDERS.FEMALE, "tomoka")
 table.insert(CHARACTER_GENDERS.FEMALE, "honk")
+
+AddMinimapAtlas("images/map_icons/tomoka.xml")
 AddMinimapAtlas("images/map_icons/honk.xml")
+
+AddModCharacter("tomoka")
 AddModCharacter("honk")
 
 ------------------------------------------------------
