@@ -154,11 +154,8 @@ local function fn()
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")
 
-    inst:AddTag("character")
-    inst:AddTag("scarytoprey")
     inst:AddTag("companion")
     inst:AddTag("glommer")
-    inst:RemoveTag("canbetrapped")
 	
     inst:AddComponent("inspectable")
     inst:AddComponent("follower")
@@ -197,7 +194,7 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
-    inst:DoPeriodicTask(50,OnPoopSeed)
+    inst:DoPeriodicTask(240,OnPoopSeed)
     
     return inst
 end
