@@ -145,6 +145,7 @@ end
 
 local function OnRandomTalking(inst)
 	if POOP_TIME == 0 then
+		GIRL_SAYS = 0
 		GIRL_WORD = math.random(#QWORDS)
 	        local word = QWORDS[GIRL_WORD]
 	        if GIRL_NEAR == 1 then
