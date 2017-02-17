@@ -271,6 +271,7 @@ local function fn()
     inst.AnimState:Show("ARM_normal")
     inst.AnimState:PlayAnimation("idle")
 
+    inst:AddTag("scarytoprey")
     inst:AddTag("companion")
     inst:AddTag("glommer")
 	
