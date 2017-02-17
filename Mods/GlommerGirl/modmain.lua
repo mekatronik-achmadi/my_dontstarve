@@ -445,7 +445,7 @@ local poop_pst_idle = State({
         
         timeline=
         {
-            TimeEvent(120*FRAMES, function(inst) 
+            TimeEvent(60*FRAMES, function(inst) 
                 inst:PerformBufferedAction() 
                 inst.sg:RemoveStateTag("busy")
             end),
