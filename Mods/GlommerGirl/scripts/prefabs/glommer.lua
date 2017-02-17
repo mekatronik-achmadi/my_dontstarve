@@ -85,6 +85,7 @@ local function OnRandomTalking(inst)
 			girl_chat = 1
 			local say_word = girl_words[girl_word]
         		inst.components.talker:Say(say_word)
+			inst.sg:GoToState("dirty_talk")
         	end
 	end
 end
@@ -95,7 +96,8 @@ local function ShouldAcceptItem(inst, item)
 	if boy_near == 1 then	
 	    girl_chat = 2
 	    local say_word = girl_says[girl_chat-1]		    
-	    inst.components.talker:Say(say_word)	
+	    inst.components.talker:Say(say_word)
+	    inst.sg:GoToState("dirty_talk")	
 	end
 	return false
     end
@@ -106,6 +108,7 @@ local function ShouldAcceptItem(inst, item)
 		    girl_chat = 3
 		    local say_word = girl_says[girl_chat-1]
 		    inst.components.talker:Say(say_word)
+		    inst.sg:GoToState("dirty_talk")
 		end
 		return false
 	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
@@ -115,6 +118,7 @@ local function ShouldAcceptItem(inst, item)
 		    girl_chat = 4
 		    local say_word = girl_says[girl_chat-1]
 		    inst.components.talker:Say(say_word)
+		    inst.sg:GoToState("dirty_talk")
 		end
 		return false
 	    end
@@ -123,6 +127,7 @@ local function ShouldAcceptItem(inst, item)
 		girl_chat = 5
 		local say_word = girl_says[girl_chat-1]
 		inst.components.talker:Say(say_word)	
+		inst.sg:GoToState("dirty_talk")
 	    end
 	    return false	    
     end    
@@ -144,6 +149,14 @@ local function OnGetItemFromPlayer(inst, giver, item)
     
 end
 
+local function OnPoopSeed(inst)
+	if poop_time == 0 then
+		girl_poop = 1
+		poop_time = 1
+		inst.sg:GoToState("poop_pre")
+	end
+end
+
 local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
@@ -152,14 +165,6 @@ local function OnFarting(inst)
 		girl_chat = 6
 		local say_word = girl_says[girl_chat-1]
 		inst.components.talker:Say(say_word)
-	end
-end
-
-local function OnPoopSeed(inst)
-	if poop_time == 0 then
-		girl_poop = 1
-		poop_time = 1
-		inst.sg:GoToState("poop_pre")
 	end
 end
 
@@ -295,15 +300,16 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
-    inst:ListenForEvent("donetalking", function() 
-    	inst.SoundEmitter:KillSound("talk")
+    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
+    
+    inst:ListenForEvent("dirtytalk", function() 
 	if boy_near == 1 and girl_chat > 0 then
 	    local boy = GetPlayer()
 	    if boy.components.talker then
 		if girl_chat == 1 then
 		    local say_word = boy_words[girl_word]
 		    boy.components.talker:Say(say_word)
-		else
+		elseif girl_chat > 1 then
 		    local say_word = boy_says[girl_chat-1]
 		    boy.components.talker:Say(say_word)
 		end
@@ -311,8 +317,19 @@ local function fn()
 	    girl_chat = 0
 	end
     end)
+    inst:ListenForEvent("dirtychat", function() 
+	inst.SoundEmitter:KillSound("talk")
+	if boy_near == 1 and girl_chat > 1 then
+	    local boy = GetPlayer()
+	    local say_word = boy_says[girl_chat-1]
+	    if boy.components.talker then
+		boy.components.talker:Say(say_word)
+	    end
+	    girl_chat = 0
+	end
+    end)
     
-    inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
+    inst:DoPeriodicTask(40,OnRandomTalking)
     inst:DoPeriodicTask(240,OnPoopSeed)
     
     return inst
