@@ -97,7 +97,6 @@ local function ShouldAcceptItem(inst, item)
 	    girl_chat = 2
 	    local say_word = girl_says[girl_chat-1]		    
 	    inst.components.talker:Say(say_word)
-	    inst.sg:GoToState("dirty_talk")	
 	end
 	return false
     end
@@ -301,7 +300,17 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
-    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
+    inst:ListenForEvent("donetalking", function()
+    	inst.SoundEmitter:KillSound("talk")
+    	if boy_near == 1 and girl_chat == 2 then
+    		local boy = GetPlayer()
+    		local say_word = boy_says[girl_chat-1]
+    		if boy.components.talker then
+    			boy.components.talker:Say(say_word)
+    		end
+		girl_chat = 0
+    	end
+    end)
     
     inst:ListenForEvent("dirtytalk", function() 
 	if boy_near == 1 and girl_chat > 0 then
@@ -310,7 +319,7 @@ local function fn()
 		if girl_chat == 1 then
 		    local say_word = boy_words[girl_word]
 		    boy.components.talker:Say(say_word)
-		elseif girl_chat > 1 then
+		elseif girl_chat > 2 then
 		    local say_word = boy_says[girl_chat-1]
 		    boy.components.talker:Say(say_word)
 		end
