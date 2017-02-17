@@ -56,26 +56,24 @@ local boy_words =
 
 local girl_says =
 {
-	"Wait till my poop come out, OK?", --1
-	"My poop is your meal, isn't it?", --2
-	"Is it better than my poop?", --3
-	"It's worse then my poop, right?", --4
-	"Uhhhh, Are you breathe in my fart?", --5
-	"Ups, Would you like to eat my poop?", --6
-	"Ehmm, Do you wanna eat my poop?", --7
-	"Eyyewww, Can you eat my poop?", --8
+	"My poop is your meal, isn't it?", --1
+	"Is it better than my poop?", --2
+	"It's worse then my poop, right?", --3
+	"Uhhhh, Are you breathe in my fart?", --4
+	"Ups, Would you like to eat my poop?", --5
+	"Ehmm, Do you wanna eat my poop?", --6
+	"Eyyewww, Can you eat my poop?", --7
 }
 
 local boy_says =
 {
-	"For your poop, I'll wait patiently", --1
-	"Your butt hole fed me", --2
-	"No better meal than your poop", --3
-	"Your poop is the best meal", --4
-	"Your fart is my breathe air", --5
-	"I would love to eat your poop", --6
-	"Yes, I want to eat your poop", --7
-	"Of Course, I can eat your poop", --8
+	"Your butt hole fed me", --1
+	"No better meal than your poop", --2
+	"Your poop is the best meal", --3
+	"Your fart is my breathe air", --4
+	"I would love to eat your poop", --5
+	"Yes, I want to eat your poop", --6
+	"Of Course, I can eat your poop", --7
 }
 
 local function OnRandomTalking(inst)
@@ -94,9 +92,7 @@ local function ShouldAcceptItem(inst, item)
     
     if poop_time == 1 then
 	if boy_near == 1 then	
-	    girl_chat = 2
-	    local say_word = girl_says[girl_chat-1]		    
-	    inst.components.talker:Say(say_word)
+	    inst.components.talker:Say("Wait till my poop come out, OK?")
 	end
 	return false
     end
@@ -300,17 +296,7 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
-    inst:ListenForEvent("donetalking", function()
-    	inst.SoundEmitter:KillSound("talk")
-    	if boy_near == 1 and girl_chat == 2 then
-    		local boy = GetPlayer()
-    		local say_word = boy_says[girl_chat-1]
-    		if boy.components.talker then
-    			boy.components.talker:Say(say_word)
-    		end
-		girl_chat = 0
-    	end
-    end)
+    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
     
     inst:ListenForEvent("dirtytalk", function() 
 	if boy_near == 1 and girl_chat > 0 then
@@ -319,7 +305,7 @@ local function fn()
 		if girl_chat == 1 then
 		    local say_word = boy_words[girl_word]
 		    boy.components.talker:Say(say_word)
-		elseif girl_chat > 2 then
+		elseif girl_chat > 1 then
 		    local say_word = boy_says[girl_chat-1]
 		    boy.components.talker:Say(say_word)
 		end
