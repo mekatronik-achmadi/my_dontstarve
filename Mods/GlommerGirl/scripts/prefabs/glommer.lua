@@ -90,7 +90,6 @@ local function OnRandomTalking(inst)
 end
 
 local function ShouldAcceptItem(inst, item)
-    
     if poop_time == 1 then
 	if boy_near == 1 then	
 	    girl_chat = 2
