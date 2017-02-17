@@ -281,8 +281,8 @@ local function fn()
     inst.components.sanityaura.aurafn = CalcSanityAura
 
     inst:AddComponent("locomotor")
-    inst.components.locomotor.walkspeed = 10
-    inst.components.locomotor.runspeed = 10
+    inst.components.locomotor.walkspeed = 7
+    inst.components.locomotor.runspeed = 7
     
     inst:AddComponent( "playerprox" )
     inst.components.playerprox:SetOnPlayerNear(onnear)    
