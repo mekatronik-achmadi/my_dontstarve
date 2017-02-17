@@ -139,7 +139,8 @@ local function OnGetItemFromPlayer(inst, giver, item)
 	end
 	
 	poop_time = 1
-	inst.sg:GoToState("pooping")
+	inst.sg:GoToState("eating")
+	inst:DoTaskInTime(4,inst.sg:GoToState("colic"))
     end
     
 end
@@ -148,7 +149,7 @@ local function OnPoopSeed(inst)
 	if poop_time == 0 then
 		girl_poop = 1
 		poop_time = 1
-		inst.sg:GoToState("poop_pre")
+		inst.sg:GoToState("colic")
 	end
 end
 
@@ -192,6 +193,7 @@ local function OnPooping(inst)
 			inst.components.talker:Say(say_word)
 		end
 	end
+	inst:DoTaskInTime(4,inst:PushEvent("poop_out"))
 end
 
 local function OnPoopOut(inst)

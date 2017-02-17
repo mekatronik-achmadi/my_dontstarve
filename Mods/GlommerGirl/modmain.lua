@@ -101,61 +101,13 @@ local TimeEvent = GLOBAL.TimeEvent
 local EventHandler = GLOBAL.EventHandler
 local FRAMES = GLOBAL.FRAMES
 
-local pooping = State({
-	name = "pooping",
-        tags ={"busy"},
-        onenter = function(inst)
-            inst.components.locomotor:Stop()
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/eat", "eating")    
-            inst.AnimState:PlayAnimation("quick_eat")
-        end,
-
-        timeline=
-        {
-            TimeEvent(120*FRAMES, function(inst) 
-                inst:PerformBufferedAction() 
-                inst.sg:RemoveStateTag("busy")
-            end),
-        },        
-        
-        events=
-        {
-            EventHandler("animover", function(inst) inst.sg:GoToState("pooping_idle") end),
-        },
-        
-        onexit= function(inst)
-            inst.SoundEmitter:KillSound("eating")    
-        end,
-})
-
-local pooping_idle = State({
-        name = "pooping_idle",
-        tags ={"busy"},
-        onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle_loop")
-        end,
-        
-        timeline=
-        {
-            TimeEvent(120*FRAMES, function(inst) 
-                inst:PerformBufferedAction() 
-                inst.sg:RemoveStateTag("busy")
-            end),
-        },        
-        
-        events=
-        {
-            EventHandler("animover", function(inst) inst.sg:GoToState("poop_pre") end),
-        },
-})
-
-local poop_pre = State({
-	name = "poop_pre",
+local colic = State({
+	name = "colic",
         tags ={"busy"},
         onenter = function(inst)
             inst.components.locomotor:Stop()
             inst.AnimState:PlayAnimation("hungry")
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_pre")
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","colic")
         end,
 
         timeline=
@@ -168,16 +120,16 @@ local poop_pre = State({
         
         events=
         {
-            EventHandler("animover", function(inst) inst.sg:GoToState("poop_pre_idle") end),
+            EventHandler("animover", function(inst) inst.sg:GoToState("colic_idle") end),
         },
         
         onexit= function(inst)
-        	inst.SoundEmitter:KillSound("poop_pre")
+        	inst.SoundEmitter:KillSound("colic")
         end,
 })
 
-local poop_pre_idle = State({
-        name = "poop_pre_idle",
+local colic_idle = State({
+        name = "colic_idle",
         tags ={"busy"},
         onenter = function(inst)
                 inst.AnimState:PlayAnimation("idle_loop")
@@ -383,16 +335,16 @@ local poop_try_again_idle = State({
         
         events=
         {
-            EventHandler("animover", function(inst) inst.sg:GoToState("poop_pst") end),
+            EventHandler("animover", function(inst) inst.sg:GoToState("pooping") end),
         },
 })
 
-local poop_pst = State({
-	name = "poop_pst",
+local pooping = State({
+	name = "pooping",
         tags ={"busy"},
         onenter = function(inst)
             inst.AnimState:PlayAnimation("fishing_idle")
-            inst.SoundEmitter:PlaySound("dontstarve/creatures/spiderqueen/givebirth_foley","poop_pst")
+            inst.SoundEmitter:PlaySound("dontstarve/creatures/spiderqueen/givebirth_foley","pooping")
             inst:PushEvent("pooping")
         end,
 
@@ -406,24 +358,26 @@ local poop_pst = State({
         
         events=
         {
-            EventHandler("animover", function(inst) inst.sg:GoToState("poop_pst_idle") end),
+            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
         
         onexit= function(inst)
-        	inst.SoundEmitter:KillSound("poop_pst")
+        	inst.SoundEmitter:KillSound("pooping")
         end,
 })
 
-local poop_pst_idle = State({
-        name = "poop_pst_idle",
+local eating = State({
+	name = "eating",
         tags ={"busy"},
         onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle_loop")
+            inst.components.locomotor:Stop()
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/eat", "eating")    
+            inst.AnimState:PlayAnimation("quick_eat")
         end,
-        
+
         timeline=
         {
-            TimeEvent(60*FRAMES, function(inst) 
+            TimeEvent(120*FRAMES, function(inst) 
                 inst:PerformBufferedAction() 
                 inst.sg:RemoveStateTag("busy")
             end),
@@ -435,14 +389,12 @@ local poop_pst_idle = State({
         },
         
         onexit= function(inst)
-        	inst:PushEvent("poop_out")
+            inst.SoundEmitter:KillSound("eating")    
         end,
 })
 
-AddStategraphState("shadowmaxwell", pooping)
-AddStategraphState("shadowmaxwell", pooping_idle)
-AddStategraphState("shadowmaxwell", poop_pre)
-AddStategraphState("shadowmaxwell", poop_pre_idle)
+AddStategraphState("shadowmaxwell", colic)
+AddStategraphState("shadowmaxwell", colic_idle)
 AddStategraphState("shadowmaxwell", farting)
 AddStategraphState("shadowmaxwell", farting_idle)
 AddStategraphState("shadowmaxwell", poop_try)
@@ -451,5 +403,5 @@ AddStategraphState("shadowmaxwell", poop_fart)
 AddStategraphState("shadowmaxwell", poop_fart_idle)
 AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
-AddStategraphState("shadowmaxwell", poop_pst)
-AddStategraphState("shadowmaxwell", poop_pst_idle)
+AddStategraphState("shadowmaxwell", pooping)
+AddStategraphState("shadowmaxwell", eating)
