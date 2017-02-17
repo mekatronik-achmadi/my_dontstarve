@@ -7,7 +7,7 @@ local assets=
 	Asset("SOUND", "sound/wilson.fsb"),
 	
 	Asset( "ANIM", "anim/honk.zip" ),
-	Asset( "ANIM", "anim/tomoka.zip" ),
+	Asset( "ANIM", "anim/mabel.zip" ),
 	
 	Asset("SOUND", "sound/wendy.fsb"),
 }
