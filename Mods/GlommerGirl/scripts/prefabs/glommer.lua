@@ -83,7 +83,8 @@ local function OnRandomTalking(inst)
 		girl_word = math.random(#girl_words)
 	        if boy_near == 1 then
 			girl_chat = 1
-        		inst.components.talker:Say(girl_words[girl_word])
+			local say_word = girl_words[girl_word]
+        		inst.components.talker:Say(say_word)
         	end
 	end
 end
@@ -92,8 +93,9 @@ local function ShouldAcceptItem(inst, item)
     
     if poop_time == 1 then
 	if boy_near == 1 then	
-	    girl_chat = 2		    
-	    inst.components.talker:Say(girl_says[girl_chat-1])	
+	    girl_chat = 2
+	    local say_word = girl_says[girl_chat-1]		    
+	    inst.components.talker:Say(say_word)	
 	end
 	return false
     end
@@ -102,7 +104,8 @@ local function ShouldAcceptItem(inst, item)
 	    if item.components.edible.foodtype == "SEEDS" then
 		if boy_near == 1 then
 		    girl_chat = 3
-		    inst.components.talker:Say(girl_says[girl_chat-1])
+		    local say_word = girl_says[girl_chat-1]
+		    inst.components.talker:Say(say_word)
 		end
 		return false
 	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
@@ -110,14 +113,16 @@ local function ShouldAcceptItem(inst, item)
 	    else
 		if boy_near == 1 then
 		    girl_chat = 4
-		    inst.components.talker:Say(girl_says[girl_chat-1])
+		    local say_word = girl_says[girl_chat-1]
+		    inst.components.talker:Say(say_word)
 		end
 		return false
 	    end
     else
 	    if boy_near == 1 then
 		girl_chat = 5
-		inst.components.talker:Say(girl_says[girl_chat-1])	
+		local say_word = girl_says[girl_chat-1]
+		inst.components.talker:Say(say_word)	
 	    end
 	    return false	    
     end    
@@ -145,7 +150,8 @@ local function OnFarting(inst)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	if boy_near == 1 then
 		girl_chat = 6
-		inst.components.talker:Say(girl_says[girl_chat-1])
+		local say_word = girl_says[girl_chat-1]
+		inst.components.talker:Say(say_word)
 	end
 end
 
@@ -164,7 +170,8 @@ local function OnPooping(inst)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
 			girl_chat = 7
-			inst.components.talker:Say(girl_says[girl_chat-1])
+			local say_word = girl_says[girl_chat-1]
+			inst.components.talker:Say(say_word)
 		end
 	elseif girl_poop == 2 then
 		local poo = SpawnPrefab("glommerfuel")
@@ -172,7 +179,8 @@ local function OnPooping(inst)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
 			girl_chat = 8
-			inst.components.talker:Say(girl_says[girl_chat-1])
+			local say_word = girl_says[girl_chat-1]
+			inst.components.talker:Say(say_word)
 		end
 	elseif girl_poop == 3 then
 		local poo = SpawnPrefab("poop")
@@ -180,7 +188,8 @@ local function OnPooping(inst)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
 			girl_chat = 9
-			inst.components.talker:Say(girl_says[girl_chat-1])
+			local say_word = girl_says[girl_chat-1]
+			inst.components.talker:Say(say_word)
 		end
 	end
 end
@@ -288,13 +297,15 @@ local function fn()
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
-	if boy_near == 1 and girl_chat > 0 then
+	if boy_near == 1 then
 	    local boy = GetPlayer()
 	    if boy.components.talker then
 		if girl_chat == 1 then
-		    boy.components.talker:Say(boy_words[girl_word])
-		else
-		    boy.components.talker:Say(boy_says[girl_chat-1])
+		    local say_word = boy_words[girl_word]
+		    boy.components.talker:Say(say_word)
+		elseif girl_chat > 1
+		    local say_word = boy_says[girl_chat-1]
+		    boy.components.talker:Say(say_word)
 		end
 	    end
 	    girl_chat = 0
