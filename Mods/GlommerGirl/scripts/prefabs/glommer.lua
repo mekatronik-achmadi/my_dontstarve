@@ -296,34 +296,23 @@ local function fn()
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
-    inst:ListenForEvent("donetalking", function() inst.SoundEmitter:KillSound("talk") end)
-    
-    --inst:ListenForEvent("dirtytalk", function() 
-	--if boy_near == 1 and girl_chat > 0 then
-	    --local boy = GetPlayer()
-	    --if boy.components.talker then
-		--if girl_chat == 1 then
-		    --local say_word = boy_words[girl_word]
-		    --boy.components.talker:Say(say_word)
-		--elseif girl_chat > 1 then
-		    --local say_word = boy_says[girl_chat-1]
-		    --boy.components.talker:Say(say_word)
-		--end
-	    --end
-	    --girl_chat = 0
-	--end
-    --end)
-    --inst:ListenForEvent("dirtychat", function() 
-	--inst.SoundEmitter:KillSound("talk")
-	--if boy_near == 1 and girl_chat > 1 then
-	    --local boy = GetPlayer()
-	    --local say_word = boy_says[girl_chat-1]
-	    --if boy.components.talker then
-		--boy.components.talker:Say(say_word)
-	    --end
-	    --girl_chat = 0
-	--end
-    --end)
+    inst:ListenForEvent("donetalking", function()
+	inst.SoundEmitter:KillSound("talk") 
+	
+	if boy_near == 1 and girl_chat > 0 then
+	    local boy = GetPlayer()
+	    if boy.components.talker then
+		if girl_chat == 1 then
+		    local say_word = boy_words[girl_word]
+		    boy.components.talker:Say(say_word)
+		else
+		    local say_word = boy_says[girl_chat-1]
+		    boy.components.talker:Say(say_word)
+		end
+	    end
+	    girl_chat = 0
+	end
+    end)
     
     inst:DoPeriodicTask(40,OnRandomTalking)
     inst:DoPeriodicTask(240,OnPoopSeed)
