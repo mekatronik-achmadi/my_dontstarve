@@ -282,6 +282,7 @@ local function fn()
 
     inst:AddComponent("locomotor")
     inst.components.locomotor.walkspeed = 10
+    inst.components.locomotor.runspeed = 10
     
     inst:AddComponent( "playerprox" )
     inst.components.playerprox:SetOnPlayerNear(onnear)    
