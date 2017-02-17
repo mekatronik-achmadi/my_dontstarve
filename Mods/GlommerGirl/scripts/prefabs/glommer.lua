@@ -93,8 +93,8 @@ local function ShouldAcceptItem(inst, item)
     if poop_time == 1 then
 	if boy_near == 1 then	
 	    girl_chat = 2
--	    local say_word = girl_says[girl_chat-1]		    
--	    inst.components.talker:Say(say_word)
+	    local say_word = girl_says[girl_chat-1]		    
+	    inst.components.talker:Say(say_word)
 	end
 	return false
     end
@@ -206,6 +206,22 @@ local function onfar(inst)
 	girl_chat = 0
 end
 
+local function OnBoyTalk(inst)
+    if boy_near == 1 and girl_chat > 0 then
+	local boy = GetPlayer()
+	if boy.components.talker then
+	    if girl_chat == 1 then
+		local say_word = boy_words[girl_word]
+		boy.components.talker:Say(say_word)
+	    else
+		local say_word = boy_says[girl_chat-1]
+		boy.components.talker:Say(say_word)
+	    end
+	end
+    end
+    girl_chat = 0
+end
+
 local function CalcSanityAura(inst, observer)
 	return TUNING.SANITYAURA_LARGE
 end
@@ -290,31 +306,19 @@ local function fn()
     inst.OnLoad = OnLoad
     inst.OnEntitySleep = OnEntitySleep
     
+    inst:DoPeriodicTask(40,OnRandomTalking)
+    inst:DoPeriodicTask(240,OnPoopSeed)
+    
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("poop_out",OnPoopOut)
+    inst:ListenForEvent("boytalk",OnBoyTalk)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function()
+	inst:PushEvent("boytalk")
 	inst.SoundEmitter:KillSound("talk") 
-	
-	if boy_near == 1 and girl_chat > 0 then
-	    local boy = GetPlayer()
-	    if boy.components.talker then
-		if girl_chat == 1 then
-		    local say_word = boy_words[girl_word]
-		    boy.components.talker:Say(say_word)
-		else
-		    local say_word = boy_says[girl_chat-1]
-		    boy.components.talker:Say(say_word)
-		end
-	    end
-	    girl_chat = 0
-	end
     end)
-    
-    inst:DoPeriodicTask(40,OnRandomTalking)
-    inst:DoPeriodicTask(240,OnPoopSeed)
     
     return inst
 end
