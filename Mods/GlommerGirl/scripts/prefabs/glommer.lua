@@ -239,6 +239,11 @@ local function OnSave(inst, data)
 end
 
 local function OnLoad(inst, data)
+
+	girl_chat = 0
+	local say_word = "My beauty will makes you eat my poop"
+	inst.components.talker:Say(say_word)
+	
 	if data then
 		inst.ShouldLeaveWorld = data.ShouldLeaveWorld
 	end
@@ -309,16 +314,14 @@ local function fn()
     inst:DoPeriodicTask(40,OnRandomTalking)
     inst:DoPeriodicTask(240,OnPoopSeed)
     
-    inst:ListenForEvent("boytalk",OnBoyTalk)
-    
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("poop_out",OnPoopOut)
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function()
-	inst:PushEvent("boytalk")
 	inst.SoundEmitter:KillSound("talk") 
+	inst:DoTaskInTime(2.5,OnBoyTalk)
     end)
     
     return inst
