@@ -54,11 +54,46 @@ local boy_words =
 	"It will so nice if my face get into your butt crack", --10
 }
 
+local girl_says =
+{
+	"Wait till my poop come out, OK?", --1
+	"My poop is your meal, isn't it?", --2
+	"Is it better than my poop?", --3
+	"It's worse then my poop, right?", --4
+	"Uhhhh, Are you breathe in my fart?", --5
+	"Ups, Would you like to eat my poop?", --6
+	"Ehmm, Do you wanna eat my poop?", --7
+	"Eyyewww, Can you eat my poop?", --8
+}
+
+local boy_says =
+{
+	"For your poop, I'll wait patiently", --1
+	"Your butt hole fed me", --2
+	"No better meal than your poop", --3
+	"Your poop is the best meal", --4
+	"Your fart is my breathe air", --5
+	"I would love to eat your poop", --6
+	"Yes, I want to eat your poop", --7
+	"Of Course, I can eat your poop", --8
+}
+
+local function OnRandomTalking(inst)
+	if poop_time == 0 then
+		girl_word = math.random(#girl_words)
+	        if boy_near == 1 then
+			girl_chat = 1
+        		inst.components.talker:Say(girl_words[girl_word])
+        	end
+	end
+end
+
 local function ShouldAcceptItem(inst, item)
     
     if poop_time == 1 then
-	if boy_near == 1 then
-	    inst.components.talker:Say("Wait till my poop come out, OK?")	
+	if boy_near == 1 then	
+	    girl_chat = 2		    
+	    inst.components.talker:Say(girl_says[girl_chat-1])	
 	end
 	return false
     end
@@ -66,20 +101,23 @@ local function ShouldAcceptItem(inst, item)
     if item.components.edible then
 	    if item.components.edible.foodtype == "SEEDS" then
 		if boy_near == 1 then
-		    inst.components.talker:Say("My poop is your meal, isn't it?")
+		    girl_chat = 3
+		    inst.components.talker:Say(girl_says[girl_chat-1])
 		end
 		return false
 	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
 	    	return true
 	    else
 		if boy_near == 1 then
-		    inst.components.talker:Say("Is it better than my poop?")
+		    girl_chat = 4
+		    inst.components.talker:Say(girl_says[girl_chat-1])
 		end
 		return false
 	    end
     else
 	    if boy_near == 1 then
-		inst.components.talker:Say("It's worse then my poop, right?")	
+		girl_chat = 5
+		inst.components.talker:Say(girl_says[girl_chat-1])	
 	    end
 	    return false	    
     end    
@@ -102,17 +140,16 @@ local function OnGetItemFromPlayer(inst, giver, item)
 end
 
 local function OnFarting(inst)
-	girl_chat = 0
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	if boy_near == 1 then
-		inst.components.talker:Say("Uhhhh, Are you breathe in my fart?")
+		girl_chat = 6
+		inst.components.talker:Say(girl_says[girl_chat-1])
 	end
 end
 
 local function OnPoopSeed(inst)
-	girl_chat = 0
 	if poop_time == 0 then
 		girl_poop = 1
 		poop_time = 1
@@ -121,27 +158,29 @@ local function OnPoopSeed(inst)
 end
 
 local function OnPooping(inst)
-	girl_chat = 0
 	if girl_poop == 1 then
 		local poo = SpawnPrefab("seeds")
 		poo.Transform:SetScale(0.5,0.5,0.5)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
-			inst.components.talker:Say("Ups, Would you like to eat my poop?")
+			girl_chat = 7
+			inst.components.talker:Say(girl_says[girl_chat-1])
 		end
 	elseif girl_poop == 2 then
 		local poo = SpawnPrefab("glommerfuel")
 		poo.Transform:SetScale(0.3,0.3,0.3)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
-			inst.components.talker:Say("Ehmm, Do you wanna eat my poop?")
+			girl_chat = 8
+			inst.components.talker:Say(girl_says[girl_chat-1])
 		end
 	elseif girl_poop == 3 then
 		local poo = SpawnPrefab("poop")
 		poo.Transform:SetScale(0.3,0.3,0.3)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near == 1 then
-			inst.components.talker:Say("Eyyewww, Can you eat my poop?")
+			girl_chat = 9
+			inst.components.talker:Say(girl_says[girl_chat-1])
 		end
 	end
 end
@@ -157,18 +196,6 @@ end
 local function onfar(inst)
       boy_near = 0
       girl_chat = 0
-end
-
-local function OnRandomTalking(inst)
-	if poop_time == 0 then
-		girl_chat = 0
-		girl_word = math.random(#girl_words)
-	        local word = girl_words[girl_word]
-	        if boy_near == 1 then
-        		inst.components.talker:Say(word,4)
-        		girl_chat = 1
-        	end
-	end
 end
 
 local function CalcSanityAura(inst, observer)
@@ -261,15 +288,16 @@ local function fn()
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function() 
     	inst.SoundEmitter:KillSound("talk")
-    	if  poop_time == 0 then
-    		if boy_near == 1 and girl_chat == 1 then
-	    		local boy = GetPlayer()
-    			local word = boy_words[girl_word]
-    			if boy.components.talker then
-    				boy.components.talker:Say(word,4)
-    				girl_chat = 0
-	    		end
-    		end
+	if boy_near == 1 and girl_chat > 0 then
+	    local boy = GetPlayer()
+	    if boy.components.talker then
+		if girl_chat == 1 then
+		    boy.components.talker:Say(boy_words[girl_word])
+		else
+		    boy.components.talker:Say(boy_says[girl_chat-1])
+		end
+	    end
+	    girl_chat = 0
 	end
     end)
     
