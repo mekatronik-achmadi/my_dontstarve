@@ -311,8 +311,8 @@ local function fn()
     
     boy = GetPlayer()
     
-    inst:DoPeriodicTask(40,OnRandomTalking)
-    inst:DoPeriodicTask(240,OnPoopSeed)
+    inst:DoPeriodicTask(160,OnPoopSeed)
+    inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
     
     inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
