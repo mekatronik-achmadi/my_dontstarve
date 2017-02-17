@@ -2,7 +2,6 @@ PrefabFiles =
 {
 	"glommer",
 	"honk",
-	"tomoka",
 	"mabel",
 }
 
@@ -19,17 +18,6 @@ Assets =
 	Asset( "ATLAS", "bigportraits/honk.xml" ),
 	Asset( "IMAGE", "images/map_icons/honk.tex" ),
 	Asset( "ATLAS", "images/map_icons/honk.xml" ),	
-	
-	Asset( "IMAGE", "images/saveslot_portraits/tomoka.tex" ),
-	Asset( "ATLAS", "images/saveslot_portraits/tomoka.xml" ),
-    	Asset( "IMAGE", "images/selectscreen_portraits/tomoka.tex" ),
-	Asset( "ATLAS", "images/selectscreen_portraits/tomoka.xml" ),
-	Asset( "IMAGE", "images/selectscreen_portraits/tomoka_silho.tex" ),
-	Asset( "ATLAS", "images/selectscreen_portraits/tomoka_silho.xml" ),
-	Asset( "IMAGE", "bigportraits/tomoka.tex" ),
-	Asset( "ATLAS", "bigportraits/tomoka.xml" ),
-	Asset( "IMAGE", "images/map_icons/tomoka.tex" ),
-	Asset( "ATLAS", "images/map_icons/tomoka.xml" ),
 	
 	Asset( "IMAGE", "images/saveslot_portraits/mabel.tex" ),
 	Asset( "ATLAS", "images/saveslot_portraits/mabel.xml" ),
@@ -53,9 +41,6 @@ TUNING.GIRL_DEPIC = "none"
 if GirlDepiction == "honk" then
 	TUNING.GIRL_ICON = "honk.tex"
 	TUNING.GIRL_DEPIC = "honk"
-elseif GirlDepiction == "tomoka" then
-	TUNING.GIRL_ICON = "tomoka.tex"
-	TUNING.GIRL_DEPIC = "tomoka"
 elseif GirlDepiction == "mabel" then
 	TUNING.GIRL_ICON = "wendy.png"
 	TUNING.GIRL_DEPIC = "mabel"
@@ -85,19 +70,15 @@ STRINGS.GIRL_QUOTES = "\"My beauty will makes you eat my poop\""
 
 ------------------------------------------------------
 
-STRINGS.CHARACTER_TITLES.tomoka = STRINGS.GIRL_TITLES
 STRINGS.CHARACTER_TITLES.honk = STRINGS.GIRL_TITLES
 STRINGS.CHARACTER_TITLES.mabel = STRINGS.GIRL_TITLES
 
-STRINGS.CHARACTER_DESCRIPTIONS.tomoka = STRINGS.GIRL_DESCRIPTION
 STRINGS.CHARACTER_DESCRIPTIONS.honk = STRINGS.GIRL_DESCRIPTION
 STRINGS.CHARACTER_DESCRIPTIONS.mabel = STRINGS.GIRL_DESCRIPTION
 
-STRINGS.CHARACTER_QUOTES.tomoka = STRINGS.GIRL_QUOTES
 STRINGS.CHARACTER_QUOTES.honk = STRINGS.GIRL_QUOTES
 STRINGS.CHARACTER_QUOTES.mabel = STRINGS.GIRL_QUOTES
 
-STRINGS.CHARACTER_NAMES.tomoka = "Tomoka"
 STRINGS.CHARACTER_NAMES.honk = "Honoka Kousaka"
 STRINGS.CHARACTER_NAMES.honk = "Mabel Pines"
 
@@ -105,14 +86,11 @@ STRINGS.CHARACTER_NAMES.honk = "Mabel Pines"
 
 local CHARACTER_GENDERS = GLOBAL.CHARACTER_GENDERS
 
-table.insert(CHARACTER_GENDERS.FEMALE, "tomoka")
 table.insert(CHARACTER_GENDERS.FEMALE, "honk")
 table.insert(CHARACTER_GENDERS.FEMALE, "mabel")
 
-AddMinimapAtlas("images/map_icons/tomoka.xml")
 AddMinimapAtlas("images/map_icons/honk.xml")
 
-AddModCharacter("tomoka")
 AddModCharacter("honk")
 AddModCharacter("mabel")
 

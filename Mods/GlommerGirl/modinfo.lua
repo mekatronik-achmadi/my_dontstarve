@@ -20,7 +20,6 @@ configuration_options = {
 		options =
 		{
 			{description = "Honoka", data = "honk"},
-			{description = "Tomoka", data = "tomoka"},
 			{description = "Mabel", data = "mabel"},	
 		},
 		default = "mabel",
