@@ -243,7 +243,6 @@ local farting = State({
         
         onexit= function(inst)
         	inst.SoundEmitter:KillSound("farting")
-                inst:PushEvent("dirtychat")
         end,
 })
 
@@ -339,7 +338,6 @@ local poop_fart = State({
         
         onexit= function(inst)
         	inst.SoundEmitter:KillSound("poop_fart")
-                inst:PushEvent("dirtychat")
         end,
 })
 
@@ -443,7 +441,6 @@ local poop_pst_idle = State({
         tags ={"busy"},
         onenter = function(inst)
                 inst.AnimState:PlayAnimation("idle_loop")
-                inst:PushEvent("dirtychat")
         end,
         
         timeline=
@@ -463,32 +460,6 @@ local poop_pst_idle = State({
         end,
 })
 
-local dirty_talk = State({
-        name = "dirty_talk",
-        tags ={"busy"},
-        
-        onenter = function(inst)
-                inst.AnimState:PlayAnimation("idle_loop")
-        end,
-        
-        timeline=
-        {
-            TimeEvent(120*FRAMES, function(inst) 
-                inst:PerformBufferedAction() 
-                inst.sg:RemoveStateTag("busy")
-            end),
-        },        
-        
-        events=
-        {
-            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
-        },
-        
-        onexit= function(inst)
-                inst:PushEvent("dirtytalk")
-        end,
-})
-
 AddStategraphState("shadowmaxwell", pooping)
 AddStategraphState("shadowmaxwell", pooping_idle)
 AddStategraphState("shadowmaxwell", poop_pre)
@@ -503,4 +474,3 @@ AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", poop_pst)
 AddStategraphState("shadowmaxwell", poop_pst_idle)
-AddStategraphState("shadowmaxwell", dirty_talk)
