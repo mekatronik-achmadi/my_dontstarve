@@ -259,7 +259,7 @@ local poop_try = State({
 	name = "poop_try",
         tags ={"busy"},
         onenter = function(inst)   
-            inst.AnimState:PlayAnimation("fishing_idle")
+            inst.AnimState:PlayAnimation("idle_hot_loop")
             inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_try")
         end,
 
@@ -306,7 +306,7 @@ local poop_fart = State({
 	name = "poop_fart",
         tags ={"busy"},
         onenter = function(inst)   
-            inst.AnimState:PlayAnimation("fishing_idle")
+            inst.AnimState:PlayAnimation("idle_hot_loop")
             inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_fart")
             inst:PushEvent("farting")
         end,
@@ -354,7 +354,7 @@ local poop_try_again = State({
 	name = "poop_try_again",
         tags ={"busy"},
         onenter = function(inst)   
-            inst.AnimState:PlayAnimation("fishing_idle")
+            inst.AnimState:PlayAnimation("idle_hot_loop")
             inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_try")
         end,
 
@@ -401,7 +401,7 @@ local pooping = State({
 	name = "pooping",
         tags ={"busy"},
         onenter = function(inst)
-            inst.AnimState:PlayAnimation("fishing_idle")
+            inst.AnimState:PlayAnimation("idle_hot_loop")
             inst.SoundEmitter:PlaySound("dontstarve/creatures/spiderqueen/givebirth_foley","pooping")
             inst:PushEvent("pooping")
         end,
@@ -557,10 +557,10 @@ AddStategraphState("shadowmaxwell", run_stop)
 
 local boy_get_poop = State({
         name = "boy_get_poop",
-        tags = {"busy","talking"},
+        tags = {"idle"},
         onenter = function(inst)
                 inst.components.locomotor:Stop()
-                inst.AnimState:PlayAnimation("sleep",true)
+                inst.AnimState:PlayAnimation("idle")
                 inst.components.playercontroller:Enable(false)
                 inst.components.health:SetInvincible(true)
         end,
@@ -571,4 +571,53 @@ local boy_get_poop = State({
         end,
 })
 
+local talking = State(
+{
+        name = "talk",
+        tags = {"idle", "talking"},
+        
+        onenter = function(inst, noanim)
+            inst.components.locomotor:Stop()
+            if not noanim then
+                inst.AnimState:PlayAnimation("dial_loop", true)
+            end
+            
+            if inst.talksoundoverride then
+                 inst.SoundEmitter:PlaySound(inst.talksoundoverride, "talk")
+            else
+                local sound_name = inst.soundsname or inst.prefab
+                local path = inst.talker_path_override or "dontstarve/characters/"
+                inst.SoundEmitter:PlaySound(path..sound_name.."/talk_LP", "talk")
+            end
+
+            inst.sg:SetTimeout(1.5 + math.random()*.5)
+        end,
+        
+        ontimeout = function(inst)
+            inst.SoundEmitter:KillSound("talk")
+            if inst:HasTag("get_poop") then
+                inst.sg:GoToState("boy_get_poop")
+            else
+                inst.sg:GoToState("idle")
+            end
+        end,
+        
+        onexit = function(inst)
+            inst.SoundEmitter:KillSound("talk")
+        end,
+        
+        events=
+        {
+            EventHandler("donetalking", function(inst)
+                    if inst:HasTag("get_poop") then
+                        inst.sg:GoToState("boy_get_poop")
+                    else
+                        inst.sg:GoToState("idle")
+                    end
+            end),
+        },
+    }
+)
+
 AddStategraphState("wilson", boy_get_poop)
+AddStategraphState("wilson", talking)

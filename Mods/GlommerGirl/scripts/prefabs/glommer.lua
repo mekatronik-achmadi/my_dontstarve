@@ -23,7 +23,7 @@ local buttlight_announce = false
 
 local boy = nil
 local boy_near = false
-local boy_sleep = false
+local boy_getpoop = false
 
 local girl_poop = 0
 local not_pooping = true
@@ -221,9 +221,10 @@ end
 
 local function OnPoopOut(inst)
 	not_pooping = true
-	if boy_sleep then
+	if boy_getpoop then
+	    boy:RemoveTag("get_poop")
 	    boy.sg:GoToState("idle")
-	    boy_sleep = false
+	    boy_getpoop = false
 	end
 end
 
@@ -243,7 +244,7 @@ local function OnBoyTalk(inst)
 	    boy.components.talker:Say(say_word)
 	elseif girl_chat == 6 or girl_chat == 7 or girl_chat == 8 or girl_chat == 9 then
 	    local say_word = boy_says[girl_chat-1]
-	    boy.components.talker:Say(say_word,false)
+	    boy.components.talker:Say(say_word,2,true)
 	else
 	    local say_word = boy_says[girl_chat-1]
 	    boy.components.talker:Say(say_word)
@@ -279,10 +280,13 @@ local function OnBoyGetPoop(inst)
 	    return
     end
     
-    if not boy_sleep then
-	boy.Transform:SetPosition(inst.Transform:GetWorldPosition())
+    if not boy_getpoop then
+	boy:AddTag("get_poop")
 	boy.sg:GoToState("boy_get_poop")
-	boy_sleep = true
+	local x,y,z = inst.Transform:GetWorldPosition()
+	boy.Transform:SetRotation(inst:GetAngleToPoint(inst.Transform:GetWorldPosition()) + 180)
+	boy.Transform:SetPosition(x,y-5,z)
+	boy_getpoop = true
     end
 end
 
