@@ -74,7 +74,7 @@ local boy_says =
 {
 	"OK, I'm waiting your poop patiently", --1
 	"Yes, Your butt hole fed me", --2
-	"Yes, This's worse than your poop", --3
+	"No, It's worse than your poop", --3
 	"Yes, Your poop is better than this", --4
 	"Yes, Your fart is my breathe air", --5
 	"I would love to eat your poop", --6
@@ -305,7 +305,7 @@ local function OnBoyGetPoop(inst)
 end
 
 local function CalcSanityAura(inst, observer)
-	return TUNING.SANITYAURA_LARGE
+	return TUNING.SANITYAURA_SMALL
 end
 
 local function LeaveWorld(inst)
