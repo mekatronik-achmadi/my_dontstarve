@@ -541,6 +541,7 @@ local run_stop = State(
         onenter = function(inst) 
             inst.Physics:Stop()
             inst.AnimState:PlayAnimation("run_pst")
+            inst:PushEvent("girl_cardio")
         end,
         
         events=
@@ -561,7 +562,7 @@ local boy_get_poop = State({
         tags = {"idle"},
         onenter = function(inst)
                 inst.components.locomotor:Stop()
-                inst.AnimState:PlayAnimation("idle_hot_loop")
+                inst.AnimState:PlayAnimation("idle_hot_pre")
                 inst.components.playercontroller:Enable(false)
                 inst.components.health:SetInvincible(true)
         end,
