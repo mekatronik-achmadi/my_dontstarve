@@ -262,7 +262,7 @@ local function onfar(inst)
 end
 
 local function OnBoyTalk(inst)
-    if boy_near and boy.components.talker and girl_chat > 0 then
+    if boy.components.talker and girl_chat > 0 then
 	if girl_chat == 1 then
 	    local say_word = boy_words[girl_word]
 	    boy.components.talker:Say(say_word)
