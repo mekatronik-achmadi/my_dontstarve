@@ -1,7 +1,3 @@
-RunScript("consolecommands")
-
---------------------------------------------------------------------------------
-
 GetWorld().minimap.MiniMap:ShowArea(0,0,0,10000)
 ​GetPlayer().components.builder:GiveAllRecipes()​
 TheInput:GetWorldEntityUnderMouse():Remove()
@@ -43,3 +39,7 @@ c_spawn("firesuppressor")
 
 GetPlayer().prefab = "character"
 GetPlayer().profile:UnlockEverything()
+
+--------------------------------------------------------------------------------
+
+RunScript("consolecommands")
