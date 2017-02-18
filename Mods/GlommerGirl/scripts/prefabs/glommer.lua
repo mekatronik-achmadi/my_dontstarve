@@ -121,7 +121,7 @@ local function ShouldAcceptItem(inst, item)
 	if boy_near then	
 	    girl_chat = 2
 	    local say_word = girl_says[girl_chat-1]		    
-	    inst.components.talker:Say(say_word)
+	    inst.components.talker:Say(say_word,true)
 	end
 	return false
     end
@@ -130,7 +130,7 @@ local function ShouldAcceptItem(inst, item)
 	if boy_near then	
 	    girl_chat = 11
 	    local say_word = girl_says[girl_chat-1]		    
-	    inst.components.talker:Say(say_word)
+	    inst.components.talker:Say(say_word,true)
 	end
 	return false
     end
@@ -198,7 +198,7 @@ local function OnFarting(inst)
 	if boy_near and girl_chat == 0 then
 		girl_chat = 6
 		local say_word = girl_says[girl_chat-1]
-		inst.components.talker:Say(say_word)
+		inst.components.talker:Say(say_word,true)
 	end
 end
 
@@ -210,7 +210,7 @@ local function OnPooping(inst)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 7
 			local say_word = girl_says[girl_chat-1]
-			inst.components.talker:Say(say_word)
+			inst.components.talker:Say(say_word,true)
 		end
 	elseif girl_poop == 2 then
 		local poo = SpawnPrefab("glommerfuel")
@@ -218,7 +218,7 @@ local function OnPooping(inst)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 8
 			local say_word = girl_says[girl_chat-1]
-			inst.components.talker:Say(say_word)
+			inst.components.talker:Say(say_word,true)
 		end
 	elseif girl_poop == 3 then
 		local poo = SpawnPrefab("girlpoop")
@@ -226,7 +226,7 @@ local function OnPooping(inst)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 9
 			local say_word = girl_says[girl_chat-1]
-			inst.components.talker:Say(say_word)
+			inst.components.talker:Say(say_word,true)
 		end
 	end
 end

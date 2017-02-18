@@ -557,6 +557,48 @@ AddStategraphState("shadowmaxwell", run_stop)
 
 ------------------------------------------------------
 
+local girl_talking = State(
+{
+        name = "talk",
+        tags = {"idle", "talking"},
+        
+        onenter = function(inst, noanim)
+            inst.components.locomotor:Stop()
+            if not noanim then
+                inst.AnimState:PlayAnimation("dial_loop", true)
+            end
+            
+            if inst.talksoundoverride then
+                 inst.SoundEmitter:PlaySound(inst.talksoundoverride, "talk")
+            else
+                local sound_name = inst.soundsname or inst.prefab
+                local path = inst.talker_path_override or "dontstarve/characters/"
+                inst.SoundEmitter:PlaySound(path..sound_name.."/talk_LP", "talk")
+            end
+
+            inst.sg:SetTimeout(1.5 + math.random()*.5)
+        end,
+        
+        ontimeout = function(inst)
+            inst.SoundEmitter:KillSound("talk")
+            inst.sg:GoToState("idle")
+        end,
+        
+        onexit = function(inst)
+            inst.SoundEmitter:KillSound("talk")
+        end,
+        
+        events=
+        {
+            EventHandler("donetalking", function(inst) inst.sg:GoToState("idle") end),
+        },
+    }
+)
+
+AddStategraphState("shadowmaxwell", girl_talking)
+
+------------------------------------------------------
+
 local boy_get_poop = State({
         name = "boy_get_poop",
         tags = {"idle"},
@@ -573,7 +615,7 @@ local boy_get_poop = State({
         end,
 })
 
-local talking = State(
+local boy_talking = State(
 {
         name = "talk",
         tags = {"idle", "talking"},
@@ -621,5 +663,5 @@ local talking = State(
     }
 )
 
+AddStategraphState("wilson", boy_talking)
 AddStategraphState("wilson", boy_get_poop)
-AddStategraphState("wilson", talking)
