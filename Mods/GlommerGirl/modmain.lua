@@ -439,6 +439,10 @@ local pooping_idle = State({
         {
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
+        
+        onexit= function(inst)
+        	inst:PushEvent("poop_out")
+        end,
 })
 
 AddStategraphState("shadowmaxwell", eating)

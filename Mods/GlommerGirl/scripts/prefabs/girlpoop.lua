@@ -47,17 +47,19 @@ local function fn(Sim)
     
     inst:AddComponent("stackable")
     inst:AddComponent("inspectable")
-    inst:AddComponent("inventoryitem")
+    inst:AddComponent("smotherer")
+    inst:AddComponent("tradable")
 
     inst:AddComponent("fertilizer")
     inst.components.fertilizer.fertilizervalue = TUNING.POOP_FERTILIZE
     inst.components.fertilizer.soil_cycles = TUNING.POOP_SOILCYCLES
     inst.components.fertilizer.withered_cycles = TUNING.POOP_WITHEREDCYCLES
 
-    inst:AddComponent("smotherer")
+    inst:AddComponent("inventoryitem")
     inst.components.inventoryitem:SetOnDroppedFn(function() inst.flies = inst:SpawnChild("flies") end )
     inst.components.inventoryitem:SetOnPickupFn(function() if inst.flies then inst.flies:Remove() inst.flies = nil end end )
     inst.components.inventoryitem:SetOnPutInInventoryFn(function() if inst.flies then inst.flies:Remove() inst.flies = nil end end )
+    inst.components.inventoryitem:ChangeImageName("poop")
     
     inst.flies = inst:SpawnChild("flies")
     
@@ -76,7 +78,7 @@ local function fn(Sim)
     
     inst:AddComponent("edible")
     inst.components.edible.foodtype = "GIRLPOOP"
-	inst.components.edible.healthvalue = -TUNING.HEALING_MED
+	inst.components.edible.healthvalue = TUNING.HEALING_TINY
 	inst.components.edible.hungervalue = TUNING.CALORIES_MED
 	inst.components.edible.sanityvalue = -TUNING.SANITY_MED
 	inst.components.edible:SetOnEatenFn(OnEaten)

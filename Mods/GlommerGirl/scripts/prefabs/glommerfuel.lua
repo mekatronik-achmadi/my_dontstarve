@@ -44,9 +44,9 @@ local function fn()
 
 	inst:AddComponent("edible")
 	inst.components.edible.foodtype = "GIRLPOOP"
-	inst.components.edible.healthvalue = TUNING.HEALING_LARGE
+	inst.components.edible.healthvalue = TUNING.HEALING_SMALL
 	inst.components.edible.hungervalue = TUNING.CALORIES_SMALL
-	inst.components.edible.sanityvalue = -TUNING.SANITY_MEDLARGE
+	inst.components.edible.sanityvalue = -TUNING.SANITY_SMALL
 	inst.components.edible:SetOnEatenFn(OnEaten)
 	
 	inst.Transform:SetScale(0.3,0.3,0.3)
