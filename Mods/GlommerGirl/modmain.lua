@@ -73,7 +73,7 @@ STRINGS.GIRL_TITLES = "Dirty Girl"
 STRINGS.GIRL_DESCRIPTION = "A Dirty but Useful Girl"
 STRINGS.GIRL_QUOTES = "\"My beautiful butt makes you eat my poop\""
 
-STRINGS.NAMES.GIRLPOOP = "Girl's Manure"
+STRINGS.NAMES.GIRLPOOP = "Girl's Feces"
 STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
 STRINGS.NAMES.GIRLSEEDS = "Girl's Scat"
 
@@ -215,9 +215,8 @@ local farting = State({
         tags ={"busy"},
         onenter = function(inst)
             inst.AnimState:PlayAnimation("hungry")
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","farting")
+            inst.SoundEmitter:PlaySound("dontstarve/creatures/mosquito/mosquito_attack","farting")
             inst:PushEvent("farting")
-            inst:PushEvent("boy_get_poop")
         end,
 
         timeline=
@@ -257,6 +256,10 @@ local farting_idle = State({
         {
             EventHandler("animover", function(inst) inst.sg:GoToState("poop_try") end),
         },
+        
+        onexit= function(inst)
+        	inst:PushEvent("boy_get_poop")
+        end,
 })
 
 local poop_try = State({
@@ -311,7 +314,7 @@ local poop_fart = State({
         tags ={"busy"},
         onenter = function(inst)   
             inst.AnimState:PlayAnimation("idle_hot_loop")
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","poop_fart")
+            inst.SoundEmitter:PlaySound("dontstarve/creatures/mosquito/mosquito_attack","poop_fart")
             inst:PushEvent("farting")
         end,
 
