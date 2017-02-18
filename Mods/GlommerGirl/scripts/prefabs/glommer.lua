@@ -222,9 +222,19 @@ end
 local function OnPoopOut(inst)
 	not_pooping = true
 	if boy_getpoop then
-	    boy:RemoveTag("get_poop")
+	
 	    boy.sg:GoToState("idle")
+	    
+	    if girl_poop == 1 then
+		boy.components.sanity:DoDelta(TUNING.SANITY_TINY)
+	    elseif girl_poop == 2 then
+		boy.components.sanity:DoDelta(TUNING.SANITY_SMALL)
+	    elseif girl_poop == 3 then
+		boy.components.sanity:DoDelta(TUNING.SANITY_MED)
+	    end
+	    
 	    boy_getpoop = false
+	    boy:RemoveTag("get_poop")
 	end
 end
 

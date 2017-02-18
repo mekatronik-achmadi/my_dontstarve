@@ -80,8 +80,8 @@ local function fn(Sim)
     inst:AddComponent("edible")
     inst.components.edible.foodtype = "GIRLPOOP"
 	inst.components.edible.healthvalue = TUNING.HEALING_TINY
-	inst.components.edible.hungervalue = TUNING.CALORIES_MED
-	inst.components.edible.sanityvalue = -TUNING.SANITY_MED
+	inst.components.edible.hungervalue = TUNING.CALORIES_MEDSMALL
+	inst.components.edible.sanityvalue = -TUNING.SANITY_MEDLARGE
 	inst.components.edible:SetOnEatenFn(OnEaten)
     
     boy = GetPlayer()

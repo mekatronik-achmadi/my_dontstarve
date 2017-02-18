@@ -52,9 +52,9 @@ local function fn(Sim)
     inst:AddComponent("bait")
     inst:AddComponent("edible")
     inst.components.edible.foodtype = "GIRLPOOP"
-    inst.components.edible.healthvalue = 0
+    inst.components.edible.healthvalue = TUNING.HEALING_MEDSMALL
     inst.components.edible.hungervalue = TUNING.CALORIES_TINY
-    inst.components.edible.sanityvalue = -TUNING.SANITY_TINY
+    inst.components.edible.sanityvalue = -TUNING.SANITY_SMALL
     inst.components.edible:SetOnEatenFn(OnEaten)
 
     inst:AddComponent("stackable")
