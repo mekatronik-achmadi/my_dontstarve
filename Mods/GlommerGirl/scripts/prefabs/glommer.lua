@@ -91,7 +91,7 @@ local function ButtLight(inst)
 	inst.Light:Enable(true)
 	inst.Light:SetIntensity(buttlight_intensity)
 	inst:DoTaskInTime(2, function()
-	    if not buttlight_announce and not_pooping and girl_chat == 0 then
+	    if not buttlight_announce and not_pooping and boy_near and girl_chat == 0 then
 		girl_chat = 10
 		buttlight_announce = true
 		local say_word = girl_says[girl_chat-1]
