@@ -23,6 +23,7 @@ local buttlight_announce = false
 
 local boy = nil
 local boy_near = false
+local boy_sleep = false
 
 local girl_poop = 0
 local not_pooping = true
@@ -220,6 +221,10 @@ end
 
 local function OnPoopOut(inst)
 	not_pooping = true
+	if boy_sleep then
+	    boy.sg:GoToState("idle")
+	    boy_sleep = false
+	end
 end
 
 local function onnear(inst)
@@ -236,11 +241,48 @@ local function OnBoyTalk(inst)
 	if girl_chat == 1 then
 	    local say_word = boy_words[girl_word]
 	    boy.components.talker:Say(say_word)
+	elseif girl_chat == 6 or girl_chat == 7 or girl_chat == 8 or girl_chat == 9 then
+	    local say_word = boy_says[girl_chat-1]
+	    boy.components.talker:Say(say_word,false)
 	else
 	    local say_word = boy_says[girl_chat-1]
 	    boy.components.talker:Say(say_word)
 	end
 	girl_chat = 0
+    end
+end
+
+local function OnBoyGetPoop(inst)
+
+    if not boy_near then
+	return
+    end
+    
+    local hounded = GetWorld().components.hounded
+
+    local danger = FindEntity(inst, 10, function(target) 
+	    return
+		    (target:HasTag("monster") and not target:HasTag("player") and not boy:HasTag("spiderwhisperer"))
+		    or (target:HasTag("monster") and not target:HasTag("player") and boy:HasTag("spiderwhisperer") and not target:HasTag("spider"))
+		    or (target:HasTag("pig") and not target:HasTag("player") and boy:HasTag("spiderwhisperer"))
+		    or (target.components.combat and target.components.combat.target == boy)
+    end)
+
+    if hounded and (hounded.warning or hounded.timetoattack <= 0) then
+	    danger = true
+    end
+
+    if danger then
+	    if boy.components.talker then
+		    boy.components.talker:Say("Sorry, I'll eat your poop later")
+	    end
+	    return
+    end
+    
+    if not boy_sleep then
+	boy.Transform:SetPosition(inst.Transform:GetWorldPosition())
+	boy.sg:GoToState("boy_get_poop")
+	boy_sleep = true
     end
 end
 
@@ -356,6 +398,8 @@ local function fn()
 	inst.SoundEmitter:KillSound("talk") 
 	inst:DoTaskInTime(2.5,OnBoyTalk)
     end)
+    
+    inst:ListenForEvent("boy_get_poop",OnBoyGetPoop)
     
     return inst
 end

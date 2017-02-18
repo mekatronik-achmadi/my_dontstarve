@@ -213,6 +213,7 @@ local farting = State({
             inst.AnimState:PlayAnimation("hungry")
             inst.SoundEmitter:PlaySound("dontstarve/wilson/hungry","farting")
             inst:PushEvent("farting")
+            inst:PushEvent("boy_get_poop")
         end,
 
         timeline=
@@ -551,3 +552,23 @@ local run_stop = State(
 AddStategraphState("shadowmaxwell", run_start)
 AddStategraphState("shadowmaxwell", run)
 AddStategraphState("shadowmaxwell", run_stop)
+
+------------------------------------------------------
+
+local boy_get_poop = State({
+        name = "boy_get_poop",
+        tags = {"busy","talking"},
+        onenter = function(inst)
+                inst.components.locomotor:Stop()
+                inst.AnimState:PlayAnimation("sleep",true)
+                inst.components.playercontroller:Enable(false)
+                inst.components.health:SetInvincible(true)
+        end,
+
+        onexit=function(inst)
+                inst.components.health:SetInvincible(false)
+                inst.components.playercontroller:Enable(true)
+        end,
+})
+
+AddStategraphState("wilson", boy_get_poop)
