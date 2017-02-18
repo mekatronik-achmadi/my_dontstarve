@@ -325,7 +325,7 @@ local function fn()
     inst.DynamicShadow:SetSize( 1.3, .6 )
     inst.Transform:SetFourFaced()
 
-    MakeCharacterPhysics(inst, 75, .5)
+    MakeInventoryPhysics(inst)
 
     local minimap = inst.entity:AddMiniMapEntity()
     minimap:SetIcon(TUNING.GIRL_ICON)
