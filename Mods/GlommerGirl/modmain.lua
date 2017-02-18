@@ -56,17 +56,17 @@ STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
 STRINGS.NAMES.GLOMMERWINGS = "Girl's Wings"
 STRINGS.NAMES.STATUEGLOMMER = "Girl's Statue"
 
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMER = "Her beauty makes me eat her poop"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMER = "Her beautiful butt makes me eat her poop"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFUEL = "Her poop smells like a flower"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERWINGS = "It's smells good like her poop"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.DEAD = "I still remember her beauty"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beautiful as she is"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beauty"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.DEAD = "I still remember her beautiful butt"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beautiful as her butt"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beautiful butt"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.POOP = "I think I can eat her poop"
 
 STRINGS.GIRL_TITLES = "Dirty Girl"
 STRINGS.GIRL_DESCRIPTION = "A Dirty but Useful Girl"
-STRINGS.GIRL_QUOTES = "\"My beauty will makes you eat my poop\""
+STRINGS.GIRL_QUOTES = "\"My beautiful butt makes you eat my poop\""
 
 ------------------------------------------------------
 
