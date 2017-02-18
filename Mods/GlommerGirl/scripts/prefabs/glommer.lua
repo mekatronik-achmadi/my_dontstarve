@@ -203,7 +203,12 @@ local function OnFarting(inst)
 end
 
 local function OnPooping(inst)
-	local x,y,z = boy.Transform:GetWorldPosition()
+	if boy_getpoop then
+	    local x,y,z = boy.Transform:GetWorldPosition()
+	else
+	    local x,y,z = inst.Transform:GetWorldPosition()
+	end
+	
 	if girl_poop == 1 then
 		local poo = SpawnPrefab("girlseeds")
 		poo.Transform:SetPosition(x,y,z)
