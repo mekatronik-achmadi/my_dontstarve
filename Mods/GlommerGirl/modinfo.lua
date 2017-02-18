@@ -18,8 +18,9 @@ configuration_options = {
 		label = "Girl Depiction",
 		hover = "Choose preferred Girl Depiction",
 		options =
-		{
+		{	
 			{description = "Honoka", data = "honk"},
+			{description = "Wendy", data = "wendy"},
 			{description = "Mabel", data = "mabel"},	
 		},
 		default = "mabel",

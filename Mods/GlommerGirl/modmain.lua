@@ -46,6 +46,9 @@ TUNING.GIRL_DEPIC = "none"
 if GirlDepiction == "honk" then
 	TUNING.GIRL_ICON = "honk.tex"
 	TUNING.GIRL_DEPIC = "honk"
+elseif GirlDepiction == "wendy" then
+	TUNING.GIRL_ICON = "wendy.png"
+	TUNING.GIRL_DEPIC = "wendy"        
 elseif GirlDepiction == "mabel" then
 	TUNING.GIRL_ICON = "wendy.png"
 	TUNING.GIRL_DEPIC = "mabel"
