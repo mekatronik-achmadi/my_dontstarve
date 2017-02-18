@@ -23,7 +23,6 @@ local buttlight_announce = false
 
 local boy = nil
 local boy_near = false
-local boy_getpoop = false
 
 local girl_poop = 0
 local girl_cardio = true
@@ -203,7 +202,7 @@ local function OnFarting(inst)
 end
 
 local function OnPooping(inst)
-	if boy_getpoop then
+	if boy:HasTag("get_poop") then
 	    local x,y,z = boy.Transform:GetWorldPosition()
 	else
 	    local x,y,z = inst.Transform:GetWorldPosition()
@@ -238,7 +237,7 @@ end
 
 local function OnPoopOut(inst)
 	not_pooping = true
-	if boy_getpoop then
+	if boy:HasTag("get_poop") then
 	
 	    boy.sg:GoToState("idle")
 	    
@@ -250,7 +249,6 @@ local function OnPoopOut(inst)
 		boy.components.sanity:DoDelta(TUNING.SANITY_MED)
 	    end
 	    
-	    boy_getpoop = false
 	    boy:RemoveTag("get_poop")
 	    
 	    girl_cardio = false
@@ -308,10 +306,9 @@ local function OnBoyGetPoop(inst)
 	    return
     end
     
-    if not boy_getpoop then
+    if not boy:HasTag("get_poop") then
 	boy:AddTag("get_poop")
 	boy.sg:GoToState("boy_get_poop")
-	boy_getpoop = true
 	
 	local x,y,z = boy.Transform:GetWorldPosition()
 	inst:ForceFacePoint(boy.Transform:GetWorldPosition())
