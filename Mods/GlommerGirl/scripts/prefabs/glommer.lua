@@ -191,10 +191,10 @@ local function OnFarting(inst)
 end
 
 local function OnPooping(inst)
+	local x,y,z = boy.Transform:GetWorldPosition()
 	if girl_poop == 1 then
 		local poo = SpawnPrefab("girlseeds")
-		poo.Transform:SetScale(0.5,0.5,0.5)
-		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		poo.Transform:SetPosition(x,y,z)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 7
 			local say_word = girl_says[girl_chat-1]
@@ -202,7 +202,7 @@ local function OnPooping(inst)
 		end
 	elseif girl_poop == 2 then
 		local poo = SpawnPrefab("glommerfuel")
-		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		poo.Transform:SetPosition(x,y,z)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 8
 			local say_word = girl_says[girl_chat-1]
@@ -210,7 +210,7 @@ local function OnPooping(inst)
 		end
 	elseif girl_poop == 3 then
 		local poo = SpawnPrefab("girlpoop")
-		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
+		poo.Transform:SetPosition(x,y,z)
 		if boy_near and girl_chat == 0 then
 			girl_chat = 9
 			local say_word = girl_says[girl_chat-1]
@@ -283,10 +283,14 @@ local function OnBoyGetPoop(inst)
     if not boy_getpoop then
 	boy:AddTag("get_poop")
 	boy.sg:GoToState("boy_get_poop")
-	local x,y,z = inst.Transform:GetWorldPosition()
-	boy.Transform:SetRotation(inst:GetAngleToPoint(inst.Transform:GetWorldPosition()) + 180)
-	boy.Transform:SetPosition(x,y-5,z)
 	boy_getpoop = true
+	
+	local x,y,z = boy.Transform:GetWorldPosition()
+	local angle = boy:GetAngleToPoint(x,y,z) + 180
+
+	inst.Transform:SetRotation(angle)
+	inst.Transform:SetPosition(x,y+0.55,z)
+	boy.Transform:SetPosition(x,y-5,z)
     end
 end
 
@@ -329,7 +333,7 @@ local function fn()
     inst.DynamicShadow:SetSize( 1.3, .6 )
     inst.Transform:SetFourFaced()
 
-    MakeInventoryPhysics(inst)
+    MakeCharacterPhysics(inst, 75, .5)
 
     local minimap = inst.entity:AddMiniMapEntity()
     minimap:SetIcon(TUNING.GIRL_ICON)

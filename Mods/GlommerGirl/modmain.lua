@@ -560,7 +560,7 @@ local boy_get_poop = State({
         tags = {"idle"},
         onenter = function(inst)
                 inst.components.locomotor:Stop()
-                inst.AnimState:PlayAnimation("idle")
+                inst.AnimState:PlayAnimation("idle_hot_loop")
                 inst.components.playercontroller:Enable(false)
                 inst.components.health:SetInvincible(true)
         end,
