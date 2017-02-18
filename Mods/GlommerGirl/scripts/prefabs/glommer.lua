@@ -328,7 +328,7 @@ local function fn()
     inst.Light:SetFalloff(1)
     inst.Light:SetIntensity(buttlight_intensity)
     inst.Light:SetRadius(1)
-    inst.Light:SetColour(230/255,140/255,200/255)
+    inst.Light:SetColour(250/255,150/255,250/255)
     inst.Light:Enable(false)
 	
     local brain = require("brains/glommerbrain")
