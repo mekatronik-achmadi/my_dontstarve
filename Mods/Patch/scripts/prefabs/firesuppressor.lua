@@ -354,8 +354,6 @@ local function projectile_fn()
 	inst:AddComponent("complexprojectile")
 	inst.components.complexprojectile:SetOnHit(OnHit)
 	inst.components.complexprojectile.yOffset = 2.5
-	
-	table.insert(inst.components.firedetector.NOTAGS, "campfire")
 
 	return inst
 end

@@ -70,6 +70,12 @@ TUNING.WOODFLOOR_SPEEDMULTIPLIER = 1.15
 
 ------------------------------------------------------
 
+AddPrefabPostInit("firesuppressor", function(inst)
+    table.insert(inst.components.firedetector.NOTAGS, "campfire")
+end)
+
+-------------------------------------------------------
+
 function playerpostinit(inst)
 	inst:AddComponent("pickyfeet")
 end
