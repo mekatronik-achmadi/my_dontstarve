@@ -9,7 +9,7 @@ local boy = nil
 
 local function OnEaten(inst)
     if boy.components.talker then
-	local say_word = "Hmm, It taste as sweet as her butt hole"
+	local say_word = "It taste as sweet as her butt hole"
 	boy.components.talker:Say(say_word)
     end
 end
@@ -23,11 +23,13 @@ local function fn()
 
 	anim:SetBank("glommer_fuel")
 	anim:SetBuild("glommer_fuel")
+	anim:PlayAnimation("dump")
 	anim:PlayAnimation("idle")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("inventoryitem")
 	inst:AddComponent("stackable")
+	inst:AddComponent("tradable")
 
 	inst:AddComponent("fuel")
 	inst.components.fuel.fuelvalue = TUNING.LARGE_FUEL
@@ -41,6 +43,7 @@ local function fn()
 	inst.components.fertilizer.soil_cycles = TUNING.GLOMMERFUEL_SOILCYCLES
 
 	inst:AddComponent("edible")
+	inst.components.edible.foodtype = "GIRLPOOP"
 	inst.components.edible.healthvalue = TUNING.HEALING_LARGE
 	inst.components.edible.hungervalue = TUNING.CALORIES_SMALL
 	inst.components.edible.sanityvalue = -TUNING.SANITY_MEDLARGE

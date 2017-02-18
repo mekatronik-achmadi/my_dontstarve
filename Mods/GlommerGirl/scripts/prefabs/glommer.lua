@@ -123,14 +123,16 @@ local function ShouldAcceptItem(inst, item)
     end
     
     if item.components.edible then
-	    if item.components.edible.foodtype == "SEEDS" then
+	    if item.components.edible.foodtype == "GIRLPOOP" then
 		if boy_near and girl_chat == 0 then
 		    girl_chat = 3
 		    local say_word = girl_says[girl_chat-1]
 		    inst.components.talker:Say(say_word)
 		end
 		return false
-	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
+	    elseif item.components.edible.foodtype == "MEAT" 
+		or item.components.edible.foodtype == "VEGGIE" 
+		or item.components.edible.foodtype == "SEEDS" then
 	    	return true
 	    else
 		if boy_near and girl_chat == 0 then
@@ -154,7 +156,9 @@ local function OnGetItemFromPlayer(inst, giver, item)
 
     if item.components.edible then
 	
-	if item.components.edible.foodtype == "MEAT" then
+	if item.components.edible.foodtype == "SEEDS" then
+	    girl_poop = 1
+	elseif item.components.edible.foodtype == "MEAT" then
 	    girl_poop = 2
 	elseif item.components.edible.foodtype == "VEGGIE" then
 	    girl_poop = 3
@@ -204,8 +208,7 @@ local function OnPooping(inst)
 			inst.components.talker:Say(say_word)
 		end
 	elseif girl_poop == 3 then
-		local poo = SpawnPrefab("poop")
-		poo.Transform:SetScale(0.3,0.3,0.3)
+		local poo = SpawnPrefab("girlpoop")
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near and girl_chat == 0 then
 			girl_chat = 9

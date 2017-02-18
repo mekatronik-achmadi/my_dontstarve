@@ -2,6 +2,7 @@ PrefabFiles =
 {
 	"glommer",
         "glommerfuel",
+        "girlpoop",
         
 	"honk",
 	"mabel",
@@ -54,21 +55,24 @@ local STRINGS = GLOBAL.STRINGS
 
 STRINGS.NAMES.GLOMMER = "Girl"
 STRINGS.NAMES.GLOMMERFLOWER = "Girl's Flower"
-STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
 STRINGS.NAMES.GLOMMERWINGS = "Girl's Wings"
 STRINGS.NAMES.STATUEGLOMMER = "Girl's Statue"
 
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMER = "Her beautiful butt makes me eat her poop"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFUEL = "Her poop smells like a flower"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERWINGS = "It's smells good like her poop"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.DEAD = "I still remember her beautiful butt"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFLOWER.GENERIC = "This flower as beautiful as her butt"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.STATUEGLOMMER.GENERIC = "This statue will summon her and her beautiful butt"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.POOP = "I think I can eat her poop"
 
 STRINGS.GIRL_TITLES = "Dirty Girl"
 STRINGS.GIRL_DESCRIPTION = "A Dirty but Useful Girl"
 STRINGS.GIRL_QUOTES = "\"My beautiful butt makes you eat my poop\""
+
+STRINGS.NAMES.GIRLPOOP = "Girl's Manure"
+STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
+
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GIRLPOOP = "Her butt hole pooping this meal in my mouth"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFUEL = "Her butt hole pooping this sugar my mouth"
 
 ------------------------------------------------------
 
