@@ -449,3 +449,92 @@ AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", pooping)
 AddStategraphState("shadowmaxwell", pooping_idle)
+
+------------------------------------------------------
+
+local PlayFootstep = GLOBAL.PlayFootstep
+
+local run_start = State(
+        {
+        name = "run_start",
+        tags = {"moving", "running", "canrotate"},
+        
+        onenter = function(inst)
+                inst.components.locomotor:RunForward()
+                inst.AnimState:PlayAnimation("run_pre")
+                inst.sg.mem.foosteps = 0
+        end,
+
+        onupdate = function(inst)
+            inst.components.locomotor:RunForward()
+        end,
+
+        events=
+        {   
+            EventHandler("animover", function(inst) inst.sg:GoToState("run") end ),        
+        },
+        
+        timeline=
+        {        
+            TimeEvent(4*FRAMES, function(inst)
+                PlayFootstep(inst)
+            end),
+        },        
+    }
+)
+
+local run = State(
+        {
+        name = "run",
+        tags = {"moving", "running", "canrotate"},
+        
+        onenter = function(inst) 
+            inst.components.locomotor:RunForward()
+            inst.AnimState:PlayAnimation("run_loop")
+            
+        end,
+        
+        onupdate = function(inst)
+            inst.components.locomotor:RunForward()
+        end,
+
+        timeline=
+        {
+            TimeEvent(7*FRAMES, function(inst)
+                inst.sg.mem.foosteps = inst.sg.mem.foosteps + 1
+                PlayFootstep(inst, inst.sg.mem.foosteps < 5 and 1 or .6)
+            end),
+            TimeEvent(15*FRAMES, function(inst)
+                inst.sg.mem.foosteps = inst.sg.mem.foosteps + 1
+                PlayFootstep(inst, inst.sg.mem.foosteps < 5 and 1 or .6)
+            end),
+        },
+        
+        events=
+        {   
+            EventHandler("animover", function(inst) inst.sg:GoToState("run") end ),        
+        },
+    }
+)
+
+local run_stop = State(
+        {
+    
+        name = "run_stop",
+        tags = {"canrotate", "idle"},
+        
+        onenter = function(inst) 
+            inst.Physics:Stop()
+            inst.AnimState:PlayAnimation("run_pst")
+        end,
+        
+        events=
+        {   
+            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end ),        
+        },
+    }
+)
+
+AddStategraphState("shadowmaxwell", run_start)
+AddStategraphState("shadowmaxwell", run)
+AddStategraphState("shadowmaxwell", run_stop)
