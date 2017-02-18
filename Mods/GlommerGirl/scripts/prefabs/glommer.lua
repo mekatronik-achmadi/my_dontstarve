@@ -258,7 +258,6 @@ end
 
 local function onfar(inst)
 	boy_near = false
-	girl_chat = 0
 end
 
 local function OnBoyTalk(inst)
