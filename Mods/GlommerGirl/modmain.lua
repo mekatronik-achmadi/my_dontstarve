@@ -1,6 +1,8 @@
 PrefabFiles = 
 {
 	"glommer",
+        "glommerfuel",
+        
 	"honk",
 	"mabel",
 }

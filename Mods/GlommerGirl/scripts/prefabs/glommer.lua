@@ -197,7 +197,6 @@ local function OnPooping(inst)
 		end
 	elseif girl_poop == 2 then
 		local poo = SpawnPrefab("glommerfuel")
-		poo.Transform:SetScale(0.3,0.3,0.3)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near and girl_chat == 0 then
 			girl_chat = 8
