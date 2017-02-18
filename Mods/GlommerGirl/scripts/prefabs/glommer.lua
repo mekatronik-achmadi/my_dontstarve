@@ -202,10 +202,10 @@ local function OnFarting(inst)
 end
 
 local function OnPooping(inst)
+	local x,y,z = inst.Transform:GetWorldPosition()
+	
 	if boy:HasTag("get_poop") then
-	    local x,y,z = boy.Transform:GetWorldPosition()
-	else
-	    local x,y,z = inst.Transform:GetWorldPosition()
+	    x,y,z = boy.Transform:GetWorldPosition()
 	end
 	
 	if girl_poop == 1 then
