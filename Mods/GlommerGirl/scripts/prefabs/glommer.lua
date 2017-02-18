@@ -82,7 +82,7 @@ local boy_says =
 }
 
 local function ButtLight(inst)
-    if GetClock():IsNight()
+    if GetClock():IsNight() then
 	inst.Light:Enable(true)
 	inst.Light:SetIntensity(buttlight_intensity)
 	inst:DoTaskInTime(1, function()
