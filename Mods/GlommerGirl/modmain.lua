@@ -598,7 +598,18 @@ local girl_talking = State(
     }
 )
 
+local girl_talk_event = EventHandler("ontalk", function(inst, data)
+        if inst.sg:HasStateTag("idle") then
+                if inst.prefab == "wes" then
+                        inst.sg:GoToState("mime")
+                else
+                        inst.sg:GoToState("talk", data.noanim)
+                end
+        end
+end)
+
 AddStategraphState("shadowmaxwell", girl_talking)
+AddStategraphEvent("shadowmaxwell",girl_talk_event)
 
 ------------------------------------------------------
 
