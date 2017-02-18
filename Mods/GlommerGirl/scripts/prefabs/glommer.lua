@@ -184,7 +184,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 end
 
 local function OnPoopSeed(inst)
-	if not not_pooping then
+	if not not_pooping and girl_cardio then
 		girl_poop = 1
 		not_pooping = false
 		inst.sg:GoToState("colic")
