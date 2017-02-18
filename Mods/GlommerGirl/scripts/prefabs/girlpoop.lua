@@ -76,6 +76,7 @@ local function fn(Sim)
     
     inst.Transform:SetScale(0.3,0.3,0.3)
     
+    inst:AddComponent("bait")
     inst:AddComponent("edible")
     inst.components.edible.foodtype = "GIRLPOOP"
 	inst.components.edible.healthvalue = TUNING.HEALING_TINY

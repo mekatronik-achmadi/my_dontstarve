@@ -3,6 +3,7 @@ PrefabFiles =
 	"glommer",
         "glommerfuel",
         "girlpoop",
+        "girlseeds",
         
 	"honk",
 	"mabel",
@@ -70,9 +71,11 @@ STRINGS.GIRL_QUOTES = "\"My beautiful butt makes you eat my poop\""
 
 STRINGS.NAMES.GIRLPOOP = "Girl's Manure"
 STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
+STRINGS.NAMES.GIRLSEEDS = "Girl's Scat"
 
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GIRLPOOP = "Her butt hole pooping this meal in my mouth"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GLOMMERFUEL = "Her butt hole pooping this sugar my mouth"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.GIRLSEEDS = "Her butt hole pooping this snack my mouth"
 
 ------------------------------------------------------
 

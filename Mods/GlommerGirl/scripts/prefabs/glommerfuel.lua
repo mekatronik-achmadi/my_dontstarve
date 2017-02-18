@@ -42,6 +42,7 @@ local function fn()
 	inst.components.fertilizer.fertilizervalue = TUNING.GLOMMERFUEL_FERTILIZE
 	inst.components.fertilizer.soil_cycles = TUNING.GLOMMERFUEL_SOILCYCLES
 
+	inst:AddComponent("bait")
 	inst:AddComponent("edible")
 	inst.components.edible.foodtype = "GIRLPOOP"
 	inst.components.edible.healthvalue = TUNING.HEALING_SMALL
@@ -52,7 +53,6 @@ local function fn()
 	inst.Transform:SetScale(0.3,0.3,0.3)
 	
 	boy = GetPlayer()
-	
 	
 	return inst
 end

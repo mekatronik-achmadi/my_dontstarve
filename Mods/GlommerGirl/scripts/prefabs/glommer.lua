@@ -191,7 +191,7 @@ end
 
 local function OnPooping(inst)
 	if girl_poop == 1 then
-		local poo = SpawnPrefab("seeds")
+		local poo = SpawnPrefab("girlseeds")
 		poo.Transform:SetScale(0.5,0.5,0.5)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		if boy_near and girl_chat == 0 then
