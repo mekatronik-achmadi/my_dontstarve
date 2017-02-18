@@ -19,15 +19,16 @@ local prefabs =
 }
 
 local buttlight_intensity = .5
+local buttlight_announce = false
 
 local boy = nil
-local boy_near = 0
+local boy_near = false
+
+local girl_poop = 0
+local not_pooping = true
 
 local girl_chat = 0
 local girl_word = 0
-
-local girl_poop = 0
-local poop_time = 0
 
 local girl_words = 
 {
@@ -82,26 +83,28 @@ local boy_says =
 }
 
 local function ButtLight(inst)
-    if GetClock():IsNight() then
+    if not GetClock():IsDay() then
 	inst.Light:Enable(true)
 	inst.Light:SetIntensity(buttlight_intensity)
-	inst:DoTaskInTime(1, function()
-	    if poop_time == 0 and girl_chat == 0 then
+	inst:DoTaskInTime(2, function()
+	    if not buttlight_announce and not_pooping and girl_chat == 0 then
 		girl_chat = 10
-		local say_word = girl_words[girl_chat-1]
+		buttlight_announce = true
+		local say_word = girl_says[girl_chat-1]
 		inst.components.talker:Say(say_word)
 	    end
 	end)
     else
+	buttlight_announce = false
 	inst.Light:Enable(false)
 	inst.Light:SetIntensity(0)
     end
 end
 
 local function OnRandomTalking(inst)
-    if poop_time == 0 and girl_chat == 0 then
+    if not_pooping and girl_chat == 0 then
 	    girl_word = math.random(#girl_words)
-	    if boy_near == 1 then
+	    if boy_near then
 		    girl_chat = 1
 		    local say_word = girl_words[girl_word]
 		    inst.components.talker:Say(say_word)
@@ -110,8 +113,8 @@ local function OnRandomTalking(inst)
 end
 
 local function ShouldAcceptItem(inst, item)
-    if poop_time == 0 and girl_chat == 0 then
-	if boy_near == 1 then	
+    if not not_pooping and girl_chat == 0 then
+	if boy_near then	
 	    girl_chat = 2
 	    local say_word = girl_says[girl_chat-1]		    
 	    inst.components.talker:Say(say_word)
@@ -121,7 +124,7 @@ local function ShouldAcceptItem(inst, item)
     
     if item.components.edible then
 	    if item.components.edible.foodtype == "SEEDS" then
-		if boy_near == 1 and girl_chat == 0 then
+		if boy_near and girl_chat == 0 then
 		    girl_chat = 3
 		    local say_word = girl_says[girl_chat-1]
 		    inst.components.talker:Say(say_word)
@@ -130,7 +133,7 @@ local function ShouldAcceptItem(inst, item)
 	    elseif item.components.edible.foodtype == "MEAT" or item.components.edible.foodtype == "VEGGIE" then
 	    	return true
 	    else
-		if boy_near == 1 and girl_chat == 0 then
+		if boy_near and girl_chat == 0 then
 		    girl_chat = 4
 		    local say_word = girl_says[girl_chat-1]
 		    inst.components.talker:Say(say_word)
@@ -138,7 +141,7 @@ local function ShouldAcceptItem(inst, item)
 		return false
 	    end
     else
-	    if boy_near == 1 and girl_chat == 0 then
+	    if boy_near and girl_chat == 0 then
 		girl_chat = 5
 		local say_word = girl_says[girl_chat-1]
 		inst.components.talker:Say(say_word)	
@@ -157,17 +160,16 @@ local function OnGetItemFromPlayer(inst, giver, item)
 	    girl_poop = 3
 	end
 	
-	poop_time = 1
+	not_pooping = false
 	inst.sg:GoToState("eating")
-	inst:DoTaskInTime(4,inst.sg:GoToState("colic"))
     end
     
 end
 
 local function OnPoopSeed(inst)
-	if poop_time == 0 then
+	if not not_pooping then
 		girl_poop = 1
-		poop_time = 1
+		not_pooping = false
 		inst.sg:GoToState("colic")
 	end
 end
@@ -176,7 +178,7 @@ local function OnFarting(inst)
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
 	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
-	if boy_near == 1 and girl_chat == 0 then
+	if boy_near and girl_chat == 0 then
 		girl_chat = 6
 		local say_word = girl_says[girl_chat-1]
 		inst.components.talker:Say(say_word)
@@ -188,7 +190,7 @@ local function OnPooping(inst)
 		local poo = SpawnPrefab("seeds")
 		poo.Transform:SetScale(0.5,0.5,0.5)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-		if boy_near == 1 and girl_chat == 0 then
+		if boy_near and girl_chat == 0 then
 			girl_chat = 7
 			local say_word = girl_says[girl_chat-1]
 			inst.components.talker:Say(say_word)
@@ -197,7 +199,7 @@ local function OnPooping(inst)
 		local poo = SpawnPrefab("glommerfuel")
 		poo.Transform:SetScale(0.3,0.3,0.3)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-		if boy_near == 1 and girl_chat == 0 then
+		if boy_near and girl_chat == 0 then
 			girl_chat = 8
 			local say_word = girl_says[girl_chat-1]
 			inst.components.talker:Say(say_word)
@@ -206,30 +208,29 @@ local function OnPooping(inst)
 		local poo = SpawnPrefab("poop")
 		poo.Transform:SetScale(0.3,0.3,0.3)
 		poo.Transform:SetPosition(inst.Transform:GetWorldPosition())
-		if boy_near == 1 and girl_chat == 0 then
+		if boy_near and girl_chat == 0 then
 			girl_chat = 9
 			local say_word = girl_says[girl_chat-1]
 			inst.components.talker:Say(say_word)
 		end
 	end
-	inst:DoTaskInTime(4,inst:PushEvent("poop_out"))
 end
 
 local function OnPoopOut(inst)
-	poop_time = 0
+	not_pooping = true
 end
 
 local function onnear(inst)
-	boy_near = 1
+	boy_near = true
 end
 
 local function onfar(inst)
-	boy_near = 0
+	boy_near = false
 	girl_chat = 0
 end
 
 local function OnBoyTalk(inst)
-    if boy_near == 1 and girl_chat > 0 and boy.components.talker then
+    if boy_near and boy.components.talker and girl_chat > 0 then
 	if girl_chat == 1 then
 	    local say_word = boy_words[girl_word]
 	    boy.components.talker:Say(say_word)
@@ -327,7 +328,7 @@ local function fn()
     inst.Light:SetFalloff(1)
     inst.Light:SetIntensity(buttlight_intensity)
     inst.Light:SetRadius(1)
-    inst.Light:SetColour(235/255,165/255,12/255)
+    inst.Light:SetColour(230/255,140/255,200/255)
     inst.Light:Enable(false)
 	
     local brain = require("brains/glommerbrain")
@@ -341,18 +342,12 @@ local function fn()
     boy = GetPlayer()
     
     inst:DoPeriodicTask(160,OnPoopSeed)
+    inst:DoPeriodicTask(2, function() ButtLight(inst) end)
     inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
     
-    inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("farting",OnFarting)
+    inst:ListenForEvent("pooping",OnPooping)
     inst:ListenForEvent("poop_out",OnPoopOut)
-    
-    inst:ListenForEvent( "daytime", function()
-        inst:DoTaskInTime(2+math.random()*1, function() ButtLight(inst) end)
-    end, GetWorld())
-    inst:ListenForEvent( "nighttime", function()
-        inst:DoTaskInTime(2+math.random()*1, function() ButtLight(inst) end)
-    end, GetWorld())
     
     inst:ListenForEvent("ontalk", function() inst.SoundEmitter:PlaySound("dontstarve/characters/wendy/talk_LP","talk") end)
     inst:ListenForEvent("donetalking", function()

@@ -101,6 +101,54 @@ local TimeEvent = GLOBAL.TimeEvent
 local EventHandler = GLOBAL.EventHandler
 local FRAMES = GLOBAL.FRAMES
 
+local eating = State({
+	name = "eating",
+        tags ={"busy"},
+        onenter = function(inst)
+            inst.components.locomotor:Stop()
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/eat", "eating")    
+            inst.AnimState:PlayAnimation("quick_eat")
+        end,
+
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("eating_idle") end),
+        },
+        
+        onexit= function(inst)
+            inst.SoundEmitter:KillSound("eating")    
+        end,
+})
+
+local eating_idle = State({
+        name = "eating_idle",
+        tags ={"busy"},
+        onenter = function(inst)
+                inst.AnimState:PlayAnimation("idle_loop")
+        end,
+        
+        timeline=
+        {
+            TimeEvent(120*FRAMES, function(inst) 
+                inst:PerformBufferedAction() 
+                inst.sg:RemoveStateTag("busy")
+            end),
+        },        
+        
+        events=
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("colic") end),
+        },
+})
+
 local colic = State({
 	name = "colic",
         tags ={"busy"},
@@ -358,7 +406,7 @@ local pooping = State({
         
         events=
         {
-            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
+            EventHandler("animover", function(inst) inst.sg:GoToState("pooping_idle") end),
         },
         
         onexit= function(inst)
@@ -366,18 +414,16 @@ local pooping = State({
         end,
 })
 
-local eating = State({
-	name = "eating",
+local pooping_idle = State({
+        name = "pooping_idle",
         tags ={"busy"},
         onenter = function(inst)
-            inst.components.locomotor:Stop()
-            inst.SoundEmitter:PlaySound("dontstarve/wilson/eat", "eating")    
-            inst.AnimState:PlayAnimation("quick_eat")
+                inst.AnimState:PlayAnimation("idle_loop")
         end,
-
+        
         timeline=
         {
-            TimeEvent(120*FRAMES, function(inst) 
+            TimeEvent(60*FRAMES, function(inst) 
                 inst:PerformBufferedAction() 
                 inst.sg:RemoveStateTag("busy")
             end),
@@ -387,12 +433,10 @@ local eating = State({
         {
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
-        
-        onexit= function(inst)
-            inst.SoundEmitter:KillSound("eating")    
-        end,
 })
 
+AddStategraphState("shadowmaxwell", eating)
+AddStategraphState("shadowmaxwell", eating_idle)
 AddStategraphState("shadowmaxwell", colic)
 AddStategraphState("shadowmaxwell", colic_idle)
 AddStategraphState("shadowmaxwell", farting)
@@ -404,4 +448,4 @@ AddStategraphState("shadowmaxwell", poop_fart_idle)
 AddStategraphState("shadowmaxwell", poop_try_again)
 AddStategraphState("shadowmaxwell", poop_try_again_idle)
 AddStategraphState("shadowmaxwell", pooping)
-AddStategraphState("shadowmaxwell", eating)
+AddStategraphState("shadowmaxwell", pooping_idle)
