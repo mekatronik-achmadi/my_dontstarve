@@ -383,7 +383,7 @@ local function fn()
     
     boy = GetPlayer()
     
-    inst:DoPeriodicTask(160,OnPoopSeed)
+    inst:DoPeriodicTask(240,OnPoopSeed)
     inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
     
     inst:ListenForEvent("farting",OnFarting)
