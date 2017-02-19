@@ -23,7 +23,6 @@ local function fn()
 
 	anim:SetBank("glommer_fuel")
 	anim:SetBuild("glommer_fuel")
-	anim:PlayAnimation("dump")
 	anim:PlayAnimation("idle")
 
 	inst:AddComponent("inspectable")
