@@ -46,6 +46,7 @@ local function fn(Sim)
     
     inst.AnimState:SetBank("seeds")
     inst.AnimState:SetBuild("seeds")
+    inst.AnimState:PlayAnimation("idle")
     inst.AnimState:SetRayTestOnBB(true)
     
     inst:AddComponent("bait")

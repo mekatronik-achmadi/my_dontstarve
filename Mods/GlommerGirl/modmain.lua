@@ -456,6 +456,8 @@ local pooping_idle = State({
         end,
 })
 
+local poop_run = State()
+
 AddStategraphState("shadowmaxwell", eating)
 AddStategraphState("shadowmaxwell", eating_idle)
 AddStategraphState("shadowmaxwell", colic)
