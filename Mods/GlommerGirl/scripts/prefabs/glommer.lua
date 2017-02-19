@@ -363,7 +363,6 @@ local function fn()
     inst.components.locomotor.runspeed = 7
     
     inst:AddComponent( "playerprox" )
-    inst.components.playerprox:SetDist(1,2)
     inst.components.playerprox:SetOnPlayerNear(onnear)    
     inst.components.playerprox:SetOnPlayerFar(onfar)
     
