@@ -18,7 +18,7 @@ end
 function Wood(self)
 	local tile = getFloor(self)
 	if tile==GROUND.WOODFLOOR then
-		self.inst.components.sanity.night_drain_mult=0.1
+		self.inst.components.sanity.night_drain_mult=0
 		self.inst.components.temperature.inherentinsulation=TUNING.INSULATION_MED
 		self.inst.components.locomotor.groundspeedmultiplier=TUNING.WOODFLOOR_SPEEDMULTIPLIER
 	else
