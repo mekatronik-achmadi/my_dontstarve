@@ -211,10 +211,10 @@ local function OnPoopOut(inst)
 	end
 	
 	inst:AddTag("happy_poop")
-	inst.components.talker:Say("Yaay, My butt use your face as a toilet",2,true)
 	inst:DoTaskInTime(2, function()
-	    inst:RemoveTag("happy_poop")
 	    not_pooping = true
+	    inst:RemoveTag("happy_poop")
+	    inst.components.talker:Say("Your face is a cozy toilet for my butt")
 	end)
     else
 	not_pooping = true
