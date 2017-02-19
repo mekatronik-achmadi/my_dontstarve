@@ -290,7 +290,7 @@ local function OnBoyGetPoop(inst)
     local x,y,z = inst.Transform:GetWorldPosition()
     
     if boy_near and not boy:HasTag("get_poop") then
-	if not danger than
+	if not danger then
 	    boy:AddTag("get_poop")
 	    boy.sg:GoToState("boy_get_poop")
 	    
