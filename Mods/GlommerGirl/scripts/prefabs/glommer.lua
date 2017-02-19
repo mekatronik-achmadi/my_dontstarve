@@ -29,24 +29,28 @@ local girl_word = 0
 
 local girl_words = 
 {
-	"I want you eat my poop", --1
-	"You have to inhale my fart", --2
-	"I want your tongue lick my butt hole", --4
-	"I hope your mouth suck my butt hole", --5
-	"My butt need your face for toilet", --6
-	"I think your face skin warm my butt skin", --7
-	"It's so comfort if my butt sit on your face", --8
+    "I want my poop eaten by your mouth", --1
+    "I want my fart inhaled by your nose", --2
+    "I want my butt hole rubbed by your nose", --3
+    "I want my butt hole kissed by your lips", --4
+    "I want my butt hole licked by your tongue", --5
+    "I want my butt hole sucked by your mouth", --6
+    "I need my butt cleaned by your mouth", --7
+    "I need my butt pooping on your face", --8
+    "I need my butt sitting on your face", --9
 }
 
 local boy_words =
 {
-	"I love to eat all your poop", --1
-	"Your fart smells like flower", --2
-	"I can lick your butt hole with joy", --4
-	"I want to lustly suck your butt hole", --5
-	"My face is a toilet for your butt", --6
-	"Your butt warm my face too", --7
-	"Your butt comfort my face too", --8
+    "My mouth can eat your poop with pleasure", --1
+    "My nose can gladly inhale your fart", --2
+    "My nose can happily rub your butt hole", --3
+    "My lips can gently kiss your butt hole", --4
+    "My tongue can slowly lick your butt hole", --5
+    "My mouth can lustful suck your butt hole", --6
+    "My mouth can clean your butt with joy", --7
+    "My face always be a toilet for your butt", --8
+    "My face always be a seat for your butt", --9
 }
 
 local girl_says =
@@ -59,6 +63,7 @@ local girl_says =
 	"Ups, Would you like to eat my poop?", --6
 	"Ehmm, Do you wanna eat my poop?", --7
 	"Eyyewww, Can you eat my poop?", --8
+	"Your face is a cozy toilet for my butt", --9
 }
 
 local boy_says =
@@ -71,6 +76,7 @@ local boy_says =
 	"I would love to eat your poop", --6
 	"Yes, I want to eat your poop", --7
 	"Of Course, I can eat your poop", --8
+	"I'm happy your butt pooping on my face", --9
 }
 
 local function OnRandomTalking(inst)
@@ -214,6 +220,7 @@ local function OnPoopOut(inst)
 	inst:DoTaskInTime(2, function()
 	    not_pooping = true
 	    inst:RemoveTag("happy_poop")
+	    girl_chat = 10
 	    inst.components.talker:Say("Your face is a cozy toilet for my butt")
 	end)
     else
