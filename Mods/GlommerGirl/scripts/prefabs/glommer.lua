@@ -225,26 +225,28 @@ end
 
 local function OnPoopOut(inst)
 	
-	if boy:HasTag("get_poop") then
-	    
-	    boy:RemoveTag("get_poop")
-	    boy.sg:GoToState("idle")
-	    
-	    if girl_poop == 1 then
-		boy.components.sanity:DoDelta(TUNING.SANITY_TINY)
-	    elseif girl_poop == 2 then
-		boy.components.sanity:DoDelta(TUNING.SANITY_SMALL)
-	    elseif girl_poop == 3 then
-		boy.components.sanity:DoDelta(TUNING.SANITY_MED)
-	    end
+    if boy:HasTag("get_poop") then
+	
+	boy:RemoveTag("get_poop")
+	boy.sg:GoToState("idle")
+	
+	if girl_poop == 1 then
+	    boy.components.sanity:DoDelta(TUNING.SANITY_TINY)
+	elseif girl_poop == 2 then
+	    boy.components.sanity:DoDelta(TUNING.SANITY_SMALL)
+	elseif girl_poop == 3 then
+	    boy.components.sanity:DoDelta(TUNING.SANITY_MED)
 	end
 	
 	inst:AddTag("happy_poop")
-	inst.components.talker:Say("Yaay, I'm so glad my butt hole pooping",2,true)
+	inst.components.talker:Say("Yaay, My butt use your face as a toilet",2,true)
 	inst:DoTaskInTime(2, function()
 	    inst:RemoveTag("happy_poop")
 	    not_pooping = true
 	end)
+    else
+	not_pooping = true
+    end
 end
 
 local function onnear(inst)
@@ -297,13 +299,8 @@ local function OnBoyGetPoop(inst)
 	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.Transform:SetPosition(x,y-5,z)
 	else
-	    local x,y,z = inst.Transform:GetWorldPosition()
-	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.components.talker:Say("Your butt can use my face as a toilet later")
 	end
-    else
-	local x,y,z = inst.Transform:GetWorldPosition()
-	inst.Transform:SetPosition(x,y+0.55,z)
     end
     
 end
