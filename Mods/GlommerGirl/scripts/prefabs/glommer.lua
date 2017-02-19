@@ -287,14 +287,12 @@ local function OnBoyGetPoop(inst)
 	    danger = true
     end
     
-    local x,y,z = inst.Transform:GetWorldPosition()
-    
     if boy_near and not boy:HasTag("get_poop") then
 	if not danger then
 	    boy:AddTag("get_poop")
 	    boy.sg:GoToState("boy_get_poop")
 	    
-	    x,y,z = boy.Transform:GetWorldPosition()
+	    local x,y,z = boy.Transform:GetWorldPosition()
 	    inst:ForceFacePoint(boy.Transform:GetWorldPosition())
 	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.Transform:SetPosition(x,y-5,z)
@@ -302,6 +300,7 @@ local function OnBoyGetPoop(inst)
 	    boy.components.talker:Say("Your butt can use my face as a toilet later")
 	end
     else
+	local x,y,z = inst.Transform:GetWorldPosition()
 	inst.Transform:SetPosition(x,y+0.55,z)
     end
     
