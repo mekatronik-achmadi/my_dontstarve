@@ -217,7 +217,7 @@ local function OnPoopOut(inst)
 	end
 	
 	inst:AddTag("happy_poop")
-	inst:DoTaskInTime(2, function()
+	inst:DoTaskInTime(1, function()
 	    not_pooping = true
 	    inst:RemoveTag("happy_poop")
 	    girl_chat = 10
