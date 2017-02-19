@@ -18,9 +18,6 @@ local prefabs =
 	"poop",
 }
 
-local buttlight_intensity = .5
-local buttlight_announce = false
-
 local boy = nil
 local boy_near = false
 
@@ -34,26 +31,22 @@ local girl_words =
 {
 	"I want you eat my poop", --1
 	"You have to inhale my fart", --2
-	"I need your tongue clean my butt", --3
 	"I want your tongue lick my butt hole", --4
 	"I hope your mouth suck my butt hole", --5
-	"My butt need your mouth for toilet", --6
+	"My butt need your face for toilet", --6
 	"I think your face skin warm my butt skin", --7
-	"It's' so comfort if my butt sit on your face", --8
-	"I think your face fits in my butt crack", --9
+	"It's so comfort if my butt sit on your face", --8
 }
 
 local boy_words =
 {
 	"I love to eat all your poop", --1
 	"Your fart smells like flower", --2
-	"My tongue clean your butt with joy", --3
-	"I can gently lick your sweet butt hole", --4
+	"I can lick your butt hole with joy", --4
 	"I want to lustly suck your butt hole", --5
-	"My mouth always be a toilet for your butt", --6
+	"My face is a toilet for your butt", --6
 	"Your butt warm my face too", --7
-	"Your butt can comfort my face too", --8
-	"It's so nice if my face get into your butt crack", --9
+	"Your butt comfort my face too", --8
 }
 
 local girl_says =
@@ -66,7 +59,6 @@ local girl_says =
 	"Ups, Would you like to eat my poop?", --6
 	"Ehmm, Do you wanna eat my poop?", --7
 	"Eyyewww, Can you eat my poop?", --8
-	"Did you know that my butt shining?", --9
 }
 
 local boy_says =
@@ -79,27 +71,7 @@ local boy_says =
 	"I would love to eat your poop", --6
 	"Yes, I want to eat your poop", --7
 	"Of Course, I can eat your poop", --8
-	"Yes, Your butt shine to my face", --9
 }
-
-local function ButtLight(inst)
-    if not GetClock():IsDay() then
-	inst.Light:Enable(true)
-	inst.Light:SetIntensity(buttlight_intensity)
-	inst:DoTaskInTime(2, function()
-	    if not buttlight_announce and not_pooping and boy_near and girl_chat == 0 then
-		girl_chat = 10
-		buttlight_announce = true
-		local say_word = girl_says[girl_chat-1]
-		inst.components.talker:Say(say_word)
-	    end
-	end)
-    else
-	buttlight_announce = false
-	inst.Light:Enable(false)
-	inst.Light:SetIntensity(0)
-    end
-end
 
 local function OnRandomTalking(inst)
     if not_pooping and girl_chat == 0 then
@@ -389,10 +361,10 @@ local function fn()
     
     inst.entity:AddLight()
     inst.Light:SetFalloff(1)
-    inst.Light:SetIntensity(buttlight_intensity)
+    inst.Light:SetIntensity(.5)
     inst.Light:SetRadius(1)
     inst.Light:SetColour(1,1,1)
-    inst.Light:Enable(false)
+    inst.Light:Enable(true)
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
@@ -405,8 +377,7 @@ local function fn()
     boy = GetPlayer()
     
     inst:DoPeriodicTask(160,OnPoopSeed)
-    inst:DoPeriodicTask(2, function() ButtLight(inst) end)
-    inst:DoPeriodicTask(math.random(20,40),OnRandomTalking)
+    inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
     
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("pooping",OnPooping)
