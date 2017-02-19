@@ -73,8 +73,8 @@ STRINGS.GIRL_TITLES = "Dirty Girl"
 STRINGS.GIRL_DESCRIPTION = "A Dirty but Useful Girl"
 STRINGS.GIRL_QUOTES = "\"My beautiful butt makes you eat my poop\""
 
-STRINGS.NAMES.GIRLPOOP = "Girl's Feces"
-STRINGS.NAMES.GLOMMERFUEL = "Girl's Poop"
+STRINGS.NAMES.GIRLPOOP = "Girl's Shit"
+STRINGS.NAMES.GLOMMERFUEL = "Girl's Stool"
 STRINGS.NAMES.GIRLSEEDS = "Girl's Scat"
 
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GIRLPOOP = "Her butt hole pooping this meal in my mouth"
