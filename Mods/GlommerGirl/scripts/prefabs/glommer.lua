@@ -157,15 +157,9 @@ local function OnPoopSeed(inst)
 end
 
 local function OnFarting(inst)
-	local x,y,z = inst.Transform:GetWorldPosition()
-	
-	if boy:HasTag("get_poop") then
-	    x,y,z = boy.Transform:GetWorldPosition()
-	end
-	
 	local fart = SpawnPrefab("maxwell_smoke")
 	fart.Transform:SetScale(0.3,0.3,0.3)
-	fart.Transform:SetPosition(x,y,z)
+	fart.Transform:SetPosition(inst.Transform:GetWorldPosition())
 	if boy_near and girl_chat == 0 then
 		girl_chat = 6
 		local say_word = girl_says[girl_chat-1]
