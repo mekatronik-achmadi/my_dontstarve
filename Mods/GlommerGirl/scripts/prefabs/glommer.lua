@@ -224,11 +224,12 @@ local function OnPooping(inst)
 end
 
 local function OnPoopOut(inst)
-	not_pooping = true
+	
 	if boy:HasTag("get_poop") then
-	
+	    
+	    boy:RemoveTag("get_poop")
 	    boy.sg:GoToState("idle")
-	
+	    
 	    if girl_poop == 1 then
 		boy.components.sanity:DoDelta(TUNING.SANITY_TINY)
 	    elseif girl_poop == 2 then
@@ -236,10 +237,14 @@ local function OnPoopOut(inst)
 	    elseif girl_poop == 3 then
 		boy.components.sanity:DoDelta(TUNING.SANITY_MED)
 	    end
-	    
-	    boy:RemoveTag("get_poop")
-	    
 	end
+	
+	inst:AddTag("happy_poop")
+	inst.components.talker:Say("Yaay, I'm so glad my butt hole pooping",2,true)
+	inst:DoTaskInTime(2, function()
+	    inst:RemoveTag("happy_poop")
+	    not_pooping = true
+	end)
 end
 
 local function onnear(inst)
@@ -281,28 +286,25 @@ local function OnBoyGetPoop(inst)
     if hounded and (hounded.warning or hounded.timetoattack <= 0) then
 	    danger = true
     end
-
-    if danger then
-	    if boy.components.talker then
-		    boy.components.talker:Say("Sorry, I'll eat your poop later")
-	    end
-	    return
-    end
     
-    if boy_near then
-	if not boy:HasTag("get_poop") then
+    local x,y,z = inst.Transform:GetWorldPosition()
+    
+    if boy_near and not boy:HasTag("get_poop") then
+	if not danger than
 	    boy:AddTag("get_poop")
 	    boy.sg:GoToState("boy_get_poop")
 	    
-	    local x,y,z = boy.Transform:GetWorldPosition()
+	    x,y,z = boy.Transform:GetWorldPosition()
 	    inst:ForceFacePoint(boy.Transform:GetWorldPosition())
 	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.Transform:SetPosition(x,y-5,z)
+	else
+	    boy.components.talker:Say("Sorry, I'll eat your poop later")
 	end
     else
-	local x,y,z = inst.Transform:GetWorldPosition()
 	inst.Transform:SetPosition(x,y+0.55,z)
     end
+    
 end
 
 local function CalcSanityAura(inst, observer)

@@ -37,6 +37,7 @@ function GlommerBrain:OnStart()
     PriorityNode(
     {
         WhileNode( function() return self.inst.components.health.takingfiredamage end, "OnFire", Panic(self.inst)),
+        WhileNode( function() return self.inst:HasTag("happy_poop") end, "OnHappyPoop", Panic(self.inst)),
         DoAction(self.inst, WanderOff),
         Follow(self.inst, function() return self.inst.components.follower.leader end, MIN_FOLLOW_DIST, TARGET_FOLLOW_DIST, MAX_FOLLOW_DIST),
         FaceEntity(self.inst, GetFaceTargetFn, KeepFaceTargetFn),
