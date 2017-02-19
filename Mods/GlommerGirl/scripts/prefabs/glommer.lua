@@ -25,7 +25,6 @@ local boy = nil
 local boy_near = false
 
 local girl_poop = 0
-local girl_cardio = true
 local not_pooping = true
 
 local girl_chat = 0
@@ -37,7 +36,7 @@ local girl_words =
 	"You have to inhale my fart", --2
 	"I need your tongue clean my butt", --3
 	"I want your tongue lick my butt hole", --4
-	"I hope your lips kiss my butt hole", --5
+	"I hope your mouth suck my butt hole", --5
 	"My butt need your mouth for toilet", --6
 	"I think your face skin warm my butt skin", --7
 	"It's' so comfort if my butt sit on your face", --8
@@ -49,8 +48,8 @@ local boy_words =
 	"I love to eat all your poop", --1
 	"Your fart smells like flower", --2
 	"My tongue clean your butt with joy", --3
-	"I can slowly lick your sweet butt hole", --4
-	"I want to gently kiss your butt hole", --5
+	"I can gently lick your sweet butt hole", --4
+	"I want to lustly suck your butt hole", --5
 	"My mouth always be a toilet for your butt", --6
 	"Your butt warm my face too", --7
 	"Your butt can comfort my face too", --8
@@ -68,7 +67,6 @@ local girl_says =
 	"Ehmm, Do you wanna eat my poop?", --7
 	"Eyyewww, Can you eat my poop?", --8
 	"Did you know that my butt shining?", --9
-	"What if your mouth suck my butt hole for sport?", --10
 }
 
 local boy_says =
@@ -82,7 +80,6 @@ local boy_says =
 	"Yes, I want to eat your poop", --7
 	"Of Course, I can eat your poop", --8
 	"Yes, Your butt shine to my face", --9
-	"OK, My mouth gladly sucking your butt hole", --10
 }
 
 local function ButtLight(inst)
@@ -119,15 +116,6 @@ local function ShouldAcceptItem(inst, item)
     if not not_pooping and girl_chat == 0 then
 	if boy_near then	
 	    girl_chat = 2
-	    local say_word = girl_says[girl_chat-1]		    
-	    inst.components.talker:Say(say_word,2,true)
-	end
-	return false
-    end
-    
-    if not girl_cardio and girl_chat == 0 then
-	if boy_near then	
-	    girl_chat = 11
 	    local say_word = girl_says[girl_chat-1]		    
 	    inst.components.talker:Say(say_word,2,true)
 	end
@@ -183,7 +171,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 end
 
 local function OnPoopSeed(inst)
-	if not_pooping and girl_cardio then
+	if not_pooping then
 		girl_poop = 1
 		not_pooping = false
 		inst.sg:GoToState("colic")
@@ -240,7 +228,7 @@ local function OnPoopOut(inst)
 	if boy:HasTag("get_poop") then
 	
 	    boy.sg:GoToState("idle")
-	    
+	
 	    if girl_poop == 1 then
 		boy.components.sanity:DoDelta(TUNING.SANITY_TINY)
 	    elseif girl_poop == 2 then
@@ -251,7 +239,6 @@ local function OnPoopOut(inst)
 	    
 	    boy:RemoveTag("get_poop")
 	    
-	    girl_cardio = false
 	end
 end
 
@@ -280,10 +267,6 @@ local function OnBoyTalk(inst)
 end
 
 local function OnBoyGetPoop(inst)
-
-    if not boy_near then
-	return
-    end
     
     local hounded = GetWorld().components.hounded
 
@@ -306,14 +289,19 @@ local function OnBoyGetPoop(inst)
 	    return
     end
     
-    if not boy:HasTag("get_poop") then
-	boy:AddTag("get_poop")
-	boy.sg:GoToState("boy_get_poop")
-	
-	local x,y,z = boy.Transform:GetWorldPosition()
-	inst:ForceFacePoint(boy.Transform:GetWorldPosition())
+    if boy_near then
+	if not boy:HasTag("get_poop") then
+	    boy:AddTag("get_poop")
+	    boy.sg:GoToState("boy_get_poop")
+	    
+	    local x,y,z = boy.Transform:GetWorldPosition()
+	    inst:ForceFacePoint(boy.Transform:GetWorldPosition())
+	    inst.Transform:SetPosition(x,y+0.55,z)
+	    boy.Transform:SetPosition(x,y-5,z)
+	end
+    else
+	local x,y,z = inst.Transform:GetWorldPosition()
 	inst.Transform:SetPosition(x,y+0.55,z)
-	boy.Transform:SetPosition(x,y-5,z)
     end
 end
 
@@ -430,7 +418,6 @@ local function fn()
 	inst:DoTaskInTime(2.5,OnBoyTalk)
     end)
     
-    inst:ListenForEvent("girl_cardio",function() girl_cardio = true end)
     inst:ListenForEvent("boy_get_poop",OnBoyGetPoop)
     
     return inst
