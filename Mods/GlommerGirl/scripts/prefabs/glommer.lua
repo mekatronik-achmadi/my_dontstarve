@@ -297,6 +297,8 @@ local function OnBoyGetPoop(inst)
 	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.Transform:SetPosition(x,y-5,z)
 	else
+	    local x,y,z = inst.Transform:GetWorldPosition()
+	    inst.Transform:SetPosition(x,y+0.55,z)
 	    boy.components.talker:Say("Your butt can use my face as a toilet later")
 	end
     else
