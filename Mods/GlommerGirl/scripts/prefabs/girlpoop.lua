@@ -64,7 +64,7 @@ local function fn(Sim)
     inst.flies = inst:SpawnChild("flies")
     
     inst:AddComponent("fuel")
-    inst.components.fuel.fuelvalue = TUNING.MED_FUEL
+    inst.components.fuel.fuelvalue = TUNING.MED_LARGE_FUEL
     inst.components.fuel:SetOnTakenFn(FuelTaken)
     
     MakeSmallBurnable(inst, TUNING.MED_BURNTIME)

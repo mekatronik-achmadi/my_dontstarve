@@ -33,7 +33,7 @@ local function fn()
 	inst:AddComponent("fuel")
 	inst.components.fuel.fuelvalue = TUNING.LARGE_FUEL
 
-	MakeSmallBurnable(inst, TUNING.SMALL_BURNTIME)
+	MakeSmallBurnable(inst, TUNING.LARGE_BURNTIME)
 	MakeSmallPropagator(inst)
 	inst.components.burnable:MakeDragonflyBait(3)
 

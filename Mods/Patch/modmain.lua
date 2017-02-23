@@ -1,6 +1,5 @@
 PrefabFiles = 
 {
-	"firesuppressor",
 	"icebox",
 }
 
