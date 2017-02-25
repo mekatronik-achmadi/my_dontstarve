@@ -63,6 +63,10 @@ local function fn(Sim)
     inst:AddComponent("tradable")
 
     inst:AddComponent("inspectable")
+    
+    inst:AddComponent("fuel")
+    inst.components.fuel.fuelvalue = TUNING.TINY_FUEL
+    inst.components.fuel:SetOnTakenFn(FuelTaken)
 
     MakeSmallBurnable(inst, TUNING.SMALL_BURNTIME)
     MakeSmallPropagator(inst)
