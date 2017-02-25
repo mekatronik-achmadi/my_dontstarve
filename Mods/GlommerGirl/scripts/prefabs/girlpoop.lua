@@ -17,13 +17,6 @@ local function OnBurn(inst)
     end   
 end
 
-local function FuelTaken(inst, taker)
-    local cloud = SpawnPrefab("poopcloud")
-    if cloud then
-        cloud.Transform:SetPosition(taker.Transform:GetWorldPosition() )
-    end
-end
-
 local boy = nil
 
 local function OnEaten(inst)
@@ -65,7 +58,6 @@ local function fn(Sim)
     
     inst:AddComponent("fuel")
     inst.components.fuel.fuelvalue = TUNING.MED_LARGE_FUEL
-    inst.components.fuel:SetOnTakenFn(FuelTaken)
     
     MakeSmallBurnable(inst, TUNING.MED_BURNTIME)
     inst.components.burnable:SetOnIgniteFn(OnBurn)
