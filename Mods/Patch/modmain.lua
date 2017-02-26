@@ -71,6 +71,7 @@ TUNING.WOODFLOOR_SPEEDMULTIPLIER = 1.2
 ------------------------------------------------------
 
 AddPrefabPostInit("firesuppressor", function(inst)
+    inst.components.fueled.rate = .5
     table.insert(inst.components.firedetector.NOTAGS, "campfire")
 end)
 
