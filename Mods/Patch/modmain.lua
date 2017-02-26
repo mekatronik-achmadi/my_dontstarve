@@ -59,6 +59,8 @@ TUNING = GLOBAL.TUNING
 TUNING.TRAP_TEETH_USES = 10
 TUNING.TRAP_TEETH_DAMAGE = 150
 
+TUNING.PERISH_FRIDGE_MULT = .25
+
 TUNING.FIRE_DETECTOR_RANGE = 20
 TUNING.SMOTHERER_EXTINGUISH_HEAT_PERCENT = 1
 
@@ -71,7 +73,7 @@ TUNING.WOODFLOOR_SPEEDMULTIPLIER = 1.2
 ------------------------------------------------------
 
 AddPrefabPostInit("firesuppressor", function(inst)
-    inst.components.fueled.rate = .5
+    inst.components.fueled.rate = .25
     table.insert(inst.components.firedetector.NOTAGS, "campfire")
 end)
 
