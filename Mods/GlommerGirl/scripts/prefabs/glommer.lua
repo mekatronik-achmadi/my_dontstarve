@@ -367,9 +367,9 @@ local function fn()
     inst.components.playerprox:SetOnPlayerFar(onfar)
     
     inst.entity:AddLight()
-    inst.Light:SetFalloff(1)
-    inst.Light:SetIntensity(.5)
-    inst.Light:SetRadius(1)
+    inst.Light:SetFalloff(.8)
+    inst.Light:SetIntensity(.4)
+    inst.Light:SetRadius(.4)
     inst.Light:SetColour(1,1,1)
     inst.Light:Enable(true)
 	
