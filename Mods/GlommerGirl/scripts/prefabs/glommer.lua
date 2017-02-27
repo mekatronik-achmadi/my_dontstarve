@@ -368,7 +368,7 @@ local function fn()
     
     inst.entity:AddLight()
     inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.4)
+    inst.Light:SetIntensity(.6)
     inst.Light:SetRadius(.4)
     inst.Light:SetColour(1,1,1)
     inst.Light:Enable(true)
