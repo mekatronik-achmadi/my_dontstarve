@@ -365,13 +365,6 @@ local function fn()
     inst:AddComponent( "playerprox" )
     inst.components.playerprox:SetOnPlayerNear(onnear)    
     inst.components.playerprox:SetOnPlayerFar(onfar)
-    
-    inst.entity:AddLight()
-    inst.Light:SetFalloff(.8)
-    inst.Light:SetIntensity(.6)
-    inst.Light:SetRadius(.4)
-    inst.Light:SetColour(1,1,1)
-    inst.Light:Enable(true)
 	
     local brain = require("brains/glommerbrain")
     inst:SetBrain(brain)
