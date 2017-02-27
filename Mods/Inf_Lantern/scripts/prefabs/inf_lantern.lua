@@ -20,7 +20,6 @@ local function turnon(inst)
     inst.on = true
 
     inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_on")
-    inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_LP", "loop")
 
     inst.components.inventoryitem:ChangeImageName("lantern_lit")
 end
@@ -38,7 +37,6 @@ local function turnoff(inst)
     inst.components.machine.ison = false
     inst.on = false
 
-    inst.SoundEmitter:KillSound("loop")
     inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_off")
 
     inst.components.inventoryitem:ChangeImageName("lantern")
