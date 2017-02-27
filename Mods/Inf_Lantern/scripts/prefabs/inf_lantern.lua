@@ -106,7 +106,8 @@ local function fn(Sim)
     inst:AddComponent("inventoryitem")
 
     inst.components.inventoryitem:SetOnDroppedFn(ondropped)
-    inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)    
+    inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)
+    inst.components.inventoryitem:ChangeImageName("lantern")    
 
     inst:AddComponent("equippable")
 
