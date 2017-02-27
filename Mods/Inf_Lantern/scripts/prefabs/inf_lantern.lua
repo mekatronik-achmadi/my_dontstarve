@@ -7,23 +7,22 @@ local assets=
 }
 
 local function turnon(inst)
-    if not inst.components.machine.ison then
 
-        inst.Light:Enable(true)
-        inst.AnimState:PlayAnimation("idle_on")
+    inst.Light:Enable(true)
+    inst.AnimState:PlayAnimation("idle_on")
 
-        if inst.components.equippable:IsEquipped() then
-            inst.components.inventoryitem.owner.AnimState:OverrideSymbol("swap_object", "swap_lantern", "swap_lantern_on")
-            inst.components.inventoryitem.owner.AnimState:Show("LANTERN_OVERLAY") 
-            
-        end
-        inst.components.machine.ison = true
-
-        inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_on")
-        inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_LP", "loop")
-
-        inst.components.inventoryitem:ChangeImageName("lantern_lit")
+    if inst.components.equippable:IsEquipped() then
+        inst.components.inventoryitem.owner.AnimState:OverrideSymbol("swap_object", "swap_lantern", "swap_lantern_on")
+        inst.components.inventoryitem.owner.AnimState:Show("LANTERN_OVERLAY") 
+        
     end
+    inst.components.machine.ison = true
+    inst.on = true
+
+    inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_on")
+    inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_LP", "loop")
+
+    inst.components.inventoryitem:ChangeImageName("lantern_lit")
 end
 
 local function turnoff(inst)
@@ -37,6 +36,7 @@ local function turnoff(inst)
     end
 
     inst.components.machine.ison = false
+    inst.on = false
 
     inst.SoundEmitter:KillSound("loop")
     inst.SoundEmitter:PlaySound("dontstarve/wilson/lantern_off")
@@ -44,8 +44,16 @@ local function turnoff(inst)
     inst.components.inventoryitem:ChangeImageName("lantern")
 end
 
+local function OnSave(inst, data)
+    data.on = inst.on
+end
+
+
 local function OnLoad(inst, data)
-    if inst.components.machine and inst.components.machine.ison then
+    
+    inst.on = data.on and data.on or false
+
+    if inst.components.machine and inst.on then
         inst.AnimState:PlayAnimation("idle_on")
         turnon(inst)
     else
@@ -96,6 +104,7 @@ local function fn(Sim)
     inst.AnimState:SetBank("lantern")
     inst.AnimState:SetBuild("lantern")
     inst.AnimState:PlayAnimation("idle_off")
+    inst.on = false
 
     inst:AddTag("light")
     
@@ -127,6 +136,7 @@ local function fn(Sim)
     inst.components.equippable:SetOnEquip( onequip )
     inst.components.equippable:SetOnUnequip( onunequip ) 
 
+    inst.OnSave = OnSave
     inst.OnLoad = OnLoad
 
     return inst
