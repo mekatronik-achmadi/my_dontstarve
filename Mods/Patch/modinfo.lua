@@ -9,5 +9,5 @@ api_version = 6
 dont_starve_compatible = true
 reign_of_giants_compatible = true
 
-icon_atlas = "preview.xml"
-icon = "preview.tex"
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"

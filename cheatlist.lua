@@ -12,7 +12,6 @@ c_give("nitre") -- "coldfire"
 c_give("silk") -- "fishingrod"
 c_give("charcoal") -- "meatrack"
 
-c_give("cane")
 c_give("molehat")
 c_give("heatrock")
 c_give("beefalohat")
@@ -20,6 +19,7 @@ c_give("eyebrellahat")
 
 c_give("trap_teeth")
 c_give("inf_lantern")
+
 c_give("turf_woodfloor")
 c_give("mech_stone_item")
 c_give("wall_stone_item")

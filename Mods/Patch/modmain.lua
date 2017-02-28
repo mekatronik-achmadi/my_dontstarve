@@ -19,13 +19,13 @@ TECH = GLOBAL.TECH
 Recipe("armorwood", {Ingredient("log", 8),Ingredient("rope", 2)}, RECIPETABS.WAR,  TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("cane", {Ingredient("goldnugget", 2), Ingredient("walrus_tusk", 1), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("coldfire", {Ingredient("cutgrass", 3), Ingredient("nitre", 2)}, RECIPETABS.LIGHT, TECH.NONE, "coldfire_placer")
 Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutstone", 4), Ingredient("transistor", 2)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 15), Ingredient("boneshard", 4)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("fast_farmplot", {Ingredient("cutgrass", 10),Ingredient("poop", 6),Ingredient("rocks", 4)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 Recipe("firesuppressor", {Ingredient("gears", 2),Ingredient("ice", 15),Ingredient("transistor", 2)}, RECIPETABS.SCIENCE,  TECH.NONE, "firesuppressor_placer")
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
+Recipe("homesign", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE, "homesign_placer")
 Recipe("heatrock", {Ingredient("rocks", 10),Ingredient("pickaxe", 1),Ingredient("flint", 3)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("icebox", {Ingredient("goldnugget", 2), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
 Recipe("lightning_rod", {Ingredient("goldnugget", 4), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
@@ -49,8 +49,6 @@ Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("transistor", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE, TECH.NONE)
 Recipe("gears", {Ingredient("log", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 3)}, RECIPETABS.REFINE,  TECH.NONE)
-
-Recipe("homesign", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE, "homesign_placer")
 
 ------------------------------------------------------
 
@@ -122,3 +120,108 @@ AddClassPostConstruct("screens/playerhud", function(self)
         end
     end
 end)
+
+------------------------------------------------------
+
+GLOBAL.rewritable_signs = false
+GLOBAL.pause_while_writing_on_signs = false
+
+STRINGS = GLOBAL.STRINGS
+ACTIONS = GLOBAL.ACTIONS
+Action = GLOBAL.Action
+
+STRINGS.ACTIONS.WRITEONSIGN = "Write On"
+
+ACTIONS.WRITEONSIGN = Action(2)
+for k,v in pairs(ACTIONS) do
+	v.str = STRINGS.ACTIONS[k] or "ACTION"
+	v.id = k
+end
+
+function actionpostint(inst)
+    ACTIONS.WRITEONSIGN.fn = function(act)
+	local target = act.target or act.invobject
+	local writer = act.doer
+	if target and target.components.writeable and not target.components.writeable.text then
+	    target.components.writeable:StartWriting(target, writer)
+	    return true
+	end
+    end
+end
+
+AddGamePostInit(actionpostint) 
+
+function simpostinit()
+    local function addActionHandler(SGname, action, state, condition)
+	actionHandler = GLOBAL.ActionHandler(action, state, condition)
+	for k,v in pairs(GLOBAL.SGManager.instances) do	
+	    if(k.sg.name == SGname) then
+		k.sg.actionhandlers[action] = actionHandler
+		break
+	    end
+	end
+    end
+    
+    addActionHandler("wilson", ACTIONS.WRITEONSIGN)
+    
+    if type(STRINGS.CHARACTERS.GENERIC.DESCRIBE.HOMESIGN) == "string" then
+
+	STRINGS.CHARACTERS.GENERIC.DESCRIBE.HOMESIGN = {}
+	STRINGS.CHARACTERS.GENERIC.DESCRIBE.HOMESIGN["GENERIC"] = "There's nothing written on it."
+
+	for k,v in pairs(GLOBAL.GetActiveCharacterList()) do	
+	    if STRINGS.CHARACTERS[string.upper(v)] then
+		local stored_string = STRINGS.CHARACTERS[string.upper(v)].DESCRIBE.HOMESIGN
+		STRINGS.CHARACTERS[string.upper(v)].DESCRIBE.HOMESIGN = {}
+		STRINGS.CHARACTERS[string.upper(v)].DESCRIBE.HOMESIGN["GENERIC"] = stored_string
+	    end
+	end
+    else
+	STRINGS.CHARACTERS.GENERIC.DESCRIBE.HOMESIGN.GENERIC = "There's nothing written on it."
+    end
+    
+    local hover = GLOBAL.require "widgets/hoverer"
+    hover.OnUpdatePre = hover.OnUpdate
+    hover.OnUpdate = function(self)
+	if not self.owner.components.playercontroller.enabled then
+	    self:Hide()
+	    return
+	end
+
+	self:OnUpdatePre()
+    end
+end
+
+AddSimPostInit(simpostinit)
+
+function signspostinit(inst)
+	
+    local function readsigntext(inst, reader)
+	if inst.components.writeable and inst.components.writeable.writtentext then
+
+	    local spokentext = nil
+	    local writtentext = inst.components.writeable.writtentext		
+
+	    if reader.prefab == "wx78" then
+		    spokentext = "MESSAGE READS '"..string.upper(writtentext).."'."
+	    else 
+		    spokentext = "It says '"..writtentext.."'."
+	    end
+
+	    if STRINGS.CHARACTERS[string.upper(reader.prefab)] then
+		    STRINGS.CHARACTERS[string.upper(reader.prefab)].DESCRIBE.HOMESIGN["SPOKENTEXT"] = spokentext
+	    else
+		    STRINGS.CHARACTERS["GENERIC"].DESCRIBE.HOMESIGN["SPOKENTEXT"] = spokentext
+	    end
+
+	    return "SPOKENTEXT"	
+	else
+	    return nil
+	end
+    end
+
+    inst:AddComponent("writeable")	
+    inst.components.inspectable.getstatus = readsigntext	
+end
+
+AddPrefabPostInit("homesign", signspostinit)
