@@ -54,6 +54,8 @@ elseif GirlDepiction == "mabel" then
 	TUNING.GIRL_DEPIC = "mabel"
 end
 
+TUNING.GIRL_AUTO = GetModConfigData("GirlAutoAct")
+
 ------------------------------------------------------
 
 local STRINGS = GLOBAL.STRINGS

@@ -25,4 +25,16 @@ configuration_options = {
 		},
 		default = "mabel",
 	},
+	
+	{
+		name = "GirlAutoAct",
+		label = "Girl Auto Action",
+		hover = "Choose preferred Auto Dirty Action",
+		options =
+		{	
+			{description = "Never", data = "never"},
+			{description = "Auto", data = "auto"},
+		},
+		default = "auto",
+	},
 }

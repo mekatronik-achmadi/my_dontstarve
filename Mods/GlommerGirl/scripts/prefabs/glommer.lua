@@ -376,8 +376,10 @@ local function fn()
     
     boy = GetPlayer()
     
-    inst:DoPeriodicTask(240,OnPoopSeed)
-    inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
+    if TUNING.GIRL_AUTO == "auto" then
+    	inst:DoPeriodicTask(240,OnPoopSeed)
+    	inst:DoPeriodicTask(math.random(30,60),OnRandomTalking)
+    end
     
     inst:ListenForEvent("farting",OnFarting)
     inst:ListenForEvent("pooping",OnPooping)
