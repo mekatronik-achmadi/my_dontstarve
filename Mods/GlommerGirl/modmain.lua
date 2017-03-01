@@ -50,7 +50,7 @@ elseif GirlDepiction == "wendy" then
 	TUNING.GIRL_ICON = "wendy.png"
 	TUNING.GIRL_DEPIC = "wendy"        
 elseif GirlDepiction == "mabel" then
-	TUNING.GIRL_ICON = "wendy.png"
+	TUNING.GIRL_ICON = "honk.tex"
 	TUNING.GIRL_DEPIC = "mabel"
 end
 
