@@ -29,26 +29,26 @@ local girl_word = 0
 
 local girl_words = 
 {
-    "I want my poop eaten by your mouth", --1
-    "I want my fart inhaled by your nose", --2
-    "I want my butt hole rubbed by your nose", --3
-    "I want my butt hole kissed by your lips", --4
-    "I want my butt hole licked by your tongue", --5
-    "I want my butt hole sucked by your mouth", --6
-    "I need my butt cleaned by your mouth", --7
+    "I want my fart inhaled by your nose", --1
+    "I want my poop eaten by your mouth", --2
+    "I want my butt hole kissed by your mouth", --3
+    "I want my butt hole sucked by your mouth", --4
+    "I want my butt hole penetrated by your tongue", --5
+    "I want my butt hole licked by your tongue", --6
+    "I need my butt cleaned by your tongue", --7
     "I need my butt pooping on your face", --8
     "I need my butt sitting on your face", --9
 }
 
 local boy_words =
 {
-    "My mouth can eat your poop with pleasure", --1
-    "My nose can gladly inhale your fart", --2
-    "My nose can happily rub your butt hole", --3
-    "My lips can gently kiss your butt hole", --4
-    "My tongue can slowly lick your butt hole", --5
-    "My mouth can lustful suck your butt hole", --6
-    "My mouth can clean your butt with joy", --7
+    "My nose can gladly inhale your fart", --1
+    "My mouth can eat your poop with pleasure", --2
+    "My mouth can happily kiss your butt hole", --3
+    "My mouth can lustful suck your butt hole", --4
+    "My tongue can gently penetrate your butt hole", --5
+    "My tongue can slowly lick your butt hole", --6
+    "My tongue can clean your butt with joy", --7
     "My face always be a toilet for your butt", --8
     "My face always be a seat for your butt", --9
 }
