@@ -26,7 +26,7 @@ c_give("wall_stone_item")
 
 c_spawn("icebox")
 c_spawn("pighouse")
-c_spawn("fast_farmplot")
+c_spawn("slow_farmplot")
 
 c_spawn("rainometer")
 c_spawn("coldfirepit")
