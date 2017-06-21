@@ -22,7 +22,7 @@ Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIP
 Recipe("coldfire", {Ingredient("cutgrass", 3), Ingredient("nitre", 2)}, RECIPETABS.LIGHT, TECH.NONE, "coldfire_placer")
 Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutstone", 4), Ingredient("transistor", 2)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 15), Ingredient("boneshard", 4)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("fast_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "slow_farmplot_placer")
+Recipe("fast_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 Recipe("firesuppressor", {Ingredient("gears", 2),Ingredient("ice", 15),Ingredient("transistor", 2)}, RECIPETABS.SCIENCE,  TECH.NONE, "firesuppressor_placer")
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("homesign", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE, "homesign_placer")
