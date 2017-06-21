@@ -1,4 +1,5 @@
 Default_Console_Key = "`"
+Default_Clear_Key = "ctrl+l"
 RunScript("consolecommands")
 
 -----------------------------------------------------------------------
@@ -18,6 +19,7 @@ c_give("flint")
 c_give("pigskin")
 c_give("charcoal")
 c_give("goldnugget")
+c_give("houndstooth")
 
 c_give("molehat")
 c_give("heatrock")
