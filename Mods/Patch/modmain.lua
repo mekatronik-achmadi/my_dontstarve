@@ -60,14 +60,14 @@ Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 
 -- Refine
-Recipe("boards", {Ingredient("log", 3)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("rope", {Ingredient("cutgrass", 3)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("rope", {Ingredient("cutgrass", 2)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("cutstone", {Ingredient("rocks", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 8), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
 
