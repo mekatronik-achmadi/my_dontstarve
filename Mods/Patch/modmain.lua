@@ -23,11 +23,11 @@ Recipe("shovel", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOO
 Recipe("pitchfork", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
 
 -- Light
-Recipe("firepit", {Ingredient("log", 2),Ingredient("rocks", 6)}, RECIPETABS.LIGHT, TECH.NONE, "firepit_placer")
-Recipe("campfire", {Ingredient("cutgrass", 3),Ingredient("log", 1)}, RECIPETABS.LIGHT, TECH.NONE, "campfire_placer")
+Recipe("campfire", {Ingredient("cutgrass", 3), Ingredient("log", 1)}, RECIPETABS.LIGHT, TECH.NONE, "campfire_placer")
 Recipe("coldfire", {Ingredient("cutgrass", 3), Ingredient("nitre", 1)}, RECIPETABS.LIGHT, TECH.NONE, "coldfire_placer")
-Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("rocks", 6)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
-Recipe("molehat", {Ingredient("mole", 2), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
+Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
+Recipe("firepit", {Ingredient("log", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "firepit_placer")
+Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 
 -- Survival
 Recipe("horn", {Ingredient("log", 1),Ingredient("boneshard", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
