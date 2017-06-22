@@ -71,6 +71,13 @@ Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 
 
 ------------------------------------------------------
 
+STRINGS = GLOBAL.STRINGS
+
+STRINGS.RECIPE_DESC.HORN = "Sound the call"
+STRINGS.RECIPE_DESC.BONESHARD = "Bone from tooth"
+
+------------------------------------------------------
+
 TUNING = GLOBAL.TUNING
 
 TUNING.TRAP_TEETH_USES = 20
