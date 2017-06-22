@@ -5,7 +5,7 @@ pkgdesc="Patch some game mechanic"
 url=""
 license=('custom')
 arch=('any')
-depends=('gog-dont-starve' 'gog-dont-starve-rog')
+depends=('gog-dont-starve' 'gog-dont-starve-rog' 'dsmod-shelter')
 source=("Patch.zip")
 sha256sums=('SKIP')
 
