@@ -1,6 +1,7 @@
 PrefabFiles = 
 {
 	"icebox",
+	"bedroll_straw",
 }
 
 Assets =
@@ -25,6 +26,7 @@ Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 
 Recipe("fast_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 Recipe("firesuppressor", {Ingredient("gears", 2),Ingredient("ice", 15),Ingredient("transistor", 2)}, RECIPETABS.SCIENCE,  TECH.NONE, "firesuppressor_placer")
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
+Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("heatrock", {Ingredient("rocks", 10),Ingredient("pickaxe", 1),Ingredient("flint", 3)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("icebox", {Ingredient("goldnugget", 2), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
 Recipe("lightning_rod", {Ingredient("goldnugget", 4), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
