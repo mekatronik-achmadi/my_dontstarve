@@ -60,6 +60,7 @@ Recipe("trap_teeth", {Ingredient("log", 1),Ingredient("rope", 1),Ingredient("hou
 -- Structure
 Recipe("turf_woodfloor", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,10)
+Recipe("turf_savanna", {Ingredient("boards", 1), Ingredient("cutgrass", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 
