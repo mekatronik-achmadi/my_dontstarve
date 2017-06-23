@@ -24,15 +24,15 @@ local function onsleep(inst, sleeper)
 		
 		sleeper.sg:GoToState("wakeup")	
 		if sleeper.components.hunger then
-			sleeper.components.hunger:DoDelta(-TUNING.CALORIES_MED, false, true)
+			sleeper.components.hunger:DoDelta(-TUNING.CALORIES_LARGE, false, true)
 		end
 
 		if sleeper.components.sanity then
-			sleeper.components.sanity:DoDelta(TUNING.SANITY_MED, false)
+			sleeper.components.sanity:DoDelta(TUNING.SANITY_MEDLARGE, false)
 		end
 		
 		if sleeper.components.health then
-			sleeper.components.health:DoDelta(TUNING.HEALING_MED, false, "bedroll", true)
+			sleeper.components.health:DoDelta(HEALING_MEDLARGE, false, "bedroll", true)
 		end	
 		
 		GetClock():MakeNextDay()
