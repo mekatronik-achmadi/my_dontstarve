@@ -38,6 +38,7 @@ Recipe("heatrock", {Ingredient("rocks", 5),Ingredient("pickaxe", 1),Ingredient("
 
 -- Food
 Recipe("meatrack", {Ingredient("twigs", 3),Ingredient("charcoal", 2), Ingredient("rope", 3)}, RECIPETABS.FARM, TECH.NONE, "meatrack_placer")
+Recipe("cookpot", {Ingredient("cutstone", 2),Ingredient("charcoal", 4), Ingredient("twigs", 6)}, RECIPETABS.FARM,  TECH.NONE, "cookpot_placer")
 Recipe("icebox", {Ingredient("goldnugget", 1), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
 Recipe("fast_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 
@@ -48,6 +49,9 @@ Recipe("winterometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2)}, R
 Recipe("lightning_rod", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
 Recipe("rainometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2), Ingredient("rope",2)}, RECIPETABS.SCIENCE,  TECH.NONE, "rainometer_placer")
 Recipe("firesuppressor", {Ingredient("gears", 1),Ingredient("ice", 8),Ingredient("transistor", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "firesuppressor_placer")
+
+-- Magic
+Recipe("resurrectionstatue", {Ingredient("boards", 4),Ingredient("meat", 4),Ingredient("rope", 4)}, RECIPETABS.MAGIC,  TECH.NONE, "resurrectionstatue_placer")
 
 -- Fight
 Recipe("armorwood", {Ingredient("log", 4),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
@@ -64,9 +68,11 @@ Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("rope", {Ingredient("cutgrass", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("cutstone", {Ingredient("rocks", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("walrus_tusk", {Ingredient("boneshard", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("walrus_tusk", 1), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
@@ -75,6 +81,7 @@ STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
 STRINGS.RECIPE_DESC.BONESHARD = "Bone from tooth"
+STRINGS.RECIPE_DESC.WALRUS_TUSK = "A bigger tooth"
 
 ------------------------------------------------------
 
@@ -87,6 +94,9 @@ TUNING.PERISH_FRIDGE_MULT = .25
 
 TUNING.FIRE_DETECTOR_RANGE = 20
 TUNING.SMOTHERER_EXTINGUISH_HEAT_PERCENT = 1
+
+TUNING.RESURRECT_HEALTH = 75
+TUNING.EFFIGY_HEALTH_PENALTY = 10
 
 TUNING.WOOD_SHELTER_WATERPROOFNESS = 0
 TUNING.WOOD_SHELTER_INSULATION = 0
