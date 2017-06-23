@@ -21,6 +21,7 @@ TECH = GLOBAL.TECH
 Recipe("razor", {Ingredient("twigs", 2), Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
 Recipe("shovel", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
 Recipe("pitchfork", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
+Recipe("hammer", {Ingredient("twigs", 2),Ingredient("rocks", 2), Ingredient("rope", 1)}, RECIPETABS.TOOLS, TECH.NONE)
 
 -- Light
 Recipe("campfire", {Ingredient("cutgrass", 3), Ingredient("log", 1)}, RECIPETABS.LIGHT, TECH.NONE, "campfire_placer")
