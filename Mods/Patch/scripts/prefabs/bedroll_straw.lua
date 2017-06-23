@@ -32,7 +32,7 @@ local function onsleep(inst, sleeper)
 		end
 		
 		if sleeper.components.health then
-			sleeper.components.health:DoDelta(HEALING_MEDLARGE, false, "bedroll", true)
+			sleeper.components.health:DoDelta(TUNING.HEALING_MEDLARGE, false, "bedroll", true)
 		end	
 		
 		GetClock():MakeNextDay()
