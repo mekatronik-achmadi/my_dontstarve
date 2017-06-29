@@ -127,7 +127,7 @@ local function fn(Sim)
     inst.entity:AddLight()
     inst.Light:SetColour(180/255, 195/255, 150/255)
     inst.Light:SetIntensity(.5)
-    inst.Light:SetRadius(4)
+    inst.Light:SetRadius(5)
     inst.Light:SetFalloff(.9)
     inst.Light:Enable(false)
 
