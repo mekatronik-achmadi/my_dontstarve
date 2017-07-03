@@ -64,6 +64,7 @@ Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NON
 Recipe("turf_savanna", {Ingredient("boards", 1), Ingredient("cutgrass", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
+Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
 Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
@@ -73,8 +74,11 @@ Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NON
 Recipe("walrus_tusk", {Ingredient("boneshard", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
+Recipe("strawhat", {Ingredient("cutgrass", 6)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("walrus_tusk", 1), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("bushhat", {Ingredient("dug_berrybush", 1),Ingredient("rope", 1),Ingredient("strawhat", 1)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("featherhat", {Ingredient("feather_crow", 3),Ingredient("rope", 1), Ingredient("strawhat", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
