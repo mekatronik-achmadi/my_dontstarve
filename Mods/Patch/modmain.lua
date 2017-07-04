@@ -82,7 +82,6 @@ STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
 STRINGS.RECIPE_DESC.BONESHARD = "Bone from tooth"
-STRINGS.RECIPE_DESC.WALRUS_TUSK = "A bigger tooth"
 STRINGS.RECIPE_DESC.TURF_SAVANNA = "Floor with grass"
 
 ------------------------------------------------------
