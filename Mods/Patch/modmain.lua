@@ -26,7 +26,6 @@ Recipe("hammer", {Ingredient("twigs", 2),Ingredient("rocks", 2), Ingredient("rop
 -- Light
 Recipe("campfire", {Ingredient("cutgrass", 3), Ingredient("log", 1)}, RECIPETABS.LIGHT, TECH.NONE, "campfire_placer")
 Recipe("coldfire", {Ingredient("cutgrass", 3), Ingredient("nitre", 1)}, RECIPETABS.LIGHT, TECH.NONE, "coldfire_placer")
-Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
 Recipe("firepit", {Ingredient("log", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "firepit_placer")
 Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 
@@ -71,14 +70,10 @@ Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("rope", {Ingredient("cutgrass", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("cutstone", {Ingredient("rocks", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("walrus_tusk", {Ingredient("boneshard", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
-Recipe("strawhat", {Ingredient("cutgrass", 6)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("walrus_tusk", 1), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("bushhat", {Ingredient("dug_berrybush", 1),Ingredient("rope", 1),Ingredient("strawhat", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("featherhat", {Ingredient("feather_crow", 3),Ingredient("rope", 1), Ingredient("strawhat", 1)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("goldnugget", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
@@ -98,8 +93,6 @@ TUNING.TRAP_TEETH_USES = 20
 TUNING.FISHINGROD_USES = 10
 
 TUNING.TRAP_TEETH_DAMAGE = 150
-
-TUNING.BIRD_SPAWN_MAX_FEATHERHAT = 10
 
 TUNING.PERISH_FRIDGE_MULT = .25
 
