@@ -179,29 +179,29 @@ if GetModConfigData("Wall Gates Version") == "recolored" then
 	}
 	
 	if GetModConfigData("Wall Gates Recipe") == "gears" then
-		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_hay_item.atlas = "images/inventoryimages/mech_hay_item.xml"
 
-		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_wood_item.atlas = "images/inventoryimages/mech_wood_item.xml"
 
-		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.NONE, nil, nil, nil, 1)
+		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.NONE, nil, nil, nil, 1)
 		mech_stone_item.atlas = "images/inventoryimages/mech_stone_item.xml"
 	
-		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
+		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 		mech_ruins_item.atlas = "images/inventoryimages/mech_ruins_item.xml"
 	elseif GetModConfigData("Wall Gates Recipe") == "transistor" then
 		if GLOBAL.IsDLCEnabled(GLOBAL.REIGN_OF_GIANTS) then 
-			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_hay_item.atlas = "images/inventoryimages/mech_hay_item.xml"
 
-			local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_wood_item.atlas = "images/inventoryimages/mech_wood_item.xml"
 
-			local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_stone_item.atlas = "images/inventoryimages/mech_stone_item.xml"
 	
-			local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
+			local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 			mech_ruins_item.atlas = "images/inventoryimages/mech_ruins_item.xml"
 		else
 			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 4)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
@@ -217,16 +217,16 @@ if GetModConfigData("Wall Gates Version") == "recolored" then
 			mech_ruins_item.atlas = "images/inventoryimages/mech_ruins_item.xml"
 		end
 	elseif GetModConfigData("Wall Gates Recipe") == "gold" then
-		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_hay_item.atlas = "images/inventoryimages/mech_hay_item.xml"
 
-		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_wood_item.atlas = "images/inventoryimages/mech_wood_item.xml"
 
-		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_stone_item.atlas = "images/inventoryimages/mech_stone_item.xml"
 	
-		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
+		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 		mech_ruins_item.atlas = "images/inventoryimages/mech_ruins_item.xml"
 	end
 end
@@ -246,29 +246,29 @@ if GetModConfigData("Wall Gates Version") == "normal" then
 	}
 
 	if GetModConfigData("Wall Gates Recipe") == "gears" then
-		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_hay_item.atlas = "images/inventoryimages/normal/mech_hay_item.xml"
 
-		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_wood_item.atlas = "images/inventoryimages/normal/mech_wood_item.xml"
 
-		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 		mech_stone_item.atlas = "images/inventoryimages/normal/mech_stone_item.xml"
 	
-		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2),Ingredient("gears", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
+		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 1),Ingredient("gears", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 		mech_ruins_item.atlas = "images/inventoryimages/normal/mech_ruins_item.xml"
 	elseif GetModConfigData("Wall Gates Recipe") == "transistor" then
 		if GLOBAL.IsDLCEnabled(GLOBAL.REIGN_OF_GIANTS) then 
-			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_hay_item.atlas = "images/inventoryimages/normal/mech_hay_item.xml"
 
-			local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_wood_item.atlas = "images/inventoryimages/normal/mech_wood_item.xml"
 
-			local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
+			local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
 			mech_stone_item.atlas = "images/inventoryimages/normal/mech_stone_item.xml"
 	
-			local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2),Ingredient("transistor", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
+			local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 1),Ingredient("transistor", 1)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 			mech_ruins_item.atlas = "images/inventoryimages/normal/mech_ruins_item.xml"
 		else
 			local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 4)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
@@ -283,18 +283,6 @@ if GetModConfigData("Wall Gates Version") == "normal" then
 			local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 4)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
 			mech_ruins_item.atlas = "images/inventoryimages/normal/mech_ruins_item.xml"
 		end
-	elseif GetModConfigData("Wall Gates Recipe") == "gold" then
-		local mech_hay_item = GLOBAL.Recipe("mech_hay_item", {Ingredient("wall_hay_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
-		mech_hay_item.atlas = "images/inventoryimages/normal/mech_hay_item.xml"
-
-		local mech_wood_item = GLOBAL.Recipe("mech_wood_item", {Ingredient("wall_wood_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
-		mech_wood_item.atlas = "images/inventoryimages/normal/mech_wood_item.xml"
-
-		local mech_stone_item = GLOBAL.Recipe("mech_stone_item", {Ingredient("wall_stone_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO, nil, nil, nil, 1)
-		mech_stone_item.atlas = "images/inventoryimages/normal/mech_stone_item.xml"
-	
-		local mech_ruins_item = GLOBAL.Recipe("mech_ruins_item", {Ingredient("wall_ruins_item", 1), Ingredient("goldnugget", 2)}, RECIPETABS.ANCIENT, TECH.ANCIENT_TWO, nil, nil, true, 1)
-		mech_ruins_item.atlas = "images/inventoryimages/normal/mech_ruins_item.xml"
 	end
 	
 	function HighlightPostInit(self)

@@ -18,10 +18,10 @@ c_give("rocks")
 c_give("flint")
 c_give("pigskin")
 c_give("charcoal")
+c_give("wormlight")
 c_give("goldnugget")
 c_give("houndstooth")
 c_give("beefalowool")
-c_give("manrabbit_tail")
 c_give("deerclops_eyeball")
 
 -----------------------------------------------------------------------
