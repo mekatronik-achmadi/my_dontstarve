@@ -31,7 +31,6 @@ Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredi
 
 -- Survival
 Recipe("horn", {Ingredient("log", 1),Ingredient("boneshard", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
-Recipe("trap", {Ingredient("twigs", 2),Ingredient("cutgrass", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
@@ -76,6 +75,7 @@ Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NON
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("boneshard", 2), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
