@@ -1,5 +1,4 @@
-Default_Console_Key = "`"
-Default_Clear_Key = "ctrl+l"
+Default_Console_Key = "`" || "ctrl+l"
 RunScript("consolecommands")
 
 -----------------------------------------------------------------------
@@ -22,6 +21,7 @@ c_give("wormlight")
 c_give("goldnugget")
 c_give("houndstooth")
 c_give("beefalowool")
+c_give("manrabbit_tail")
 c_give("deerclops_eyeball")
 
 -----------------------------------------------------------------------

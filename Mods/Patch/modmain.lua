@@ -55,6 +55,7 @@ Recipe("resurrectionstatue", {Ingredient("boards", 4),Ingredient("meat", 4),Ingr
 
 -- Fight
 Recipe("armorwood", {Ingredient("log", 4),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
+Recipe("footballhat", {Ingredient("pigskin", 1), Ingredient("log", 1)}, RECIPETABS.WAR,  TECH.NONE)
 Recipe("trap_teeth", {Ingredient("log", 1),Ingredient("rope", 1),Ingredient("houndstooth", 1)}, RECIPETABS.WAR,  TECH.NONE)
 
 -- Structure
@@ -62,7 +63,9 @@ Recipe("turf_woodfloor", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
 Recipe("turf_savanna", {Ingredient("boards", 1), Ingredient("cutgrass", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
+Recipe("spidereggsack", {Ingredient("silk", 6), Ingredient("monstermeat", 6)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
+Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
 Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
@@ -72,7 +75,8 @@ Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NON
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
+Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("boneshard", 2), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
