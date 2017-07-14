@@ -69,11 +69,9 @@ Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("rope", {Ingredient("cutgrass", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("cutstone", {Ingredient("rocks", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("walrus_tusk", {Ingredient("boneshard", 2)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("walrus_tusk", 1), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.LIGHT,  TECH.NONE)
 Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
@@ -83,7 +81,6 @@ STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
 STRINGS.RECIPE_DESC.BONESHARD = "Bone from tooth"
-STRINGS.RECIPE_DESC.WALRUS_TUSK = "A bigger tooth"
 STRINGS.RECIPE_DESC.TURF_SAVANNA = "Floor with grass"
 
 ------------------------------------------------------
