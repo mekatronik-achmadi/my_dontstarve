@@ -496,7 +496,7 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 1,
+		default = 2,
 	},
 	
 	{
@@ -511,7 +511,7 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 1,
+		default = 2,
 	},
 	
 	{
