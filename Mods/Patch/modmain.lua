@@ -30,7 +30,7 @@ Recipe("firepit", {Ingredient("log", 2), Ingredient("cutgrass", 3),Ingredient("r
 Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 
 -- Survival
-Recipe("horn", {Ingredient("log", 1),Ingredient("boneshard", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
+Recipe("horn", {Ingredient("log", 1),Ingredient("houndstooth", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
@@ -61,31 +61,24 @@ Recipe("trap_teeth", {Ingredient("log", 1),Ingredient("rope", 1),Ingredient("hou
 -- Structure
 Recipe("turf_woodfloor", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
-Recipe("turf_savanna", {Ingredient("boards", 1), Ingredient("cutgrass", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
-Recipe("spidereggsack", {Ingredient("silk", 6), Ingredient("monstermeat", 6)}, RECIPETABS.TOWN, TECH.NONE)
+Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
-Recipe("boards", {Ingredient("log", 2)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("rope", {Ingredient("cutgrass", 2)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("cutstone", {Ingredient("rocks", 2)}, RECIPETABS.REFINE,  TECH.NONE)
-Recipe("boneshard", {Ingredient("houndstooth", 2)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("boards", {Ingredient("log", 3)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("rope", {Ingredient("cutgrass", 3)}, RECIPETABS.REFINE,  TECH.NONE)
+Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("boneshard", 2), Ingredient("twigs", 4)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1), Ingredient("wormlight", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("eyebrellahat", {Ingredient("deerclops_eyeball", 1), Ingredient("twigs", 4), Ingredient("boneshard", 2)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
 
 STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
-STRINGS.RECIPE_DESC.BONESHARD = "Bone from tooth"
-STRINGS.RECIPE_DESC.TURF_SAVANNA = "Floor with grass"
 STRINGS.RECIPE_DESC.SPIDEREGGSACK = "Plant a fight club"
 
 ------------------------------------------------------
