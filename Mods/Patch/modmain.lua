@@ -60,7 +60,7 @@ Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NON
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
 Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
-Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 3), Ingredient("seeds", 3)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
+Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 4)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
 Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
