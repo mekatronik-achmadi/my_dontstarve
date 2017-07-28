@@ -1,9 +1,3 @@
-PrefabFiles = 
-{
-	"icebox",
-	"bedroll_straw",
-}
-
 Assets =
 {
 	Asset("ATLAS", "images/newslots.xml"),
@@ -30,11 +24,11 @@ Recipe("firepit", {Ingredient("log", 2), Ingredient("cutgrass", 3),Ingredient("r
 Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "coldfirepit_placer")
 
 -- Survival
+Recipe("trap", {Ingredient("twigs", 2),Ingredient("cutgrass", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("birdtrap", {Ingredient("twigs", 6),Ingredient("silk", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("horn", {Ingredient("log", 1),Ingredient("houndstooth", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
-Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("heatrock", {Ingredient("rocks", 5),Ingredient("pickaxe", 1),Ingredient("flint", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
 
 -- Food

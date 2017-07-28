@@ -105,15 +105,15 @@ local function onsleep(inst, sleeper)
     end
     
     if sleeper.components.sanity then
-			sleeper.components.sanity:DoDelta(TUNING.SANITY_HUGE)
+			sleeper.components.sanity:DoDelta(TUNING.SANITY_MEDLARGE)
 		end
 		
 		if sleeper.components.hunger then
-			sleeper.components.hunger:DoDelta(-TUNING.CALORIES_HUGE, false, true)
+			sleeper.components.hunger:DoDelta(-TUNING.CALORIES_LARGE, false, true)
 		end
 		
 		if sleeper.components.health then
-			sleeper.components.health:DoDelta(TUNING.HEALING_HUGE, false, "tent", true)
+			sleeper.components.health:DoDelta(TUNING.HEALING_MEDLARGE, false, "tent", true)
 		end
     
     if sleeper.components.temperature and sleeper.components.temperature.current < TUNING.TARGET_SLEEP_TEMP then
