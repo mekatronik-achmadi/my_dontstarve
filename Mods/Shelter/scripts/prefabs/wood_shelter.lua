@@ -153,6 +153,7 @@ local function fn(Sim)
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon( "siesta_shelter.tex" )
 
+	inst:AddTag("tent") 
 	inst:AddTag("shelter")
 	
 	inst:AddComponent( "playerprox" )

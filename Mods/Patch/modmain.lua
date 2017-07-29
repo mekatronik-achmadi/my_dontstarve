@@ -36,7 +36,7 @@ Recipe("umbrella", {Ingredient("twigs", 4) ,Ingredient("pigskin", 1), Ingredient
 Recipe("meatrack", {Ingredient("twigs", 3),Ingredient("charcoal", 2), Ingredient("rope", 3)}, RECIPETABS.FARM, TECH.NONE, "meatrack_placer")
 Recipe("cookpot", {Ingredient("cutstone", 2),Ingredient("charcoal", 4), Ingredient("twigs", 6)}, RECIPETABS.FARM,  TECH.NONE, "cookpot_placer")
 Recipe("icebox", {Ingredient("goldnugget", 1), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
-Recipe("fast_farmplot", {Ingredient("log", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
+Recipe("fast_farmplot", {Ingredient("boards", 1),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 
 -- Science
 Recipe("gears", {Ingredient("log", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE)
