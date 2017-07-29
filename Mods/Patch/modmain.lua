@@ -36,7 +36,7 @@ Recipe("umbrella", {Ingredient("twigs", 4) ,Ingredient("pigskin", 1), Ingredient
 Recipe("meatrack", {Ingredient("twigs", 3),Ingredient("charcoal", 2), Ingredient("rope", 3)}, RECIPETABS.FARM, TECH.NONE, "meatrack_placer")
 Recipe("cookpot", {Ingredient("cutstone", 2),Ingredient("charcoal", 4), Ingredient("twigs", 6)}, RECIPETABS.FARM,  TECH.NONE, "cookpot_placer")
 Recipe("icebox", {Ingredient("goldnugget", 1), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
-Recipe("fast_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
+Recipe("fast_farmplot", {Ingredient("log", 4),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 
 -- Science
 Recipe("gears", {Ingredient("log", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE)
@@ -60,7 +60,7 @@ Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NON
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
 Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
-Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 4)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
+Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 2)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
 Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
