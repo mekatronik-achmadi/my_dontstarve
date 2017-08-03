@@ -45,8 +45,8 @@ Recipe("icebox", {Ingredient("goldnugget", 1), Ingredient("gears", 1), Ingredien
 Recipe("fast_farmplot", {Ingredient("boards", 1),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 
 -- Science
-Recipe("gears", {Ingredient("log", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE)
-Recipe("transistor", {Ingredient("goldnugget", 1), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE, TECH.NONE)
+Recipe("gears", {Ingredient("log", 1), Ingredient("rocks", 2)}, RECIPETABS.SCIENCE,  TECH.NONE)
+Recipe("transistor", {Ingredient("goldnugget", 1), Ingredient("rocks", 2)}, RECIPETABS.SCIENCE, TECH.NONE)
 Recipe("winterometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2)}, RECIPETABS.SCIENCE,  TECH.NONE, "winterometer_placer")
 Recipe("lightning_rod", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
 Recipe("rainometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2), Ingredient("rope",2)}, RECIPETABS.SCIENCE,  TECH.NONE, "rainometer_placer")
