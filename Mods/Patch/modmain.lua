@@ -18,6 +18,7 @@ Recipe("pitchfork", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.
 Recipe("hammer", {Ingredient("twigs", 2),Ingredient("rocks", 2), Ingredient("rope", 1)}, RECIPETABS.TOOLS, TECH.NONE)
 
 -- Light
+Recipe("torch", {Ingredient("cutgrass", 2),Ingredient("twigs", 1)}, RECIPETABS.LIGHT, TECH.NONE)
 Recipe("campfire", {Ingredient("cutgrass", 3), Ingredient("log", 1)}, RECIPETABS.LIGHT, TECH.NONE, "campfire_placer")
 Recipe("coldfire", {Ingredient("cutgrass", 3), Ingredient("nitre", 1)}, RECIPETABS.LIGHT, TECH.NONE, "coldfire_placer")
 Recipe("firepit", {Ingredient("log", 2), Ingredient("cutgrass", 3),Ingredient("rocks", 8)}, RECIPETABS.LIGHT, TECH.NONE, "firepit_placer")
@@ -25,7 +26,6 @@ Recipe("coldfirepit", {Ingredient("nitre", 2), Ingredient("cutgrass", 3),Ingredi
 
 -- Survival
 Recipe("trap", {Ingredient("twigs", 2),Ingredient("cutgrass", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
-Recipe("birdtrap", {Ingredient("twigs", 6),Ingredient("silk", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("horn", {Ingredient("log", 1),Ingredient("houndstooth", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
@@ -60,7 +60,6 @@ Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NON
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
 Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
-Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 2)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
 Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
 
 -- Refine
@@ -69,6 +68,7 @@ Recipe("rope", {Ingredient("cutgrass", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
+Recipe("molehat", {Ingredient("mole", 1), Ingredient("transistor", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
@@ -137,13 +137,13 @@ AddSimPostInit(gamepostinit)
 table.insert(GLOBAL.EQUIPSLOTS, "BACK")
 GLOBAL.EQUIPSLOTS.BACK = "back"
 
-AddClassPostConstruct("screens/playerhud", function(self) 
+AddClassPostConstruct("screens/playerhud", function(self)
     local oldfn = self.SetMainCharacter
     function self:SetMainCharacter(maincharacter)
-        
+
         oldfn(self, maincharacter)
-        
-        self.controls.inv:AddEquipSlot(GLOBAL.EQUIPSLOTS.BACK, "images/newslots.xml", "back.tex") 
+
+        self.controls.inv:AddEquipSlot(GLOBAL.EQUIPSLOTS.BACK, "images/newslots.xml", "back.tex")
         self.controls.inv.bg:SetScale(1.2,1,1)
 
         local bp = maincharacter.components.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.BACK)
