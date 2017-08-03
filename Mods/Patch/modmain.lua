@@ -1,7 +1,7 @@
 PrefabFiles =
 {
 	"bedroll_straw",
--}
+}
 
 Assets =
 {
