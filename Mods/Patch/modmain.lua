@@ -1,3 +1,8 @@
+PrefabFiles =
+{
+	"bedroll_straw",
+-}
+
 Assets =
 {
 	Asset("ATLAS", "images/newslots.xml"),
@@ -29,6 +34,7 @@ Recipe("trap", {Ingredient("twigs", 2),Ingredient("cutgrass", 4)}, RECIPETABS.SU
 Recipe("horn", {Ingredient("log", 1),Ingredient("houndstooth", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("fishingrod", {Ingredient("twigs", 2),Ingredient("silk", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("backpack", {Ingredient("cutgrass", 4), Ingredient("twigs", 4)}, RECIPETABS.SURVIVAL, TECH.NONE)
+Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("heatrock", {Ingredient("rocks", 5),Ingredient("pickaxe", 1),Ingredient("flint", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("umbrella", {Ingredient("twigs", 4) ,Ingredient("pigskin", 1), Ingredient("silk",2 )}, RECIPETABS.SURVIVAL, TECH.NONE)
 
@@ -51,7 +57,6 @@ Recipe("resurrectionstatue", {Ingredient("boards", 4),Ingredient("meat", 4),Ingr
 
 -- Fight
 Recipe("armorwood", {Ingredient("log", 4),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
-Recipe("footballhat", {Ingredient("pigskin", 1), Ingredient("log", 1)}, RECIPETABS.WAR,  TECH.NONE)
 Recipe("trap_teeth", {Ingredient("log", 1),Ingredient("rope", 1),Ingredient("houndstooth", 1)}, RECIPETABS.WAR,  TECH.NONE)
 
 -- Structure

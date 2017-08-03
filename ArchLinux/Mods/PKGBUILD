@@ -1,0 +1,37 @@
+pkgname=dsmod-rog
+pkgver=1.0
+pkgrel=1
+pkgdesc="Selected mod for Don't Starve Reign of Giants"
+url=""
+license=('custom')
+arch=('i686' 'x86_64')
+depends=('gog-dont-starve-rog')
+source=(
+	'Arrow.zip'
+	'Patch.zip'
+	'Shelter.zip'
+	'Wall_Gate.zip'
+	'PathLights.zip'
+)
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+package(){
+	cd "$srcdir"
+
+	if [ "$(uname -m)" = "i686" ]; then
+		_game_arch=dontstarve32
+	elif [ "$(uname -m)" = "x86_64" ]; then
+		_game_arch=dontstarve64
+	fi
+
+	install -d "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+
+	mv -v ./Arrow "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+	mv -v ./Patch "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+	mv -v ./Shelter "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+	mv -v ./Wall_Gate "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+	mv -v ./PathLights "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+
+	chmod -R a+r "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+	chmod -R a+x "${pkgdir}/opt/gog-dont-starve/game/${_game_arch}/mods/"
+}
