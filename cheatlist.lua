@@ -1,5 +1,4 @@
-Default_Console_Key = "~"
-Default_Clear_Key = "Ctrl+L"
+Default_Console_Key = "~" | "Ctrl+L"
 RunScript("consolecommands")
 
 -----------------------------------------------------------------------
@@ -12,6 +11,7 @@ GetWorld().minimap.MiniMap:ShowArea(0,0,0,10000)
 c_give("ice")
 c_give("poop")
 c_give("silk")
+c_give("mole")
 c_give("nitre")
 c_give("rocks")
 c_give("flint")
