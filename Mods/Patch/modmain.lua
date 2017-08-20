@@ -2,6 +2,7 @@ PrefabFiles =
 {
 	"bedroll_straw",
 	"icebox",
+	"walls",
 }
 
 Assets =
@@ -64,8 +65,8 @@ Recipe("trap_teeth", {Ingredient("log", 1),Ingredient("rope", 1),Ingredient("hou
 
 -- Structure
 Recipe("turf_woodfloor", {Ingredient("boards", 1)}, RECIPETABS.TOWN, TECH.NONE)
-Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
 Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "treasurechest_placer",1)
+Recipe("wall_wood_item", {Ingredient("log", 3), Ingredient("rope", 1)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
 Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 2)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
