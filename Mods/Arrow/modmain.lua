@@ -199,7 +199,9 @@ bowrecipe.atlas = "images/inventoryimages/bow.xml"
 
 local ARROWrecipeIngredients = {}
 
-ARROWrecipeIngredients[#ARROWrecipeIngredients + 1]= GIngredient(ARROWHEADTYPE, ARROWREQHEAD);
+if ARROWREQHEAD > 0 then
+	ARROWrecipeIngredients[#ARROWrecipeIngredients + 1]= GIngredient(ARROWHEADTYPE, ARROWREQHEAD);
+end
 ARROWrecipeIngredients[#ARROWrecipeIngredients + 1] = GIngredient(PROJSHAFTTYPE, ARROWREQLOG);
 if ARROWREQFEATHER > 0 then
 	ARROWrecipeIngredients[#ARROWrecipeIngredients + 1] = GIngredient("feather_crow", ARROWREQFEATHER);
