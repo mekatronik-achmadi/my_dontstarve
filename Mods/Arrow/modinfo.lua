@@ -612,7 +612,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 0,
+		default = 1,
 	},
 
 	{
@@ -626,7 +626,7 @@ configuration_options =
 			{description = "15", data = 15},
 			{description = "20", data = 20},
 		},
-		default = 10,
+		default = 20,
 	},
 
 	{
