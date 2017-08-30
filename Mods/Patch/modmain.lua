@@ -1,6 +1,7 @@
 PrefabFiles =
 {
 	"bedroll_straw",
+	"mermhouse",
 	"icebox",
 	"walls",
 }
@@ -8,7 +9,7 @@ PrefabFiles =
 Assets =
 {
 	Asset("ATLAS", "images/newslots.xml"),
-
+	Asset("ATLAS", "images/mermhouse.xml"),
 }
 
 ------------------------------------------------------
@@ -76,7 +77,6 @@ Recipe("treasurechest", {Ingredient("boards", 3)}, RECIPETABS.TOWN, TECH.NONE, "
 Recipe("wall_wood_item", {Ingredient("log", 3), Ingredient("rope", 1)}, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
 Recipe("wall_hay_item", {Ingredient("cutgrass", 3), Ingredient("rope", 1) }, RECIPETABS.TOWN, TECH.NONE,nil,nil,nil,6)
 Recipe("spidereggsack", {Ingredient("silk", 4), Ingredient("monstermeat", 2),Ingredient("spidergland", 2)}, RECIPETABS.TOWN, TECH.NONE)
-Recipe("mermhouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("fish", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 Recipe("pighouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("pigskin", 2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
 Recipe("birdcage", {Ingredient("cutgrass", 6), Ingredient("goldnugget", 2), Ingredient("boards", 2)}, RECIPETABS.TOWN, TECH.NONE, "birdcage_placer")
 Recipe("rabbithouse", {Ingredient("boards", 4), Ingredient("cutstone", 2), Ingredient("manrabbit_tail", 2)}, RECIPETABS.TOWN, TECH.NONE, "rabbithouse_placer")
@@ -96,8 +96,13 @@ Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIP
 STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
-STRINGS.RECIPE_DESC.MERMHOUSE = "Create a war"
 STRINGS.RECIPE_DESC.SPIDEREGGSACK = "Plant a fight club"
+
+------------------------------------------------------
+
+STRINGS.RECIPE_DESC.MERMHOUSE = "Create a war"
+local mermhouse = Recipe("mermhouse", {Ingredient("boards", 4), Ingredient("fish", 2), Ingredient("froglegs",2)}, RECIPETABS.TOWN, TECH.NONE, "pighouse_placer")
+mermhouse.atlas = "images/mermhouse.xml"
 
 ------------------------------------------------------
 
