@@ -4,6 +4,7 @@ PrefabFiles =
 	"mermhouse",
 	"icebox",
 	"walls",
+	"hats",
 }
 
 Assets =
