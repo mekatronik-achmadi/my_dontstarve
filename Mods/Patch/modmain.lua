@@ -44,6 +44,8 @@ Recipe("bedroll_straw", {Ingredient("cutgrass", 3), Ingredient("rope", 1)}, RECI
 Recipe("bugnet", {Ingredient("twigs", 4), Ingredient("silk", 2), Ingredient("rope", 1)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("heatrock", {Ingredient("rocks", 5),Ingredient("pickaxe", 1),Ingredient("flint", 2)}, RECIPETABS.SURVIVAL, TECH.NONE)
 Recipe("umbrella", {Ingredient("twigs", 4) ,Ingredient("pigskin", 1), Ingredient("silk",2 )}, RECIPETABS.SURVIVAL, TECH.NONE)
+Recipe("tent", {Ingredient("silk", 4),Ingredient("twigs", 4),Ingredient("rope", 2)}, RECIPETABS.SURVIVAL, TECH.NONE, "tent_placer")
+Recipe("siestahut", {Ingredient("pigskin", 1),Ingredient("log", 4),Ingredient("rope", 2)}, RECIPETABS.SURVIVAL, TECH.NONE, "siestahut_placer")
 
 -- Food
 Recipe("beebox", {Ingredient("boards", 2),Ingredient("bee", 4)}, RECIPETABS.FARM, TECH.NONE, "beebox_placer")
