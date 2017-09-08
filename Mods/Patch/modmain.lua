@@ -25,7 +25,6 @@ Recipe("razor", {Ingredient("twigs", 2), Ingredient("flint", 2)}, RECIPETABS.TOO
 Recipe("shovel", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
 Recipe("pitchfork", {Ingredient("twigs", 2),Ingredient("flint", 2)}, RECIPETABS.TOOLS,  TECH.NONE)
 Recipe("hammer", {Ingredient("twigs", 2),Ingredient("rocks", 2), Ingredient("rope", 1)}, RECIPETABS.TOOLS, TECH.NONE)
-Recipe("cane", {Ingredient("goldnugget", 1), Ingredient("houndstooth", 6), Ingredient("twigs", 4)}, RECIPETABS.TOOLS,  TECH.NONE)
 
 -- Light
 Recipe("torch", {Ingredient("cutgrass", 2),Ingredient("twigs", 1)}, RECIPETABS.LIGHT, TECH.NONE)
