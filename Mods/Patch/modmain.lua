@@ -60,6 +60,7 @@ Recipe("gunpowder", {Ingredient("rottenegg", 1), Ingredient("charcoal", 1), Ingr
 Recipe("winterometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2)}, RECIPETABS.SCIENCE,  TECH.NONE, "winterometer_placer")
 Recipe("lightning_rod", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
 Recipe("rainometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2), Ingredient("rope",2)}, RECIPETABS.SCIENCE,  TECH.NONE, "rainometer_placer")
+Recipe("firesuppressor", {Ingredient("gears", 1),Ingredient("ice", 8),Ingredient("transistor", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "firesuppressor_placer")
 
 -- Fight
 Recipe("armorwood", {Ingredient("log", 4),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
@@ -94,6 +95,7 @@ Recipe("winterhat", {Ingredient("beefalowool", 4),Ingredient("silk", 2)}, RECIPE
 STRINGS = GLOBAL.STRINGS
 
 STRINGS.RECIPE_DESC.HORN = "Sound the call"
+STRINGS.RECIPE_DESC.GEARS = "Precisely engineered"
 STRINGS.RECIPE_DESC.SPIDEREGGSACK = "Plant a fight club"
 
 ------------------------------------------------------
@@ -124,6 +126,13 @@ TUNING.WOOD_SHELTER_INSULATION = 0
 TUNING.WOOD_SHELTER_SLEEPING = 0
 
 TUNING.WOODFLOOR_SPEEDMULTIPLIER = 1.2
+
+-------------------------------------------------------
+
+AddPrefabPostInit("firesuppressor", function(inst)
+    inst.components.fueled.rate = .25
+    table.insert(inst.components.firedetector.NOTAGS, "campfire")
+end)
 
 -------------------------------------------------------
 
