@@ -86,8 +86,7 @@ Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
 Recipe("strawhat", {Ingredient("cutgrass", 8)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("beehat", {Ingredient("silk", 4), Ingredient("strawhat", 1)}, RECIPETABS.DRESS,  TECH.NONE)
-Recipe("beefalohat", {Ingredient("beefalowool", 4),Ingredient("horn", 1)}, RECIPETABS.DRESS,  TECH.NONE)
+Recipe("beehat", {Ingredient("silk", 4), Ingredient("rope", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 
 ------------------------------------------------------
 
