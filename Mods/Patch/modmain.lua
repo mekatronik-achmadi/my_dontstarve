@@ -63,9 +63,6 @@ Recipe("winterometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2)}, R
 Recipe("lightning_rod", {Ingredient("goldnugget", 2), Ingredient("cutstone", 1)}, RECIPETABS.SCIENCE,  TECH.NONE, "lightning_rod_placer")
 Recipe("rainometer", {Ingredient("boards", 2), Ingredient("goldnugget", 2), Ingredient("rope",2)}, RECIPETABS.SCIENCE,  TECH.NONE, "rainometer_placer")
 
--- Magic
-Recipe("resurrectionstatue", {Ingredient("boards", 4),Ingredient("meat", 4),Ingredient("rope", 4)}, RECIPETABS.MAGIC,  TECH.NONE, "resurrectionstatue_placer")
-
 -- Fight
 Recipe("armorwood", {Ingredient("log", 4),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
 Recipe("boomerang", {Ingredient("boards", 1),Ingredient("rope", 1)}, RECIPETABS.WAR,  TECH.NONE)
