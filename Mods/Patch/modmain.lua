@@ -2,9 +2,7 @@ PrefabFiles =
 {
 	"bedroll_straw",
 	"mermhouse",
-	"icebox",
 	"walls",
-	"hats",
 }
 
 Assets =
