@@ -50,7 +50,6 @@ Recipe("siestahut", {Ingredient("pigskin", 1),Ingredient("log", 4),Ingredient("r
 Recipe("beebox", {Ingredient("boards", 2),Ingredient("bee", 4)}, RECIPETABS.FARM, TECH.NONE, "beebox_placer")
 Recipe("meatrack", {Ingredient("twigs", 3),Ingredient("charcoal", 2), Ingredient("rope", 3)}, RECIPETABS.FARM, TECH.NONE, "meatrack_placer")
 Recipe("cookpot", {Ingredient("cutstone", 2),Ingredient("charcoal", 4), Ingredient("twigs", 6)}, RECIPETABS.FARM,  TECH.NONE, "cookpot_placer")
-Recipe("slow_farmplot", {Ingredient("cutgrass", 4),Ingredient("poop", 2),Ingredient("log", 2)}, RECIPETABS.FARM,  TECH.NONE, "farmplot_placer")
 Recipe("fast_farmplot", {Ingredient("boards", 1),Ingredient("poop", 2),Ingredient("rocks", 2)}, RECIPETABS.FARM,  TECH.NONE, "fast_farmplot_placer")
 Recipe("icebox", {Ingredient("goldnugget", 1), Ingredient("gears", 1), Ingredient("cutstone", 1)}, RECIPETABS.FARM,  TECH.NONE, "icebox_placer", 1.5)
 
@@ -86,6 +85,7 @@ Recipe("rope", {Ingredient("cutgrass", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 Recipe("cutstone", {Ingredient("rocks", 3)}, RECIPETABS.REFINE,  TECH.NONE)
 
 -- Dress
+Recipe("flowerhat", {Ingredient("petals", 8)}, RECIPETABS.DRESS, TECH.NONE)
 Recipe("strawhat", {Ingredient("cutgrass", 8)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("beehat", {Ingredient("silk", 4), Ingredient("rope", 1)}, RECIPETABS.DRESS,  TECH.NONE)
 Recipe("earmuffshat", {Ingredient("rabbit", 1), Ingredient("twigs",1)}, RECIPETABS.DRESS, TECH.NONE)
