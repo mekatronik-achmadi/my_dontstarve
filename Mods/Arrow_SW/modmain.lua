@@ -58,7 +58,7 @@ local TimeEvent = GLOBAL.TimeEvent
 local EQUIPSLOTS = GLOBAL.EQUIPSLOTS
 
 local BOWREQTWIGS = GetModConfigData("BowTwigs_req")
-local BOWREQROPE = GetModConfigData("BowRope_req")
+local BOWREQCUTGRASS = GetModConfigData("BowCutgrass_req")
 local BOWTECHLEVEL = GetModConfigData("BowTechLevel")
 
 local CROSSBOWREQBOARDS = GetModConfigData("CrossbowBoards_req")
@@ -237,7 +237,7 @@ quiverrecipe.atlas = "images/inventoryimages/zquiver.xml"
 local BOWrecipeIngredients = {}
 
 BOWrecipeIngredients[#BOWrecipeIngredients + 1]= GIngredient("twigs", BOWREQTWIGS);
-BOWrecipeIngredients[#BOWrecipeIngredients + 1] = GIngredient("rope", BOWREQROPE);
+BOWrecipeIngredients[#BOWrecipeIngredients + 1] = GIngredient("cutgrass", BOWREQCUTGRASS);
 
 local zbowrecipe = AddModRecipe("zbow", BOWrecipeIngredients , archerytab, ReturnTechLevel(BOWTECHLEVEL), "common", nil, nil, nil, 1)
 zbowrecipe.atlas = "images/inventoryimages/zbow.xml"

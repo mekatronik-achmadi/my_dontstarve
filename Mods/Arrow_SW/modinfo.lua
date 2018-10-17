@@ -280,9 +280,9 @@ configuration_options =
 	},
 	
 	{
-		name = "BowRope_req",
-		label = "Bow recipe - Rope",
-		hover = "Amount of Rope required to craft the Bow",
+		name = "BowCutgrass_req",
+		label = "Bow recipe - Cut Grass",
+		hover = "Amount of Cut Grass required to craft the Bow",
 		options =
 		{
 			{description = "1", data = 1},
