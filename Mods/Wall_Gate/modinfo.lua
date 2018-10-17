@@ -33,7 +33,7 @@ configuration_options =
 		{description = "Gears", data = "gears"},
 		{description = "Electrical Doodad", data = "transistor"},
         },
-        default = "gears",
+        default = "transistor",
     },
 	
 }

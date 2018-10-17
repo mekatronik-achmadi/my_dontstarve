@@ -52,7 +52,7 @@ configuration_options =
 		{description = "4", data = 4},
 		{description = "5", data = 5},
 	},
-		default = 2,
+		default = 1,
 	},
 	{
 		name = "log", 
@@ -91,6 +91,6 @@ configuration_options =
 		{description = "4", data = 4},
 		{description = "5", data = 5},
 	},
-		default = 2,
+		default = 1,
 	},
 }
