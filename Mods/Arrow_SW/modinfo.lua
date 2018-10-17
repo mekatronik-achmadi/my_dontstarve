@@ -48,7 +48,7 @@ configuration_options =
 			{description = "200", data = 200},
 			{description = "Inf.", data = 999},
 		},
-		default = 50,
+		default = 100,
 	},	
 	
 	{
@@ -75,7 +75,7 @@ configuration_options =
 			{description = "90", data = 90, hover = "use c_godmode() instead"},
 
 		},
-		default = 27,
+		default = 70,
 	},	
 
 	{
@@ -98,7 +98,7 @@ configuration_options =
 			{description = "21", data = 21},	
 			{description = "22", data = 22},				
 		},
-		default = 13,
+		default = 15,
 	},	
 	
 	{
@@ -119,7 +119,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.3,
+		default = 0,
 	},	
 	
 	{
@@ -140,7 +140,7 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 1.50},
 		},
-		default = 0.1,
+		default = 0,
 	},	
 	
 	{
@@ -152,7 +152,7 @@ configuration_options =
 			{description = "no", data = false, hover = "The regular miss chance of small creatures is applied to butterflies and bees"},
 			{description = "yes", data = true, hover = "You will have only 1% chance to hit butterflies and bees"},
 		},
-		default = true,
+		default = false,
 	},
 	
 	{
@@ -164,7 +164,7 @@ configuration_options =
 			{description = "no", data = false, hover = "The regular miss chance of small creatures is applied"},
 			{description = "yes", data = true, hover = "You will have only 0.5% chance to hit a bird while it's flying"},
 		},
-		default = true,
+		default = false,
 	},
 	
 	{
@@ -197,7 +197,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.1,
+		default = 1,
 	},	
 	
 	{
@@ -218,7 +218,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.8,
+		default = 1,
 	},	
 	
 	{
@@ -239,7 +239,7 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 0.5},
 		},
-		default = 0.05,
+		default = 0.5,
 	},	
 	
 	{
@@ -261,7 +261,7 @@ configuration_options =
 			{description = "350%", data = 4.5},
 			{description = "400%", data = 5.0},
 		},
-		default = 2.0,
+		default = 3.0,
 	},
 	
 	{
@@ -276,13 +276,13 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 1,
+		default = 3,
 	},
 	
 	{
-		name = "BowSilk_req",
-		label = "Bow recipe - Silk",
-		hover = "Amount of Silk required to craft the Bow",
+		name = "BowRope_req",
+		label = "Bow recipe - Rope",
+		hover = "Amount of Rope required to craft the Bow",
 		options =
 		{
 			{description = "1", data = 1},
@@ -291,7 +291,7 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 2,
+		default = 3,
 	},
 	
 	{
@@ -304,7 +304,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 
 	{
@@ -522,9 +522,9 @@ configuration_options =
 	},	
 	
 	{
-		name = "QuiverPigskin_req",
-		label = "Quiver recipe - Pig Skin",
-		hover = "Amount of Pig Skin required to craft the Quiver",
+		name = "QuiverCutgrass_req",
+		label = "Quiver recipe - Cut Grass",
+		hover = "Amount of Cut Grass required to craft the Quiver",
 		options =
 		{
 			{description = "1", data = 1},
@@ -533,7 +533,7 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 2,
+		default = 6,
 	},
 	
 	{
@@ -561,7 +561,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 	
 	{
@@ -747,7 +747,7 @@ configuration_options =
 			{description = "Twigs", data = "twigs"},
 			{description = "Reeds", data = "cutreeds"},
 		},
-		default = "log",
+		default = "twigs",
 	},	
 	
 	{
@@ -767,7 +767,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 1,
+		default = 4,
 	},	
 	
 	{
@@ -788,7 +788,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 1,
+		default = 0,
 	},	
 	
 	{
@@ -841,7 +841,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 4,
 	},	
 
 	{
@@ -854,7 +854,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 	
 	{
