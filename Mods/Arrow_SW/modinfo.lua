@@ -280,9 +280,9 @@ configuration_options =
 	},
 	
 	{
-		name = "BowCutgrass_req",
-		label = "Bow recipe - Cut Grass",
-		hover = "Amount of Cut Grass required to craft the Bow",
+		name = "BowRope_req",
+		label = "Bow recipe - Rope",
+		hover = "Amount of Rope required to craft the Bow",
 		options =
 		{
 			{description = "1", data = 1},
@@ -304,7 +304,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
+		default = "SCIENCE_ONE",
 	},	
 
 	{
@@ -561,7 +561,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
+		default = "SCIENCE_ONE",
 	},	
 	
 	{
@@ -854,7 +854,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
+		default = "SCIENCE_ONE",
 	},	
 	
 	{
