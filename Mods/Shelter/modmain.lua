@@ -1,3 +1,8 @@
+local SWEasy = (GetModConfigData("SWMode")=="easy")
+local SWHard = (GetModConfigData("SWMode")=="hard")
+local RoGEasy = (GetModConfigData("RoGMode")=="easy")
+local RoGHard = (GetModConfigData("RoGMode")=="hard")
+
 PrefabFiles = 
 {
         "wood_shelter",
@@ -17,16 +22,30 @@ PrefabFiles =
         Recipe = GLOBAL.Recipe
         Ingredient = GLOBAL.Ingredient
         TECH = GLOBAL.TECH
-        
-        STRINGS.NAMES.WOOD_SHELTER = "Shelter"
+        GLOBAL.STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER = "Thanks for the shelter!"
+        GLOBAL.STRINGS.NAMES.WOOD_SHELTER = "Shelter"
         STRINGS.RECIPE_DESC.WOOD_SHELTER = "A little added comfort!"
-        STRINGS.CHARACTERS.GENERIC.DESCRIBE.WOOD_SHELTER = "A nice comfort!"
-        STRINGS.CHARACTERS.GENERIC.ANNOUNCE_SHELTER = "Cool and Dry"
+        GLOBAL.STRINGS.CHARACTERS.GENERIC.DESCRIBE.WOOD_SHELTER = "I like it!"
+        GLOBAL.DRYNESS =  GetModConfigData("Dryness")
 
-local wood_shelter = GLOBAL.Recipe("wood_shelter",
+        if GLOBAL.IsDLCEnabled(GLOBAL.CAPY_DLC) then
+        local wood_shelter = Recipe("wood_shelter",
 { 
-        Ingredient("log", 8),
-        Ingredient("rope", 4),
+        Ingredient("log", GetModConfigData("logs")),
+        Ingredient("rope", GetModConfigData("ropes")),
+        Ingredient("fabric", GetModConfigData("fabrics")),
 },
-        RECIPETABS.TOWN, TECH.NONE,"wood_shelter_placer" )
+        RECIPETABS.TOWN, TECH.NONE, GLOBAL.RECIPE_GAME_TYPE.COMMON, "wood_shelter_placer", 1)
         wood_shelter.atlas = "images/inventoryimages/wood_shelter.xml"
+        wood_shelter.sortkey = -1
+        else
+        local wood_shelter = Recipe("wood_shelter",
+{ 
+        Ingredient("log", GetModConfigData("log")),
+        Ingredient("rope", GetModConfigData("rope")),
+        Ingredient("pigskin", GetModConfigData("pigskin")),
+},
+        RECIPETABS.TOWN, TECH.NONE, "wood_shelter_placer", 1)
+        wood_shelter.atlas = "images/inventoryimages/wood_shelter.xml"
+        wood_shelter.sortkey = -1
+end                        
