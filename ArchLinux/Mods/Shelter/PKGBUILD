@@ -6,7 +6,9 @@ url="http://forums.kleientertainment.com/files/file/220-wall-gates/"
 license=('custom')
 arch=('any')
 depends=('gog-dont-starve')
-optdepends=('gog-dont-starve-rog: Reign of Giants DLC')
+optdepends=(
+	'gog-dont-starve-rog: Reign of Giants DLC'
+	'gog-dont-starve-sw: Shipwrecked DLC')
 source=("Shelter.zip")
 sha256sums=('SKIP')
 

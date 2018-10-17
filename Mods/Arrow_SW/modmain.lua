@@ -244,9 +244,7 @@ zbowrecipe.atlas = "images/inventoryimages/zbow.xml"
 
 local ARROWrecipeIngredients = {}
 
-if ARROWREQHEAD > 0 then
-	ARROWrecipeIngredients[#ARROWrecipeIngredients + 1]= GIngredient(ARROWHEADTYPE, ARROWREQHEAD);
-end
+ARROWrecipeIngredients[#ARROWrecipeIngredients + 1]= GIngredient(ARROWHEADTYPE, ARROWREQHEAD);
 ARROWrecipeIngredients[#ARROWrecipeIngredients + 1] = GIngredient(PROJSHAFTTYPE, ARROWREQLOG);
 if ARROWREQFEATHER > 0 then
 	ARROWrecipeIngredients[#ARROWrecipeIngredients + 1] = GIngredient("feather_crow", ARROWREQFEATHER);
@@ -912,6 +910,14 @@ local zbow_attack = State({
 --					print("no hat and face up")
 					inst.AnimState:Hide("timeline_15")
 				end
+				
+				-- if not GLOBAL.CAPY_DLC or (GLOBAL.CAPY_DLC and not GLOBAL.IsDLCEnabled(GLOBAL.CAPY_DLC)) then
+					-- inst.AnimState:Hide("timeline_41")
+					-- inst.AnimState:Hide("timeline_42")
+					-- inst.AnimState:Hide("timeline_43")
+					-- inst.AnimState:Hide("timeline_44")
+					-- inst.AnimState:Hide("timeline_45")
+				-- end
 			elseif inst.AnimState:GetCurrentFacing() == GLOBAL.FACING_DOWN then
 				inst.xoffsetBS = -65
 				inst.yoffsetBS = 85
@@ -922,6 +928,14 @@ local zbow_attack = State({
 --				print("no hat and face down")
 				inst.AnimState:Hide("timeline_16")
 				end
+				
+				-- if not GLOBAL.CAPY_DLC or (GLOBAL.CAPY_DLC and not GLOBAL.IsDLCEnabled(GLOBAL.CAPY_DLC)) then
+					-- inst.AnimState:Hide("timeline_44")
+					-- inst.AnimState:Hide("timeline_45")
+					-- inst.AnimState:Hide("timeline_46")
+					-- inst.AnimState:Hide("timeline_47")
+					-- inst.AnimState:Hide("timeline_48")
+				-- end
 			else
 				if wornhat ~= nil then
 --					print("hat and face side")
@@ -931,6 +945,14 @@ local zbow_attack = State({
 				inst.AnimState:Hide("timeline_16")
 				end
 			end
+			
+				-- if not GLOBAL.CAPY_DLC or (GLOBAL.CAPY_DLC and not GLOBAL.IsDLCEnabled(GLOBAL.CAPY_DLC)) then
+					-- inst.AnimState:Hide("timeline_43")
+					-- inst.AnimState:Hide("timeline_44")
+					-- inst.AnimState:Hide("timeline_45")
+					-- inst.AnimState:Hide("timeline_46")
+					-- inst.AnimState:Hide("timeline_47")
+				-- end
         end
 
 		inst.sg:SetTimeout(cooldown)
@@ -1492,7 +1514,8 @@ local function FixForOpenQuiverWhileBoating(self, owner)
 	local origOnUpdate = self.OnUpdate
 	
 	self.OnUpdate = function(dt)
-		if self.isopen and self.owner and self.container 
+		if GLOBAL.CAPY_DLC and GLOBAL.IsDLCEnabled(GLOBAL.CAPY_DLC) 
+			and self.isopen and self.owner and self.container 
 			and not (self.container.components.inventoryitem and self.container.components.inventoryitem:IsHeldBy(self.owner)) 
 			and self.container ~= GLOBAL.GetPlayer().components.driver.vehicle 
 			and self.container.prefab == "zquiver" then

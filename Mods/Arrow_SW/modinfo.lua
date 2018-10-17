@@ -1,17 +1,17 @@
 -- This information tells other players more about the mod
-name = "Archery Mod [DS Version]"
+name = "Debug Archery Mod [DS Version]"
 
 description = 	"Focusing on bringing more ranged weapons to the game \n" ..
 				"Now with Full Controller Support! \n\n" ..
 				"Latest Additions: \n" ..
 				"     -> Shipwrecked Support \n" ..
-				"     -> RPG HD and RPG HUD Neat Compatibility fix \n" ..
+				"     -> RPG HD and RPG HUD Neat Compatibility fix \n" ..				
 				"     -> Hero in the Dark Compatibility fix \n" ..
 				"       /!\\WARNING/!\\ Proceed with caution on already existing saves. \n" ..
 				"						If you notice something suspicious, close the game with Alt+F4 and report it to me"
-
+				
 author = "ZupaleX"
-version = "SW Beta 160329"
+version = "SW Beta 160329b"
 
 forumthread = ""
 
@@ -36,31 +36,47 @@ configuration_options =
 		hover = "How many time can you use the bow before it breaks",
 		options =
 		{
+			{description = "20", data = 20},
 			{description = "40", data = 40},
+			{description = "50", data = 50},
+			{description = "60", data = 60},
 			{description = "80", data = 80},
+			{description = "100", data = 100},
 			{description = "120", data = 120},
-			{description = "160", data = 160},
+			{description = "150 (spear)", data = 150},
+			{description = "175", data = 175},
 			{description = "200", data = 200},
 			{description = "Inf.", data = 999},
 		},
-		default = 999,
-	},
-
+		default = 50,
+	},	
+	
 	{
 		name = "BowDmg",
 		label = "Bow Damage",
 		hover = "Amount of damage dealt by the bow ",
 		options =
 		{
-			{description = "30", data = 30},
-			{description = "60", data = 60},
-			{description = "90", data = 90},
-			{description = "120", data = 120},
-			{description = "150", data = 150},
+			{description = "17", data = 17, hover = "Hammer damage"},
+			{description = "24", data = 24, hover = "A bit less than the Axe"},
+			{description = "27", data = 27, hover = "Axe damage"},
+			{description = "30", data = 30, hover = "A bit less than the Spear"},
+			{description = "34", data = 34, hover = "Spear damage"},
+			{description = "38", data = 38, hover = "A bit more than the spear"},
+			{description = "43", data = 43, hover = "Batbat damage"},
+			{description = "47", data = 47, hover = "Slightly more than the Batbat"},
+			{description = "51", data = 51, hover = "Intermediate between Batbat and Ruinbat"},
+			{description = "55", data = 55, hover = "Slightly less than Ruinbat"},
+			{description = "60", data = 60, hover = "Hambat/Ruinbat damage"},
+			{description = "65", data = 65, hover = "Slightly more than the Ruinbat"},
+			{description = "70", data = 70, hover = "are you serious?"},
+			{description = "75", data = 75, hover = "are you serious?!"},
+			{description = "80", data = 80, hover = "are you serious?!!"},
+			{description = "90", data = 90, hover = "use c_godmode() instead"},
 
 		},
-		default = 150,
-	},
+		default = 27,
+	},	
 
 	{
 		name = "BowRange",
@@ -68,15 +84,23 @@ configuration_options =
 		hover = "Range of your bow",
 		options =
 		{
-			{description = "10", data = 10},
+			{description = "10 (blowdartt)", data = 10},
+			{description = "11", data = 11},
+			{description = "12", data = 12},
+			{description = "13", data = 13},
+			{description = "14", data = 14},
 			{description = "15", data = 15},
-			{description = "20", data = 20},
-			{description = "25", data = 25},
-			{description = "30", data = 30},
+			{description = "16", data = 16},
+			{description = "17", data = 17},
+			{description = "18", data = 18},
+			{description = "19", data = 19},
+			{description = "20", data = 20},	
+			{description = "21", data = 21},	
+			{description = "22", data = 22},				
 		},
-		default = 30,
-	},
-
+		default = 13,
+	},	
+	
 	{
 		name = "BowMissChanceSmall",
 		label = "Bow Miss Small",
@@ -95,9 +119,9 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0,
-	},
-
+		default = 0.3,
+	},	
+	
 	{
 		name = "BowMissChanceBig",
 		label = "Bow Miss Big",
@@ -116,9 +140,9 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 1.50},
 		},
-		default = 0,
-	},
-
+		default = 0.1,
+	},	
+	
 	{
 		name = "HitChanceBugs",
 		label = "Bow Miss Tiny",
@@ -128,9 +152,9 @@ configuration_options =
 			{description = "no", data = false, hover = "The regular miss chance of small creatures is applied to butterflies and bees"},
 			{description = "yes", data = true, hover = "You will have only 1% chance to hit butterflies and bees"},
 		},
-		default = false,
+		default = true,
 	},
-
+	
 	{
 		name = "HitChanceTakeOff",
 		label = "Bow Miss Flying Birds",
@@ -140,9 +164,9 @@ configuration_options =
 			{description = "no", data = false, hover = "The regular miss chance of small creatures is applied"},
 			{description = "yes", data = true, hover = "You will have only 0.5% chance to hit a bird while it's flying"},
 		},
-		default = false,
+		default = true,
 	},
-
+	
 	{
 		name = "ActivateCollisions",
 		label = "Activate Collisions",
@@ -152,9 +176,9 @@ configuration_options =
 			{description = "yes", data = true},
 			{description = "no", data = false},
 		},
-		default = false,
-	},
-
+		default = true,
+	},	
+	
 	{
 		name = "ArrowHitRecovery",
 		label = "Hit Recovery",
@@ -162,14 +186,20 @@ configuration_options =
 		options =
 		{
 			{description = "0%", data = 0},
-			{description = "25%", data = 0.25},
-			{description = "50%", data = 0.50},
-			{description = "75%", data = 0.75},
+			{description = "10%", data = 0.1},
+			{description = "20%", data = 0.2},
+			{description = "30%", data = 0.3},
+			{description = "40%", data = 0.4},
+			{description = "50%", data = 0.5},
+			{description = "60%", data = 0.6},
+			{description = "70%", data = 0.7},
+			{description = "80%", data = 0.8},
+			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.75,
-	},
-
+		default = 0.1,
+	},	
+	
 	{
 		name = "ArrowMissRecovery",
 		label = "Miss Recovery",
@@ -188,9 +218,9 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 1.0,
-	},
-
+		default = 0.8,
+	},	
+	
 	{
 		name = "CritPvE",
 		label = "Critical %",
@@ -209,9 +239,9 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 0.5},
 		},
-		default = 0.1,
-	},
-
+		default = 0.05,
+	},	
+	
 	{
 		name = "CritDmgModPvE",
 		label = "Crit Dmg",
@@ -233,7 +263,7 @@ configuration_options =
 		},
 		default = 2.0,
 	},
-
+	
 	{
 		name = "BowTwigs_req",
 		label = "Bow recipe - Twigs",
@@ -246,9 +276,9 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 3,
+		default = 1,
 	},
-
+	
 	{
 		name = "BowSilk_req",
 		label = "Bow recipe - Silk",
@@ -263,7 +293,7 @@ configuration_options =
 		},
 		default = 2,
 	},
-
+	
 	{
 		name = "BowTechLevel",
 		label = "Bow Tech. Level",
@@ -274,8 +304,8 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
-	},
+		default = "SCIENCE_ONE",
+	},	
 
 	{
 		name = "CrossbowDmgMod",
@@ -297,7 +327,7 @@ configuration_options =
 		},
 		default = 2.0,
 	},
-
+	
 	{
 		name = "CrossbowRangeMod",
 		label = "Crossbow Range Mod.",
@@ -320,7 +350,7 @@ configuration_options =
 		},
 		default = 1.20,
 	},
-
+	
 	{
 		name = "CrossbowAccMod",
 		label = "Crossbow Accuracy Mod.",
@@ -353,7 +383,7 @@ configuration_options =
 		},
 		default = 0.80,
 	},
-
+	
 	{
 		name = "CrossbowBoards_req",
 		label = "Crossbow recipe - Boards",
@@ -368,7 +398,7 @@ configuration_options =
 		},
 		default = 2,
 	},
-
+	
 	{
 		name = "CrossbowSilk_req",
 		label = "Crossbow recipe - Silk",
@@ -383,7 +413,7 @@ configuration_options =
 		},
 		default = 2,
 	},
-
+	
 	{
 		name = "CrossbowHammer_req",
 		label = "Crossbow recipe - Hammer",
@@ -399,7 +429,7 @@ configuration_options =
 		},
 		default = 1,
 	},
-
+	
 	{
 		name = "CrossbowTechLevel",
 		label = "Crossbow Tech. Level",
@@ -410,9 +440,9 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_TWO",
-	},
-
+		default = "SCIENCE_ONE",
+	},	
+	
 	{
 		name = "MagicBowDmgMod",
 		label = "Magic Bow Dmg. Mod.",
@@ -433,7 +463,7 @@ configuration_options =
 		},
 		default = 1.5,
 	},
-
+	
 	{
 		name = "MagicBowLivingLog_req",
 		label = "Mag. Bow recipe - Living Log",
@@ -448,7 +478,7 @@ configuration_options =
 		},
 		default = 2,
 	},
-
+	
 	{
 		name = "MagicBowPurpleGem_req",
 		label = "Mag. Bow recipe - Gem",
@@ -463,7 +493,7 @@ configuration_options =
 		},
 		default = 1,
 	},
-
+	
 	{
 		name = "MagicBowGlommerFlower_req",
 		label = "Mag. Bow recipe - Glommer",
@@ -475,7 +505,7 @@ configuration_options =
 		},
 		default = true,
 	},
-
+	
 	{
 		name = "MagicBowTechLevel",
 		label = "Magic Bow Tech. Level",
@@ -489,8 +519,8 @@ configuration_options =
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
 		default = "MAGIC_THREE",
-	},
-
+	},	
+	
 	{
 		name = "QuiverPigskin_req",
 		label = "Quiver recipe - Pig Skin",
@@ -505,7 +535,7 @@ configuration_options =
 		},
 		default = 2,
 	},
-
+	
 	{
 		name = "QuiverRope_req",
 		label = "Quiver recipe - Rope",
@@ -518,9 +548,9 @@ configuration_options =
 			{description = "4", data = 4},
 			{description = "5", data = 5},
 		},
-		default = 2,
+		default = 3,
 	},
-
+	
 	{
 		name = "QuiverTechLevel",
 		label = "Quiver Tech. Level",
@@ -531,9 +561,9 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
-	},
-
+		default = "SCIENCE_ONE",
+	},	
+	
 	{
 		name = "MusketDmgMod",
 		label = "Musket Dmg. Mod.",
@@ -554,7 +584,7 @@ configuration_options =
 		},
 		default = 3.0,
 	},
-
+	
 	{
 		name = "MusketRangeMod",
 		label = "Musket Range Mod.",
@@ -566,7 +596,7 @@ configuration_options =
 			{description = "-20%", data = 0.80},
 			{description = "-15%", data = 0.85},
 			{description = "-10%", data = 0.90},
-			{description = "-5%", data = 0.95},
+			{description = "-5%", data = 0.95},		
 			{description = "same", data = 1},
 			{description = "+5%", data = 1.05},
 			{description = "+10%", data = 1.10},
@@ -583,7 +613,7 @@ configuration_options =
 		},
 		default = 0.90,
 	},
-
+	
 	{
 		name = "MusketAccMod",
 		label = "Musket Accuracy Mod.",
@@ -652,7 +682,7 @@ configuration_options =
 		},
 		default = 5,
 	},
-
+	
 	-- {
 		-- name = "MusketIron_req",
 		-- label = "Musket recipe - Iron",
@@ -673,7 +703,7 @@ configuration_options =
 		-- },
 		-- default = 5,
 	-- },
-
+	
 	{
 		name = "MusketFlint_req",
 		label = "Musket recipe - Flint",
@@ -692,8 +722,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
-
+	},	
+	
 	{
 		name = "MusketTechLevel",
 		label = "Musket Tech. Level",
@@ -706,7 +736,7 @@ configuration_options =
 		},
 		default = "SCIENCE_TWO",
 	},
-
+	
 	{
 		name = "ProjShaftType",
 		label = "Projectile Shaft : ",
@@ -718,8 +748,8 @@ configuration_options =
 			{description = "Reeds", data = "cutreeds"},
 		},
 		default = "log",
-	},
-
+	},	
+	
 	{
 		name = "ArrowLog_req",
 		label = "Arrow recipe - Log",
@@ -738,8 +768,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ArrowFeather_req",
 		label = "Arrow recipe - Feather",
@@ -758,9 +788,9 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 0,
-	},
-
+		default = 1,
+	},	
+	
 	{
 		name = "ArrowHeadType",
 		label = "Arrow Head : ",
@@ -772,15 +802,14 @@ configuration_options =
 			{description = "Tooth", data = "houndstooth"},
 		},
 		default = "flint",
-	},
-
+	},	
+	
 	{
 		name = "ArrowHead_req",
 		label = "Arrow recipe - Head",
 		hover = "Amount of the material chosen for the head required to craft Arrows",
 		options =
 		{
-			{description = "0", data = 0},
 			{description = "1", data = 1},
 			{description = "2", data = 2},
 			{description = "3", data = 3},
@@ -793,21 +822,27 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ArrowCraftAmount",
 		label = "Arrow recipe - Result",
 		hover = "Amount of Arrows you get from the recipe",
 		options =
 		{
+			{description = "1", data = 1},
+			{description = "2", data = 2},
+			{description = "3", data = 3},
+			{description = "4", data = 4},
 			{description = "5", data = 5},
+			{description = "6", data = 6},
+			{description = "7", data = 7},
+			{description = "8", data = 8},
+			{description = "9", data = 9},
 			{description = "10", data = 10},
-			{description = "15", data = 15},
-			{description = "20", data = 20},
 		},
-		default = 20,
-	},
+		default = 5,
+	},	
 
 	{
 		name = "ArrowTechLevel",
@@ -819,9 +854,9 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "NONE",
-	},
-
+		default = "SCIENCE_ONE",
+	},	
+	
 	{
 		name = "GoldArrowLog_req",
 		label = "Gold Arrow recipe - Log",
@@ -840,8 +875,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "GoldArrowFeather_req",
 		label = "Gold Arrow recipe - Feather",
@@ -861,8 +896,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "GoldArrowHead_req",
 		label = "Gold Arrow recipe - Gold",
@@ -881,8 +916,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "GoldArrowCraftAmount",
 		label = "Gold Arrow recipe - Result",
@@ -901,7 +936,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
+	},	
 
 	{
 		name = "GoldArrowTechLevel",
@@ -915,9 +950,9 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "MAGIC_THREE",
+		default = "MAGIC_TWO",
 	},
-
+	
 	{
 		name = "GoldArrowDmgMod",
 		label = "Gold Arrow Dmg. Mod.",
@@ -939,7 +974,7 @@ configuration_options =
 		},
 		default = 1.5,
 	},
-
+	
 	{
 		name = "GoldArrowRecoveryMod",
 		label = "Gold Arrow Rec. Mod.",
@@ -960,7 +995,7 @@ configuration_options =
 		},
 		default = 0.6,
 	},
-
+	
 	{
 		name = "MoonstoneArrowLog_req",
 		label = "Moon Rock Arrow recipe - Log",
@@ -979,8 +1014,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "MoonstoneArrowFeather_req",
 		label = "Moon Rock Arrow recipe - Feather",
@@ -1000,8 +1035,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "MoonstoneArrowHead_req",
 		label = "Moon Rock Arrow recipe - Head",
@@ -1020,8 +1055,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "MoonstoneArrowCraftAmount",
 		label = "Moon Rock Arrow recipe - Result",
@@ -1054,9 +1089,9 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "MAGIC_THREE",
+		default = "MAGIC_TWO",
 	},
-
+	
 	{
 		name = "MoonstoneArrowDmgMod",
 		label = "Moon Rock Arrow Dmg. Mod.",
@@ -1078,7 +1113,7 @@ configuration_options =
 		},
 		default = 2.0,
 	},
-
+	
 	{
 		name = "FireArrowLog_req",
 		label = "Fire Arrow recipe - Log",
@@ -1097,8 +1132,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "FireArrowFeather_req",
 		label = "Fire Arrow recipe - Feather",
@@ -1118,8 +1153,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "FireArrowGrass_req",
 		label = "Fire Arrow recipe - Grass",
@@ -1139,8 +1174,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "FireArrowHeadType",
 		label = "Fire Arrow Head : ",
@@ -1151,8 +1186,8 @@ configuration_options =
 			{description = "Torch", data = "torch"},
 		},
 		default = "charcoal",
-	},
-
+	},	
+	
 	{
 		name = "FireArrowHead_req",
 		label = "Fire Arrow recipe - Head",
@@ -1171,8 +1206,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},		
+	
 	{
 		name = "FireArrowCraftAmount",
 		label = "Fire Arrow recipe - Result",
@@ -1191,7 +1226,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
+	},		
 
 		{
 		name = "FireArrowTechLevel",
@@ -1207,7 +1242,7 @@ configuration_options =
 		},
 		default = "SCIENCE_TWO",
 	},
-
+	
 	{
 		name = "FireArrowDmgMod",
 		label = "Fire Arrow Dmg. Mod.",
@@ -1228,7 +1263,7 @@ configuration_options =
 		},
 		default = 1.25,
 	},
-
+	
 	{
 		name = "IceArrowLog_req",
 		label = "Ice Arrow recipe - Log",
@@ -1247,8 +1282,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "IceArrowFeather_req",
 		label = "Ice Arrow recipe - Feather",
@@ -1268,8 +1303,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "IceArrowHeadType",
 		label = "Ice Arrow Head : ",
@@ -1280,8 +1315,8 @@ configuration_options =
 			{description = "Blue Gem", data = "bluegem"},
 		},
 		default = "ice",
-	},
-
+	},	
+	
 	{
 		name = "IceArrowHead_req",
 		label = "Ice Arrow recipe - Head",
@@ -1300,8 +1335,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},		
+	
 	{
 		name = "IceArrowCraftAmount",
 		label = "Ice Arrow recipe - Result",
@@ -1320,8 +1355,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
-
+	},	
+	
 		{
 		name = "IceArrowTechLevel",
 		label = "Ice Arrow Tech. Level",
@@ -1336,7 +1371,7 @@ configuration_options =
 		},
 		default = "SCIENCE_TWO",
 	},
-
+	
 	{
 		name = "IceArrowDmgMod",
 		label = "Ice Arrow Dmg. Mod.",
@@ -1389,8 +1424,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ThunderArrowFeather_req",
 		label = "Thunder Arrow recipe - Feather",
@@ -1410,8 +1445,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ThunderArrowHeadType",
 		label = "Thunder Arrow Head : ",
@@ -1422,8 +1457,8 @@ configuration_options =
 			{description = "Elec. Doodad", data = "transistor"},
 		},
 		default = "lightninggoathorn",
-	},
-
+	},	
+	
 	{
 		name = "ThunderArrowHead_req",
 		label = "Thunder Arrow recipe - Head",
@@ -1442,8 +1477,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},		
+	
 	{
 		name = "ThunderArrowCraftAmount",
 		label = "Thunder Arrow recipe - Result",
@@ -1462,8 +1497,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
-
+	},	
+	
 		{
 		name = "ThunderArrowTechLevel",
 		label = "Thunder Arrow Tech. Level",
@@ -1478,7 +1513,7 @@ configuration_options =
 		},
 		default = "SCIENCE_TWO",
 	},
-
+	
 	{
 		name = "ThunderArrowDmgMod",
 		label = "Thunder Arrow Dmg. Mod.",
@@ -1512,7 +1547,7 @@ configuration_options =
 		},
 		default = 0.50,
 	},
-
+	
 	{
 		name = "LightningRodChargesNum",
 		label = "Lightning Rod Charges",
@@ -1530,7 +1565,7 @@ configuration_options =
 		},
 		default = 5,
 	},
-
+	
 	{
 		name = "BoltLog_req",
 		label = "Bolt recipe - Log",
@@ -1549,8 +1584,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "BoltFeather_req",
 		label = "Bolt recipe - Feather",
@@ -1570,7 +1605,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
+	},	
 
 	{
 		name = "BoltHeadType",
@@ -1583,8 +1618,8 @@ configuration_options =
 			{description = "Tooth", data = "houndstooth"},
 		},
 		default = "stinger",
-	},
-
+	},	
+	
 	{
 		name = "BoltHead_req",
 		label = "Bolt recipe - Head",
@@ -1603,8 +1638,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 2,
-	},
-
+	},	
+	
 	{
 		name = "BoltCraftAmount",
 		label = "Bolt recipe - Result",
@@ -1623,8 +1658,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
-
+	},	
+	
 	{
 		name = "BoltTechLevel",
 		label = "Bolt Tech. Level",
@@ -1635,7 +1670,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_TWO",
+		default = "SCIENCE_ONE",
 	},
 
 	{
@@ -1656,8 +1691,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "PoisonBoltFeather_req",
 		label = "Poison Bolt recipe - Feather",
@@ -1677,7 +1712,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
+	},	
 
 	{
 		name = "PoisonBoltRedCap_req",
@@ -1697,8 +1732,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "PoisonBoltHeadType",
 		label = "Poison Bolt Head : ",
@@ -1710,8 +1745,8 @@ configuration_options =
 			{description = "Tooth", data = "houndstooth"},
 		},
 		default = "stinger",
-	},
-
+	},	
+	
 	{
 		name = "PoisonBoltHead_req",
 		label = "Poison Bolt recipe - Head",
@@ -1730,8 +1765,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 2,
-	},
-
+	},	
+	
 	{
 		name = "PoisonBoltCraftAmount",
 		label = "PoisonBolt recipe - Result",
@@ -1750,8 +1785,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
-
+	},	
+	
 	{
 		name = "PoisonBoltTechLevel",
 		label = "Poison Bolt Tech. Level",
@@ -1764,9 +1799,9 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "SCIENCE_TWO",
+		default = "SCIENCE_ONE",
 	},
-
+	
 	{
 		name = "PoisonBoltDmgMod",
 		label = "Poison Bolt Dmg. Mod.",
@@ -1787,7 +1822,7 @@ configuration_options =
 		},
 		default = 0.75,
 	},
-
+	
 	{
 		name = "PoisonBoltDuration",
 		label = "Poison Bolt Duration",
@@ -1808,7 +1843,7 @@ configuration_options =
 		},
 		default = 8,
 	},
-
+	
 	{
 		name = "ExplosiveBoltLog_req",
 		label = "Explosive Bolt recipe - Log",
@@ -1827,8 +1862,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ExplosiveBoltFeather_req",
 		label = "Explosive Bolt recipe - Feather",
@@ -1848,7 +1883,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
+	},	
 
 	{
 		name = "ExplosiveBoltMosquitoSack_req",
@@ -1869,8 +1904,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "ExplosiveBoltHeadType",
 		label = "Explosive Bolt Head : ",
@@ -1881,8 +1916,8 @@ configuration_options =
 			{description = "Red Gem", data = "redgem"},
 		},
 		default = "gunpowder",
-	},
-
+	},	
+	
 	{
 		name = "ExplosiveBoltHead_req",
 		label = "Explosive Bolt recipe - Head",
@@ -1901,8 +1936,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 2,
-	},
-
+	},	
+	
 	{
 		name = "ExplosiveBoltCraftAmount",
 		label = "Explosive Bolt recipe - Result",
@@ -1921,7 +1956,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
+	},	
 
 	{
 		name = "ExplosiveBoltTechLevel",
@@ -1937,7 +1972,7 @@ configuration_options =
 		},
 		default = "SCIENCE_TWO",
 	},
-
+	
 	{
 		name = "ExplosiveBoltRadius",
 		label = "Explosive Bolt Radius",
@@ -1957,7 +1992,7 @@ configuration_options =
 		},
 		default = 4,
 	},
-
+	
 	{
 		name = "ExplosiveBoltExpDmg",
 		label = "Explosive Bolt Exp. Damages",
@@ -1986,7 +2021,7 @@ configuration_options =
 		},
 		default = 80,
 	},
-
+	
 	{
 		name = "MusketBulletHead_req",
 		label = "Musket Bullet recipe - Type",
@@ -2005,7 +2040,7 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
+	},	
 
 	{
 		name = "MusketBulletGP_req",
@@ -2025,8 +2060,8 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 1,
-	},
-
+	},	
+	
 	{
 		name = "MusketBulletCraftAmount",
 		label = "Musket Bullet recipe - Result",
@@ -2045,6 +2080,6 @@ configuration_options =
 			{description = "10", data = 10},
 		},
 		default = 5,
-	},
+	},	
 }
 

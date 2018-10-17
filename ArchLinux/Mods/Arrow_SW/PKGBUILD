@@ -6,7 +6,9 @@ url="http://forums.kleientertainment.com/files/file/1302-archery-mod-ds/"
 license=('custom')
 arch=('any')
 depends=('gog-dont-starve')
-optdepends=('gog-dont-starve-sw: Shipwrecked DLC')
+optdepends=(
+	'gog-dont-starve-rog: Reign of Giants DLC'
+	'gog-dont-starve-sw: Shipwrecked DLC')
 source=("Arrow_SW.zip")
 sha256sums=('SKIP')
 
